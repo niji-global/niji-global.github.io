@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFID・NFCの個体管理・トレーサビリティ｜株式会社虹</title>
+<meta name="description" content="株式会社虹は、RFID・NFCを基盤に製品や資産の個体を管理するシステム会社です。個体管理・トレーサビリティ基盤「Niji TS」と、ブランド保護・真贋確認の「B-Watchdog™」を提供し、RFID・NFCシステムの個別開発にも対応します。">
+<link rel="canonical" href="https://niji-global.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社虹">
+<meta property="og:title" content="株式会社虹｜Making the invisible, visible.">
+<meta property="og:description" content="RFID・NFCで製品や資産の個体を管理し、履歴をつなぐ。個体管理・トレーサビリティ基盤 Niji TS と、ブランド保護・真贋確認の B-Watchdog™ を提供しています。">
+<meta property="og:url" content="https://niji-global.com/">
+<meta property="og:image" content="https://niji-global.com/assets/img/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="株式会社虹">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/top.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "株式会社虹", "alternateName": "NIJI Inc.", "url": "https://niji-global.com/", "logo": "https://niji-global.com/assets/img/logo-niji.png", "address": {"@type": "PostalAddress", "postalCode": "105-0012", "addressRegion": "東京都", "addressLocality": "港区", "streetAddress": "芝大門1-2-14 H1O浜松町818"}, "description": "RFID・NFCを基盤に、製品や資産の個体管理・トレーサビリティのシステムを提供する会社。個体管理・トレーサビリティ基盤 Niji TS とブランド保護 B-Watchdog™ を提供し、RFID・NFCシステムの個別開発にも対応する。", "@id": "https://niji-global.com/#organization", "foundingDate": "2025-10-31"}
+</script>
+<script>document.documentElement.className+=" js";</script>
+<script src="assets/js/analytics.js" async></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://niji-global.com/#website", "name": "株式会社虹", "url": "https://niji-global.com/", "inLanguage": "ja", "publisher": {"@id": "https://niji-global.com/#organization"}}</script>
+</head>
+<body id="top">
+
+<header class="header">
+  <div class="wrap header__in">
+    <a class="header__logo" href="#top" aria-label="株式会社虹 ホーム"><img src="assets/img/logo-niji.png" alt="Niji" width="56"></a>
+    <nav class="nav" id="nav">
+      <a href="#services">Service</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#products">Products</a>
+      <a href="#fields">Fields</a>
+      <a href="#approach">Approach</a>
+      <a href="company.html">Company</a>
+      <a class="btn-contact" href="contact.html">Contact</a>
+    </nav>
+    <button class="navtoggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="hero-wrap">
+  <section class="hero">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero__stack">
+      <div class="hero__content">
+        <p class="hero__eyebrow hero__line">NIJI INC.</p>
+        <h1 class="hero__title hero__line">Making the invisible,<br>Visible</h1>
+        <p class="hero__sub hero__line">Signals becoming structure, motion becoming meaning.</p>
+      </div>
+      <div class="hero__story">
+        <h2>見る角度を変えれば、見えてくる価値がある。</h2>
+        <p>業務や現場にある無数のシグナルを捉え、意味のある構造へと変える。</p>
+        <p>わたしたちは、その一連のうごきそのものを設計します。</p>
+        <p>それは、空気中の水滴に光が屈折し、虹が生まれるように。</p>
+        <p>細かな変化を的確に受けとめ、鮮やかな軌跡として描き出していくのです。</p>
+      </div>
+    </div>
+    <div class="hero__scroll">SCROLL</div>
+  </section>
+</div>
+
+<main>
+
+<section class="offer" id="services" aria-label="提供しているもの">
+  <div class="wrap">
+    <p class="label" data-c="1">SERVICE</p>
+    <p class="offer__core">現場の情報を、事業を動かす基盤へ。</p>
+    <div class="offer__grid">
+      <a class="offer__item" href="#products">
+        <span class="offer__kind">PRODUCT</span>
+        <span class="offer__name">Niji&nbsp;TS</span>
+        <span class="offer__desc">個体管理・トレーサビリティ基盤</span>
+        <span class="offer__go" aria-hidden="true">→</span>
+      </a>
+      <a class="offer__item" href="#bwatchdog">
+        <span class="offer__kind">PRODUCT</span>
+        <span class="offer__name"><span class="nb">B-Watchdog&trade;</span></span>
+        <span class="offer__desc">ブランド保護・真贋確認</span>
+        <span class="offer__go" aria-hidden="true">→</span>
+      </a>
+      <a class="offer__item" href="#what-we-do">
+        <span class="offer__kind">DEVELOPMENT</span>
+        <span class="offer__name">RFID・NFC システム開発</span>
+        <span class="offer__desc">ご相談から個別開発・運用まで</span>
+        <span class="offer__go" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="offer__custom" id="what-we-do">
+    <div class="head">
+      <div>
+        <p class="label" data-c="1">WHAT WE DO</p>
+        <h2>現場の情報から仕組みを実装し、動かし続ける。</h2>
+      </div>
+      <p class="lead">モノの移動、作業の進捗、設備の状態、製品の履歴。<br>現場には、まだ十分に記録・活用されていない情報が数多くあります。<br>株式会社虹は、それらを取得してデータに変え、現場で使われ続けるシステムとして実装します。</p>
+    </div>
+
+    <div class="rows">
+      <div class="wstep">
+        <div class="row">
+          <div class="row__num" style="color:var(--sp1-t)"><i></i>01 CAPTURE</div>
+          <div><h3>現場から取得する</h3><p>RFID/NFC・QR・IoT を活用し、モノ・人・場所・状態・履歴を現場から取得します。</p></div>
+        </div>
+        <figure class="step-fig reveal">
+          <img src="assets/img/what-01-capture.webp" alt="製品タグの読み取りから、製造、検品、保管、出荷まで、現場で情報を拾っていく流れ" width="1700" height="499" loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <div class="wstep">
+        <div class="row">
+          <div class="row__num" style="color:var(--sp1-t)"><i></i>02 IMPLEMENT</div>
+          <div><h3>使える仕組みに変える</h3><p>取得した情報を、Webアプリ、モバイル、クラウド、API、管理画面を通じて、業務で使える仕組みに変えます。</p></div>
+        </div>
+        <figure class="step-fig reveal">
+          <img src="assets/img/what-02-implement.webp" alt="現場から集まった情報が、クラウドとデータベースを中心にした構造へまとまっていく様子" width="1700" height="499" loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <div class="wstep">
+        <div class="row">
+          <div class="row__num" style="color:var(--sp1-t)"><i></i>03 OPERATE</div>
+          <div><h3>使われ続ける状態をつくる</h3><p>導入後の運用、改善、データ活用まで見据え、現場で使われ続ける状態をつくります。</p></div>
+        </div>
+        <figure class="step-fig reveal">
+          <img src="assets/img/what-03-operate.webp" alt="PC・タブレット・スマートフォンのダッシュボードを日常の業務で使い、その結果を囲んで話し合っている様子" width="1700" height="499" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="section" id="solutions">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-c="2">SOLUTIONS</p>
+        <h2>製品の履歴を、つくる工程から手に渡ったあとまで。</h2>
+      </div>
+      <p class="lead">すべての工程の記録を Niji&nbsp;TS がひとつにつなぎます。<br>その記録を、在庫では棚卸しに、購入後は正規品の確認に生かします。</p>
+    </div>
+    <div class="pline" role="img" aria-label="製造、検品、入庫・在庫、出荷、販売、購入、所有・譲渡の7工程を、Niji TS がひとつの履歴として記録する。入庫・在庫では棚卸し、販売から所有・譲渡では B-Watchdog による正規品の確認に使う">
+      <div class="pline__bar"><span>Niji&nbsp;TS</span>すべての工程を、ひとつの製品IDの履歴として記録</div>
+      <ol class="pline__steps">
+        <li><b>製造</b><span>個体IDの付与</span></li>
+        <li><b>検品</b><span>検品の結果</span></li>
+        <li class="is-stock"><b>入庫・在庫</b><span>所在と数量</span></li>
+        <li><b>出荷</b><span>出荷先</span></li>
+        <li class="is-bw"><b>販売</b><span>販路</span></li>
+        <li class="is-bw"><b>購入</b><span>正規品の確認</span></li>
+        <li class="is-bw"><b>所有・譲渡</b><span>所有の移転</span></li>
+      </ol>
+      <div class="pline__use">
+        <div class="pline__u pline__u--stock"><img src="assets/img/scene-warehouse-inventory.webp" alt="" width="1200" height="850" loading="lazy" decoding="async"><p><span>RFID棚卸し</span>まとめて読み取り、在庫を数える</p></div>
+        <div class="pline__u pline__u--bw"><img src="assets/img/scene-retail-scan.webp" alt="" width="1200" height="914" loading="lazy" decoding="async"><p><span><span class="nb">B-Watchdog&trade;</span></span>購入時にかざして、正規品を確かめる</p></div>
+      </div>
+    </div>
+    <p class="txtlink-row"><a class="txtlink" href="products/brand-trust-platform/index.html#scenes">工程ごとの流れを、製品詳細でたどる →</a></p>
+  </div>
+</section>
+
+<section class="section section--rule" id="products">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-c="7">PRODUCTS</p>
+        <h2>個体管理・トレーサビリティ基盤 Niji Brand Trust Platform</h2>
+      </div>
+      <p class="lead">製品や資産に個体IDを与え、起きたことを履歴として記録し、業務に生かすための基盤です。<br>履歴を記録する Niji&nbsp;TS と、ブランド保護の <span class="nb">B-Watchdog&trade;</span> で構成しています。</p>
+    </div>
+    <div class="pgrid">
+      <a class="pcard" id="nijits" href="products/brand-trust-platform/index.html">
+        <p class="pcard__tag">TRACEABILITY</p>
+        <h3>Niji&nbsp;TS</h3>
+        <p class="pcard__catch">製品IDごとに、起きたことを履歴として書き足していきます。</p>
+        <p>製造から販売後まで、あとから書き換えない追記型の台帳で残します。複数の履歴を同じ個体IDに接続し、流通や所有の整合性を確認するための根拠をつくります。</p>
+        <ul class="pcard__feats"><li>追記型の履歴台帳</li><li>RFID・NFC・QR対応</li><li>出荷後の追跡</li></ul>
+        <span class="pcard__go">プロダクト詳細を見る →</span>
+      </a>
+      <a class="pcard pcard--hero" id="bwatchdog" href="products/brand-trust-platform/index.html#scenes">
+        <p class="pcard__tag">BRAND PROTECTION</p>
+        <h3><span class="nb">B-Watchdog&trade;</span></h3>
+        <p class="pcard__catch">正規品を確かめ、模倣とグレー流通の兆候を捉えます。</p>
+        <p>流通の過程から購入後まで、読み取りを製品の履歴と照らし合わせます。確かめる場は、そのまま顧客との接点になります。何を証拠とするかは、ブランドごとに設計します。</p>
+        <ul class="pcard__feats"><li>正規品の確認</li><li>模倣・グレー流通の兆候</li><li>顧客との接点</li></ul>
+        <span class="pcard__go">プロダクト詳細を見る →</span>
+      </a>
+    </div>
+    <div class="custom-note">
+      <p><b>RFID・NFC のシステム相談・個別開発にも対応しています。</b></p>
+      <p>RFIDによる棚卸しや、資産の貸出・返却管理などにも対応できます。<br>既存の業務や管理システムに合わせて、読み取りの仕組みから設計します。</p>
+      <p class="custom-note__cta"><a class="txtlink" href="contact.html?topic=custom">自社システムとの連携・新規トレーサビリティシステムをご検討の際はお問合せください。 →</a></p>
+    </div>
+    <p class="txtlink-row"><a class="txtlink" href="products/brand-trust-platform/index.html#faq">製品についてのよくあるご質問 →</a></p>
+  </div>
+</section>
+
+<section class="section" id="fields">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-c="6">FIELDS ／ 導入領域</p>
+        <h2>業種は違っても、現場に眠る課題は同じ形をしています。</h2>
+      </div>
+      <p class="lead">分野の異なる現場で、情報の取得から実装、運用までを一貫して担っています。<br>共通しているのは、<b style="font-weight:500;color:var(--ink)">モノに個体IDを与え、現場で読み、システムに蓄積・分析する</b>、という形です。</p>
+    </div>
+        <div class="fields fields--tiles">
+      <div class="field" style="--fc:#4A50A0" tabindex="0">
+        <div class="field__face">
+          <img class="field__ill" src="assets/img/field-apparel.webp" alt="ハンガーの服、布地、倉庫、店舗、スマートフォンでタグを読み取る人が描かれたアパレルの流通の様子" width="800" height="600" loading="lazy" decoding="async">
+          <h3>アパレル・繊維</h3>
+          <div class="field__status"><i></i>継続中</div>
+        </div>
+        <div class="field__detail">
+          <p class="field__name">アパレル・繊維</p>
+          <p>製品・半製品の個体／ロット管理と棚卸、流通のトレーサビリティを、既存の基幹・物流システムと連携して実装しています。</p>
+        </div>
+      </div>
+      <div class="field" style="--fc:rgba(74,80,160,.75)" tabindex="0">
+        <div class="field__face">
+          <img class="field__ill" src="assets/img/field-construction.webp" alt="建設現場で、作業員がスマートフォンで仮設機材のタグを読み取っている様子" width="800" height="600" loading="lazy" decoding="async">
+          <h3>建設・仮設機材</h3>
+          <div class="field__status"><i></i>運用中</div>
+        </div>
+        <div class="field__detail">
+          <p class="field__name">建設・仮設機材</p>
+          <p>機材の個体管理・現場棚卸・安全点検を、通信環境の弱い現場でも動くオフライン対応アプリでデジタル化。リリース後の保守運用まで担っています。</p>
+        </div>
+      </div>
+      <div class="field" style="--fc:rgba(74,80,160,.55)" tabindex="0">
+        <div class="field__face">
+          <img class="field__ill" src="assets/img/field-entertainment.webp" alt="イベントの物販会場で、スタッフがタブレットでグッズや機材を管理している様子" width="800" height="600" loading="lazy" decoding="async">
+          <h3>エンタテインメント／イベント資産</h3>
+          <div class="field__status"><i></i>継続中</div>
+        </div>
+        <div class="field__detail">
+          <p class="field__name">エンタテインメント／イベント資産</p>
+          <p>案件・資産・帳票・権限を横断管理する統合基盤を構築し、属人運用を仕組みへと置き換えています。</p>
+        </div>
+      </div>
+      <div class="field" style="--fc:rgba(74,80,160,.38)" tabindex="0">
+        <div class="field__face">
+          <img class="field__ill" src="assets/img/field-transit.webp" alt="雪の街で、バスや観光地の情報をスマートフォンで確かめている旅行者の様子" width="800" height="600" loading="lazy" decoding="async">
+          <h3>地域交通・観光</h3>
+          <div class="field__status"><i></i>継続中</div>
+        </div>
+        <div class="field__detail">
+          <p class="field__name">地域交通・観光</p>
+          <p>個人情報に配慮しながら、人の動きや混雑を段階的にデータ化する実証に取り組んでいます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--rule" id="team">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-c="6">REPRESENTATIVES ／ STRATEGY × ENGINEERING</p>
+        <h2>構想を描く力と、実装しきる力をひとつに。</h2>
+      </div>
+      <p class="lead">事業として成立するか、現場で使えるか、技術として実装できるか。<br>要件が固まりきる前の段階から、この3つを同時に見ながら進めます。</p>
+    </div>
+    <div class="duo reveal">
+      <div class="person">
+        <p class="person__role">BUSINESS ARCHITECT</p>
+        <p class="person__bio">97年よりAIGやAXAグループなどで商品開発・新規事業開発を20年近く経験。17年以降SBIグループで、新規事業創出（AIがんゲノムプロジェクト）、欧州ユニコーンWefoxとのJV設立などの実績。SBIトレーサビリティ株式会社を創業し、代表取締役としてトレーサビリティ事業を立ち上げ。<br>事業開発・新規事業・PMOを中心に、構想を実装可能なプロジェクトへ変換します。</p>
+        <p class="person__name">輪島　智仁<span class="person__title">REPRESENTATIVE DIRECTOR</span></p>
+      </div>
+      <div class="person">
+        <p class="person__role">FULL-STACK ENGINEER</p>
+        <p class="person__bio">不動産テック「イタンジ」共同創業者として業界インフラとなる基盤システムの構築に貢献。東京大学大学院で広域システム科学を専攻。現在はカナダを拠点に、最先端技術を用いたプロダクト開発を手がける。<br>クラウド、AI、IoT、Web/モバイル開発を横断し、アーキテクチャ設計からコアロジック実装まで担当。高速プログラミングとAIの活用で、スピーディな開発を実現します。</p>
+        <p class="person__name">将積　健士<span class="person__title">DIRECTOR / CTO</span></p>
+      </div>
+    </div>
+
+        <div class="domains3 reveal" id="technology">
+      <p class="domains3__row"><span class="domains3__k" style="--dc:var(--sp6-t)">BUSINESS</span><span>要件整理</span><span>業務設計</span><span>PMO</span><span>提携・体制づくり</span></p>
+      <p class="domains3__row"><span class="domains3__k" style="--dc:var(--sp5-t)">ENGINEERING</span><span>システム設計</span><span>RFID・NFC</span><span>データ基盤</span><span>業務アプリ</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-c="4">APPROACH</p>
+        <h2>動くデモを起点に、現場に合う形へ磨き込む。</h2>
+      </div>
+      <p class="lead">要件が完全に固まる前でも、まず動くデモアプリを共有いたします。<br>画面や操作感を確認しながら、現場の反応、業務フロー、運用上の違和感を素早く反映します。</p>
+      <p class="closing" style="border-color:var(--sp4)">速くつくるためではなく、早く確かめるために動くものを。</p>
+    </div>
+        <div class="orbit" data-orbit>
+    <div class="orbit__stage">
+    <svg class="orbit__ring" aria-hidden="true"><circle/></svg>
+    <p class="orbit__count" aria-hidden="true"><b>01</b> / 05</p>
+    <div class="steps">
+      <div class="step"><p class="step__sn">01 DEMO</p><figure class="step__fig"><img src="assets/img/approach-01-demo.webp" alt="資料とタブレットを挟んで、担当者と課題を整理している打ち合わせの様子" width="816" height="660" loading="lazy" decoding="async"></figure><div class="step__bar"></div><h3>動くものを共有する</h3><p>早期に動くデモを共有し、関係者の認識をそろえます。</p></div>
+      <div class="step"><p class="step__sn">02 FEEDBACK</p><figure class="step__fig"><img src="assets/img/approach-03-revision.webp" alt="倉庫の現場で担当者にタブレットを見せ、使い勝手を確かめている様子" width="816" height="660" loading="lazy" decoding="async"></figure><div class="step__bar"></div><h3>現場の反応を聞く</h3><p>画面や操作感をもとに、現場の反応や違和感を把握します。</p></div>
+      <div class="step"><p class="step__sn">03 REVISION</p><figure class="step__fig"><img src="assets/img/approach-02-feedback.webp" alt="画面がつながっていく様子を確かめながら、動くデモをつくっている様子" width="816" height="660" loading="lazy" decoding="async"></figure><div class="step__bar"></div><h3>柔軟に見直す</h3><p>UI、業務フロー、データ項目、運用設計を柔軟に見直します。</p></div>
+      <div class="step"><p class="step__sn">04 RELEASE</p><figure class="step__fig"><img src="assets/img/approach-04-release.webp" alt="ダッシュボードを中心に、倉庫・配送・問い合わせ・利用者がつながって運用が回っている様子" width="816" height="660" loading="lazy" decoding="async"></figure><div class="step__bar"></div><h3>使える状態に整える</h3><p>現場で使える状態へ整え、導入後の改善まで見据えて進めます。</p></div>
+            <div class="step"><p class="step__sn">05 PARTNERSHIP</p><figure class="step__fig"><img src="assets/img/approach-05-partnership.webp" alt="導入後も現場の担当者と打ち合わせを重ね、運用と改善を一緒に進めている様子" width="816" height="660" loading="lazy" decoding="async"></figure><div class="step__bar"></div><h3>ともに育て続ける</h3><p>導入後も保守運用と改善を続け、次の打ち手を現場とともにつくります。</p></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta cta--white">
+  <div class="wrap cta__in">
+    <div>
+      <h2><span class="nb">まだ形になっていない話から、</span><span class="nb">ご相談ください。</span></h2>
+      <p>「何から手をつければいいか分からない」の段階で構いません。<br>現場をうかがい、動くデモをお持ちするところから始めます。</p>
+    </div>
+    <div class="cta__actions">
+      <a class="btn btn--primary" href="contact.html">お問い合わせ →</a>
+      <a class="btn btn--ghost" href="contact.html?type=doc">資料請求</a>
+      <a class="txtlink" href="contact.html#faq">ご相談の前に：よくいただくご質問 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="news">
+  <div class="wrap">
+    <p class="label" data-c="7">NEWS</p>
+    <div class="news">
+            <a class="news__row" href="news/site-open.html"><span class="news__date">2026.09.30</span><span class="news__cat">Information</span><span class="news__title">コーポレートサイトを公開しました。</span><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="rainbow"></div>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <div class="footer__brand">
+        <img class="footer__logo" src="assets/img/logo-niji.png" alt="Niji" width="56">
+        <p>Making the Invisible, Visible.<br>現場の情報を、事業を動かす基盤へ。</p>
+        <p>〒105-0012<br>東京都港区芝大門1-2-14 H1O浜松町818</p>
+      </div>
+      <div class="footer__navs">
+        <nav aria-label="サイトマップ">
+          <a href="#services">Service</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#products">Products</a>
+          <a href="#fields">Fields</a>
+          <a href="#approach">Approach</a>
+          <a href="#news">News</a>
+        </nav>
+        <nav aria-label="会社情報">
+          <a href="company.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html?type=doc">資料請求</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </div>
+    <p class="footer__base">© 2026 株式会社虹 / Niji Inc.</p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/approach-orbit.js" defer></script>
+</body>
+</html>

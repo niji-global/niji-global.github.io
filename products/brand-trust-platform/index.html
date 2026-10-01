@@ -1,0 +1,3263 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Niji Brand Trust Platform は、製品個体IDを起点に製造・出荷・在庫・販売・所有の履歴を蓄積し、その履歴を根拠に正規性を確認できるようにするブランド信頼基盤です。履歴を蓄積する Niji TS と、その信頼を顧客接点へ届ける B-Watchdog™ で構成されます。">
+<meta property="og:title" content="Niji Brand Trust Platform ｜ Niji TS × B-Watchdog™ ｜ 株式会社虹">
+<meta property="og:description" content="Niji Brand Trust Platform は、製品個体IDを起点に製造・出荷・在庫・販売・所有の履歴を蓄積し、その履歴を根拠に正規性を確認できるようにするブランド信頼基盤です。履歴を蓄積する Niji TS と、その信頼を顧客接点へ届ける B-Watchdog™ で構成されます。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="株式会社虹">
+<meta name="twitter:card" content="summary_large_image">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}
+img,svg,video,canvas{display:block;max-width:100%}</style>
+<title>Niji Brand Trust Platform ｜ Niji TS × B-Watchdog™ ｜ 株式会社虹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap">
+
+<style>
+
+:root{
+  --ink:#0E2038;
+  --body:#33465C;
+  
+  --muted:#4E6072;
+  --faint:#566878;
+
+  --p-light:#CDD3DC;
+  --p-mid:#ABB5C4;
+  --p-deep:#3A5A81;
+  --p-teal:#7FB2BF;
+  --rule:rgba(14,32,56,.10);
+  --rule-2:rgba(14,32,56,.18);
+
+  --sky:#89C3EB;
+  --blue:#0368B5;          
+  --blue-text:#0368B5;     
+  --collision:#ED6D00;    
+
+  --s1:#C8402F; --s2:#D97A2B; --s3:#BE9A1E; --s4:#3D8F5E;
+  --s5:#0368B5; --s6:#4A50A0; --s7:#77468F;
+
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono","Zen Kaku Gothic New",ui-monospace,Menlo,monospace;
+
+  --wrap:1600px;
+  --pad:40px;
+  --rail:222px;
+}
+
+*{box-sizing:border-box}
+
+p, li, dd, dt, figcaption, .body, .sub, .lead, .seen, .warn, .pd, .act-note, .note, .bridge{
+  line-break:strict;
+}
+@supports (word-break: auto-phrase){
+  p, li, dd, dt, figcaption, .act-note, .bridge{ word-break:auto-phrase; }
+}
+
+h1, h2, h3, h4{ text-wrap:balance; }
+p, li{ text-wrap:pretty; }
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.95;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"palt" 1;
+  
+  background:#fff;
+}
+
+#water{
+  position:fixed;inset:0;z-index:0;
+  width:100%;height:100%;
+  display:block;pointer-events:none;
+}
+
+.page{position:relative;z-index:3}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+
+.build-note{
+  position:relative;z-index:6;
+  background:rgba(14,32,56,.93);color:#C7D3DD;font-size:12.5px;line-height:1.7;
+  padding:13px 0;letter-spacing:.02em;backdrop-filter:blur(6px);
+}
+.build-note .wrap{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.build-note b{color:#fff;font-weight:500;letter-spacing:.12em;font-size:11px}
+
+section{padding:150px 0;position:relative}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.26em;color:var(--blue-text);margin:0 0 24px}
+.eyebrow.q{color:var(--muted)}
+h2.lede{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(25px,3.3vw,40px);line-height:1.62;letter-spacing:.02em;
+  margin:0 0 28px;color:var(--ink);text-wrap:balance;
+}
+
+.hint-line{max-width:74ch;font-size:12.5px;line-height:2;color:var(--faint);margin:2px 0 0;letter-spacing:.02em}
+p.read{max-width:76ch;font-size:15.5px;line-height:2.15;color:var(--body);margin:0 0 16px}
+.closer{
+  margin-top:76px;padding-top:36px;border-top:1px solid var(--rule);
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(17px,2vw,22px);line-height:2;letter-spacing:.03em;
+  color:var(--ink);text-wrap:balance;
+}
+
+.closer b{font-weight:700;color:var(--ink)}
+
+.closer .lite{font-family:var(--sans);font-weight:400;font-size:14px;
+  letter-spacing:.02em;color:var(--muted);display:inline-block;margin-bottom:10px}
+
+.hero{
+  min-height:100svh;display:flex;align-items:center;
+  padding:120px 0 100px;
+  position:relative;
+}
+
+.hero-wrap{text-align:center;display:flex;flex-direction:column;align-items:center;
+  position:relative;z-index:1}
+.hero .eyebrow{margin-bottom:26px}
+
+.hero h1,.hero .lead,.hero .eyebrow,.hero .pair,.hero .sub,.hero .scroll-cue{
+  text-shadow:0 0 6px #fff,0 0 14px #fff,0 0 24px rgba(255,255,255,.92);
+}
+
+.hero h1{text-shadow:0 0 10px #fff,0 0 26px rgba(255,255,255,.86)}
+
+.hero .sub,.hero .pair{
+  text-shadow:0 0 4px #fff,0 0 8px #fff,0 0 15px #fff,0 0 26px rgba(255,255,255,.94);
+}
+
+.hero .eyebrow{
+  text-shadow:0 0 4px #fff,0 0 8px #fff,0 0 14px #fff,0 0 22px #fff,
+    0 0 34px rgba(255,255,255,.9);
+}
+.hero h1{
+  font-family:var(--serif);font-weight:700;
+  
+  font-size:clamp(30px,6.6vw,95px);line-height:1.14;letter-spacing:-.005em;
+  margin:0 0 26px;color:var(--ink);text-wrap:balance;max-width:16em;
+}
+.hero .lead{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(15px,2.05vw,26px);line-height:1.9;letter-spacing:.06em;
+  color:var(--ink);margin:0 0 34px;max-width:30em;text-wrap:balance;
+}
+.hero .pair{font-weight:500;font-size:clamp(12px,1.5vw,16px);letter-spacing:.17em;color:var(--blue-text);margin:0 0 38px}
+.hero .sub{max-width:62ch;font-size:13.5px;line-height:2.05;color:var(--body);margin:0}
+.hero .sub b{color:var(--ink);font-weight:500}
+.hero-cta{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:center}
+
+.hero-cta .btn-ghost{background:rgba(255,255,255,.94)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--ink);text-decoration:none;
+  font-size:14px;font-weight:500;letter-spacing:.1em;padding:17px 34px;border:1px solid var(--rule-2);
+  transition:border-color .2s ease,color .2s ease}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-ghost:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media (max-width:900px){ .hero-cta{flex-direction:column;align-items:stretch;width:100%}
+  .hero-cta .btn,.hero-cta .btn-ghost{width:100%;text-align:center} }
+.scroll-cue{
+  margin-top:64px;display:inline-flex;flex-direction:column;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted);
+}
+.scroll-cue i{display:block;width:1px;height:42px;background:linear-gradient(180deg,var(--rule-2),transparent)}
+.scroll-cue i{animation:cue 2.6s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.55);opacity:.5}50%{transform:scaleY(1);opacity:1}}
+
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:56px}
+.card{
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 2px 40px rgba(14,32,56,.055);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  padding:42px 40px 44px;
+}
+.card .k{font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:0 0 18px}
+.card.front .k{color:var(--ink)}
+.card.base .k{color:var(--blue-text)}
+.card h3{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:.02em;margin:0 0 4px}
+.card .sub{font-size:12.5px;color:var(--faint);margin:0 0 20px;letter-spacing:.04em}
+.card p{font-size:14.5px;line-height:2.05;color:var(--body);margin:0 0 22px}
+.card ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:7px}
+.card li{font-size:12px;letter-spacing:.04em;color:var(--body);border:1px solid var(--rule-2);padding:5px 11px}
+.bridge{
+  margin-top:26px;padding:26px 32px;
+  border-left:2px solid var(--sky);
+  font-size:14.5px;line-height:2.05;color:var(--body);
+  background:rgba(255,255,255,.45);
+  max-width:82ch;   
+}
+.bridge b{color:var(--ink);font-weight:500}
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr) var(--rail);gap:0 52px;align-items:stretch}
+.rail-wrap{position:relative;height:100%}
+
+.story{min-width:0;padding-bottom:190px}
+
+.story > *{position:relative}
+
+.act{padding:88px 0 8px;margin:0;background:#fff}
+.act-inner{display:flex;align-items:flex-start;gap:20px}
+.act .no{
+  writing-mode:vertical-rl;font-family:var(--serif);font-size:12px;
+  letter-spacing:.3em;color:var(--faint);white-space:nowrap;padding-top:4px;
+}
+.act h3{
+  font-family:var(--serif);font-weight:600;font-size:clamp(20px,2.4vw,27px);
+  letter-spacing:.03em;margin:0;color:var(--ink);
+  text-shadow:0 0 22px rgba(251,253,255,.95),0 0 8px rgba(251,253,255,.9);
+}
+.act-note{font-size:13.5px;color:var(--body);margin:0;padding:14px 0 46px 32px;line-height:2;background:#fff}
+
+.scene{position:sticky;top:0;padding:0;border-top:none}
+.sheet{
+  position:relative;
+  
+  background:
+    linear-gradient(158deg,
+      #FDFDFB 0%, #F5F5F1 20%, #FDFDFC 39%,
+      #EFEFEA 56%, #FCFCF9 74%, #F4F4F0 100%);
+  border-top:1px solid rgba(255,255,255,.92);
+  padding:30px 22px 36px;
+  transform-origin:50% 0;
+  
+  transform:translateY(var(--ty,0px)) scale(var(--sc,1));
+  opacity:var(--op,1);
+  box-shadow:
+    
+    inset 0 1px 0 rgba(255,255,255,1),
+    inset 1px 0 0 rgba(255,255,255,.95),
+    inset -1px 0 0 rgba(96,96,88,.13),
+    inset 0 -1px 0 rgba(96,96,88,.10),
+    
+    inset 0 30px 38px -34px rgba(255,255,255,.85),
+    inset 0 -16px 26px -20px rgba(96,96,88,.17),
+    
+    0 1px 1px rgba(14,32,56,.05),
+    0 20px 44px -26px rgba(14,32,56,.28),
+    0 46px 96px -58px rgba(14,32,56,.34),
+    
+    0 -1px 0 rgba(255,255,255,.94),
+    0 -26px 46px -30px rgba(14,32,56,.22);
+}
+
+.sheet::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(114deg,
+      rgba(255,255,255,0) 24%, rgba(255,255,255,.92) 36%,
+      rgba(255,255,255,0) 46%),
+    linear-gradient(114deg,
+      rgba(255,255,255,0) 62%, rgba(255,255,255,.68) 71%,
+      rgba(255,255,255,0) 80%),
+    linear-gradient(200deg, rgba(255,255,255,.85), rgba(255,255,255,0) 34%),
+    linear-gradient(20deg, rgba(112,112,102,.11), rgba(112,112,102,0) 30%);
+}
+
+.sheet > *{position:relative;z-index:1}
+.sheet::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:#F6F6F2;opacity:var(--vl,0);
+}
+
+.sheet .txt{
+  transform:translateY(calc((1 - var(--en,1)) * 15px));
+  opacity:calc(.28 + .72 * var(--en,1));
+}
+.sheet figure.plate{
+  transform:scale(calc(.986 + .014 * var(--en,1)));
+  transform-origin:50% 100%;
+}
+
+.sheet{display:grid;grid-template-columns:1.5fr .92fr;gap:28px;align-items:start}
+.sheet .txt{min-width:0;padding-top:4px}
+figure.plate{margin:0;position:relative;min-width:0}
+@media (max-width:1000px){
+  .sheet{grid-template-columns:1fr;gap:20px}
+  figure.plate{max-width:min(100%, calc(38svh * 16 / 9));margin:0 auto}
+}
+
+.plate img,
+.plate .frame{
+  aspect-ratio:16/9;width:100%;height:auto;display:block;
+  background:#fff;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.95),
+    0 0 0 2px rgba(112,112,102,.13),
+    0 2px 10px rgba(52,50,44,.07),
+    0 26px 58px -30px rgba(52,50,44,.26);
+  transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .9s ease;
+}
+.plate .frame{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  text-align:center;padding:24px;
+  background:linear-gradient(180deg,#fff 0%,#F4FAFD 100%);
+  border:1px dashed rgba(14,32,56,.22);
+  box-shadow:none;
+}
+.scene:not(.in) .plate img,
+.scene:not(.in) .plate .frame{opacity:0;transform:translateY(26px) scale(.985)}
+.plate .pn{font-family:var(--serif);font-size:clamp(34px,5vw,54px);line-height:1;font-weight:600;color:var(--tick);opacity:.4;font-variant-numeric:tabular-nums}
+.plate .pt{font-family:var(--serif);font-size:clamp(14px,1.8vw,18px);letter-spacing:.06em;color:var(--body)}
+.plate .pm{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint)}
+.plate .anchor{position:absolute;width:8px;height:8px;border:1px solid var(--tick);border-radius:50%;left:var(--ax);top:var(--ay)}
+.plate figcaption{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.1em;margin-top:10px}
+
+.scene h4{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(18px,2.1vw,24px);line-height:1.7;letter-spacing:.025em;
+  margin:0 0 13px;color:var(--ink);text-wrap:balance;
+}
+.scene .body{max-width:66ch;font-size:15px;line-height:2.15;color:var(--body);margin:0}
+.scene .seen{
+  margin-top:18px;padding:14px 18px;
+  background:rgba(255,255,255,.5);border-left:2px solid var(--tick);
+  font-size:12.5px;line-height:2;color:var(--body);
+}
+.scene .seen b{font-size:10px;letter-spacing:.2em;color:var(--ink);font-weight:500;display:block;margin-bottom:5px}
+
+.faq{margin-top:34px;border-top:1px solid var(--rule)}
+.qa{border-bottom:1px solid var(--rule)}
+.qa summary{
+  list-style:none;cursor:pointer;
+  display:grid;grid-template-columns:1fr 26px;align-items:start;gap:24px;
+  padding:24px 0 23px;
+}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover h3{color:var(--blue-text)}
+.qa summary:focus-visible{outline:2px solid var(--blue-500,#2B78B8);outline-offset:3px}
+
+.qa .mk{position:relative;width:26px;height:26px;margin-top:2px;justify-self:end}
+.qa .mk::before,.qa .mk::after{
+  content:"";position:absolute;left:5px;top:12px;width:16px;height:1px;
+  background:var(--ink);transition:transform .32s cubic-bezier(.22,.8,.3,1),opacity .32s ease;
+}
+.qa .mk::after{transform:rotate(90deg)}
+.qa[open] .mk::after{transform:rotate(0);opacity:0}
+.qa-a{padding:0 50px 30px 0}
+.qa h3{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(15px,1.6vw,18px);line-height:1.85;letter-spacing:.02em;
+  color:var(--ink);margin:0;text-wrap:pretty;transition:color .3s ease;
+}
+
+.qa p{
+  max-width:none;font-size:14.5px;line-height:2.1;color:var(--body);margin:0;
+  text-wrap:pretty;
+}
+@media (max-width:900px){ .qa-a{padding:0 0 26px} }
+@media (max-width:900px){
+  .faq{margin-top:34px}
+  .qa{padding:22px 0 20px}
+}
+
+.ph{display:inline-block}
+
+.nb{white-space:nowrap}
+
+.rev{clip-path:inset(0 0 100% 0);transition:clip-path .9s cubic-bezier(.22,1,.36,1)}
+.rev.in{clip-path:inset(0)}
+
+.rail{position:sticky;top:26px}
+.rail-head{border-top:1px solid var(--rule-2);padding:10px 0 10px}
+
+.rail-head .rh-lab{font-size:10.5px;letter-spacing:.12em;color:var(--blue-text);font-weight:500;margin:0 0 6px}
+.rail-head .rh-title{font-family:var(--serif);font-size:14.5px;font-weight:600;margin:0 0 7px;letter-spacing:.04em}
+.rail-head .rh-id{font-family:var(--mono);font-size:11px;color:var(--ink);font-variant-numeric:tabular-nums;margin:0}
+.rail-head .rh-demo{display:inline-block;margin-top:8px;font-size:9.5px;letter-spacing:.14em;color:var(--muted);border:1px solid var(--rule-2);padding:2px 7px}
+.rail-count{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin:9px 0 0;font-variant-numeric:tabular-nums}
+
+.ledger{list-style:none;margin:14px 0 0;padding:0}
+.ledger li{
+  border-top:1px solid var(--rule);padding:7px 0 8px 12px;position:relative;
+  
+  font-family:var(--mono);font-size:11.5px;line-height:1.72;color:var(--ink);
+  font-variant-numeric:tabular-nums;min-height:45px;
+  transition:opacity .6s ease;
+}
+.ledger li::before{content:"";position:absolute;left:0;top:-1px;width:8px;height:1px;background:var(--tick,var(--faint))}
+.ledger .ev{display:block;color:var(--ink);font-weight:500}
+.ledger .mt{display:block;color:var(--muted);font-size:10.5px}
+.ledger .qty{color:var(--muted)}
+
+.ledger.progressive li:not(.written) .ev,
+.ledger.progressive li:not(.written) .mt{visibility:hidden}
+.ledger.progressive li .ev,.ledger.progressive li .mt{opacity:0;transform:translateY(5px);transition:opacity .55s ease,transform .55s ease}
+.ledger.progressive li.written .ev,.ledger.progressive li.written .mt{opacity:1;transform:none}
+.ledger.progressive li.written .mt{transition-delay:.08s}
+.ledger.dim li:not(.pair){opacity:.26}
+
+.ledger li{transition:opacity .6s ease,background-color .45s ease,padding-left .45s ease}
+.ledger li::before{transition:width .45s cubic-bezier(.22,1,.36,1),height .45s ease}
+.ledger li.now{
+  background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,0));
+  padding-left:18px;
+  opacity:1;
+}
+.ledger.dim li.now:not(.pair){opacity:1}
+.ledger li.now::before{width:22px;height:2px;top:-1px}
+.ledger li.now .ev{color:var(--ink);font-weight:700;letter-spacing:.02em}
+.ledger li.now .mt{color:var(--body)}
+
+.ledger li.now::after{
+  content:"";position:absolute;left:0;top:16px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--tick,var(--faint));
+}
+
+@keyframes ledgerJust{
+  0%   {box-shadow:inset 4px 0 0 var(--tick,var(--faint)),0 0 0 1px var(--tick,var(--faint))}
+  45%  {box-shadow:inset 4px 0 0 var(--tick,var(--faint)),0 0 0 1px rgba(255,255,255,0)}
+  100% {box-shadow:inset 0 0 0 var(--tick,var(--faint)),0 0 0 1px rgba(255,255,255,0)}
+}
+@keyframes ledgerChip{0%,58%{opacity:1}100%{opacity:0}}
+.ledger li.just{animation:ledgerJust 1.5s cubic-bezier(.22,1,.36,1) forwards}
+.ledger li.just::before{width:26px;height:2px}
+
+.ledger li.just .ev::after{
+  content:"追記";margin-left:8px;font-family:var(--sans);font-weight:500;
+  font-size:8.5px;letter-spacing:.14em;color:var(--ink);background:#fff;
+  border:1px solid var(--tick,var(--faint));padding:1px 5px;
+  vertical-align:1px;white-space:nowrap;
+  animation:ledgerChip 1.6s ease-out forwards;
+}
+
+@keyframes countBump{
+  0%{color:var(--ink);transform:translateY(-3px)}
+  100%{color:var(--faint);transform:none}
+}
+.rail-count.bump{animation:countBump .7s cubic-bezier(.22,1,.36,1)}
+.ledger li.lane{width:calc(50% - 5px);display:inline-block;vertical-align:top}
+.ledger li.lane.r{margin-left:10px}
+.ledger li.blank{border-top:1px dashed var(--rule-2);min-height:44px}
+.ledger li.blank .ev{color:var(--faint);font-weight:400}
+.strip{display:none}
+
+.rh-latest{display:none}
+
+#readbar{
+  position:fixed;left:0;top:0;z-index:60;
+  width:100%;height:2px;opacity:.85;
+  background:linear-gradient(90deg,var(--s1) 0 14%,var(--s2) 14% 28%,var(--s3) 28% 43%,
+    var(--s4) 43% 57%,var(--s5) 57% 71%,var(--s6) 71% 86%,var(--s7) 86% 100%);
+  clip-path:inset(0 calc((1 - var(--rb,0)) * 100%) 0 0);
+}
+@supports ((animation-timeline:scroll()) and (animation-range:0% 100%)){
+  @keyframes readbar-grow{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  #readbar{
+    animation:readbar-grow auto linear;
+    animation-timeline:scroll();
+  }
+}
+
+.collate-lead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:38px}
+.cstep{font-family:var(--mono);font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:1px}
+.cstep b{font-size:22px;font-weight:500;color:var(--ink);line-height:1}
+.cstep em{font-style:normal;font-size:12px;color:var(--muted)}
+.hint{font-family:var(--mono);font-size:11px;color:var(--faint)}
+
+.ctrack{display:flex;gap:5px;margin-left:auto}
+.ctrack i{width:26px;height:2px;background:var(--rule-2);display:block;transition:background .45s ease}
+.ctrack i.lit{background:var(--collision)}
+
+.pairs{margin-top:26px;border-top:1px solid var(--rule)}
+.pair-row{display:grid;grid-template-columns:34px 1fr 116px 1fr;align-items:center;
+  border-bottom:1px solid var(--rule);padding:22px 0;position:relative}
+.pair-row .rn{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.06em}
+.pair-row .side{font-family:var(--mono);font-size:11px;line-height:1.75;color:var(--ink);font-variant-numeric:tabular-nums}
+.pair-row .side .lab{display:block;font-size:10px;color:var(--muted);letter-spacing:.1em;margin-bottom:3px}
+.pair-row .side.r{text-align:right}
+
+.pair-row .gapmark{text-align:center;font-size:10.5px;color:var(--collision);
+  letter-spacing:.06em;line-height:1.5;font-weight:500}
+.pair-row .gapmark em{display:block;font-family:var(--mono);font-style:normal;
+  font-size:9.5px;color:var(--muted);letter-spacing:.04em;margin-top:3px;
+  font-variant-numeric:tabular-nums}
+
+.mis{position:relative;display:inline-block}
+.mis::after{content:attr(data-ghost);position:absolute;left:1.5px;top:1.5px;color:var(--ink);opacity:.32;pointer-events:none;white-space:nowrap}
+.idmatch{color:var(--blue-text)}
+
+.pair-row::before{content:"";position:absolute;left:0;top:50%;width:2px;height:26px;
+  background:var(--collision);transform:translateY(-50%)}
+.pair-row.res .rn{color:var(--collision)}
+
+.pairs.staged .pair-row .side.r{opacity:0;transform:translateX(14px);
+  transition:opacity .5s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+.pairs.staged .pair-row .gapmark{opacity:0;transition:opacity .4s ease .12s}
+.pairs.staged .pair-row .mis::after{opacity:0;transition:opacity .5s ease .3s}
+.pairs.staged .pair-row::before{transform:translateY(-50%) scaleY(0);
+  transition:transform .5s cubic-bezier(.2,.7,.3,1) .18s}
+.pairs.staged .pair-row.res .side.r{opacity:1;transform:none}
+.pairs.staged .pair-row.res .gapmark{opacity:1}
+.pairs.staged .pair-row.res .mis::after{opacity:.32}
+.pairs.staged .pair-row.res::before{transform:translateY(-50%) scaleY(1)}
+
+.mark{width:9px;height:9px;background:var(--collision);display:block;flex:none}
+.mark[hidden]{display:none}
+.cross{margin-top:34px;display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.cross span{color:var(--muted)}
+.note{margin-top:30px;font-size:14px;line-height:2.1;color:var(--body);max-width:74ch}
+.note b{color:var(--ink);font-weight:500}
+
+.policy{margin-top:48px;display:grid;grid-template-columns:1fr 340px;gap:52px;align-items:start}
+.controls{border-top:1px solid var(--rule)}
+.ctl{padding:18px 0;border-bottom:1px solid var(--rule)}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--body);margin-bottom:9px}
+.ctl label .v{font-family:var(--mono);font-size:11.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--ink);height:22px}
+.ctl input[type=range]:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.verdict{border-top:1px solid var(--rule-2);padding-top:22px;background:rgba(255,255,255,.5);padding:22px 26px 26px;margin-top:-1px}
+.verdict .vh{font-size:10px;letter-spacing:.2em;color:var(--muted);margin:0 0 12px}
+.verdict .score{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums;margin:0}
+.bar{height:3px;background:rgba(14,32,56,.12);position:relative;margin:12px 0 18px}
+.bar i{position:absolute;left:0;top:0;height:100%;background:var(--ink);transform-origin:left;transition:transform .3s ease}
+.bar u{position:absolute;top:-4px;width:1px;height:11px;background:var(--muted);text-decoration:none}
+.verdict .out{font-family:var(--serif);font-size:26px;font-weight:600;margin:0;letter-spacing:.04em;color:var(--ink);display:flex;align-items:center;gap:11px}
+.verdict .ms{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin:8px 0 0;font-variant-numeric:tabular-nums}
+.verdict .warn{margin:18px 0 0;font-size:12.5px;line-height:1.95;color:var(--body);border-top:1px solid var(--rule);padding-top:14px;min-height:82px}
+
+.policy-ref{margin:30px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.policy-ref>div{background:rgba(255,255,255,.55);padding:16px 20px}
+.policy-ref .prk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);margin:0 0 6px}
+.policy-ref p:last-child{font-size:12.5px;line-height:1.9;color:var(--body);margin:0}
+.ui-note{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--faint)}
+@media (max-width:900px){ .policy-ref{grid-template-columns:minmax(0,1fr)} }
+.verdict .warn b{color:var(--ink);font-weight:500}
+
+.mx-wrap{margin-top:46px;max-width:none;width:100%}
+.mx{width:100%;border-collapse:collapse;table-layout:fixed}
+.mx th,.mx td{text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+.mx thead th{padding:0 14px 16px;border-bottom:1px solid var(--rule-2);vertical-align:bottom;font-weight:400}
+.mx thead th:first-child{width:196px;padding-left:0}
+.mx-cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+.mx .pn2{display:block;font-size:10.5px;letter-spacing:.2em;color:var(--muted)}
+.mx-t{display:block;font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin:6px 0 8px}
+.mx-d{display:block;font-size:12px;line-height:1.8;color:var(--body);min-height:65px}
+.mx-r{display:block;font-size:11.5px;line-height:1.7;color:var(--body);margin-top:4px}
+.mx-r span{font-family:var(--mono);font-size:10px;color:var(--muted);margin-right:8px}
+.mx-c{display:block;font-family:var(--mono);font-size:11px;color:var(--ink);margin-top:12px}
+.mx tbody th{position:relative;padding:12px 8px 12px 16px;font-size:13px;font-weight:500;color:var(--ink)}
+.mx tbody th::before{content:"";position:absolute;left:0;top:19px;width:8px;height:2px;background:var(--tick,var(--faint))}
+.mx tbody th .mt{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:400;margin-top:2px}
+.mx td{padding:16px 14px}
+.mx td i{display:inline-block;width:9px;height:9px;border-radius:50%;border:1px solid rgba(14,32,56,.38);vertical-align:middle}
+.mx td i.on{border-color:transparent}
+.mid-cta{margin:40px 0 0;display:flex;gap:28px;flex-wrap:wrap;max-width:760px}
+.mid-cta a{font-family:var(--sans);font-size:13px;letter-spacing:.06em;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-2);padding-bottom:3px}
+.mid-cta a:hover{border-bottom-color:var(--ink)}
+.mx-cards{display:none}
+.mx-cards .pn2{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--muted)}
+.closer2{max-width:760px;margin-top:56px;padding-top:30px;border-top:1px solid var(--rule)}
+.closer2 .c1{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.7;color:var(--ink);margin:0 0 12px}
+.closer2 .c2{font-size:14px;line-height:2;color:var(--body);margin:0 0 10px}
+.closer2 .c3{margin:16px 0 18px;font-family:var(--mono);font-size:11.5px;color:var(--body)}
+.closer2 .c3 dt{font-size:10.5px;letter-spacing:.12em;color:var(--muted);margin-bottom:6px}
+.closer2 .c3 dd{margin:0;padding:7px 0;border-top:1px solid var(--rule)}
+.closer2 .c3 dd b{display:inline-block;width:64px;font-family:var(--sans);font-weight:500;color:var(--ink)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:720px){
+  .mx-cards{display:block;list-style:none;margin:40px 0 0;padding:0;border-top:1px solid var(--rule-2)}
+  .mx-cards li{padding:16px 0;border-bottom:1px solid var(--rule)}
+  .mx-cards b{display:block;font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin:4px 0 6px}
+  .mx-cards li>span:not(.pn2):not(.r){display:block;font-size:12.5px;line-height:1.8;color:var(--body)}
+  .mx-cards .r{display:block;font-size:11.5px;line-height:1.7;color:var(--body);margin-top:4px}
+  .mx-cards .r span{font-family:var(--mono);font-size:10px;color:var(--muted);margin-right:8px}
+  .mx-wrap{margin-top:28px}
+  .mx thead th{padding:0 6px 12px}
+  .mx thead th:first-child{width:84px}
+  .mx .pn2{font-size:9.5px;letter-spacing:.06em}
+  .mx-t,.mx-d,.mx-r{display:none}
+  .mx-c{font-size:10px;margin-top:6px}
+  .mx-cap{font-size:9.5px}
+  .mx tbody th{font-size:11.5px;padding:10px 4px 10px 12px}
+  .mx tbody th .mt{display:none}
+  .mx td{padding:12px 6px}
+  .mx-after{height:110px}
+}
+
+.problems,.delivery,.roi,.routes{margin:34px 0 0;padding:0;list-style:none;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
+  background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.problems li,.delivery li,.roi li,.routes li{background:rgba(255,255,255,.62);
+  padding:22px 24px;display:flex;flex-direction:column;gap:7px}
+.problems li b,.delivery li b,.roi li b,.routes li b{font-size:14px;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+.problems li span,.delivery li span,.roi li span,.routes li span{font-size:12.5px;line-height:1.95;color:var(--body)}
+.pk,.dk,.rk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted)}
+.routes{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:40px}
+.delivery,.roi{grid-template-columns:repeat(3,minmax(0,1fr))}
+.roi li em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--muted);line-height:1.9;margin-top:2px}
+
+.fitcheck{margin:34px 0 0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.fitcheck li{border-bottom:1px solid var(--rule);padding:15px 0 15px 30px;position:relative;
+  font-size:14.5px;line-height:1.9;color:var(--ink)}
+.fitcheck li::before{content:"";position:absolute;left:2px;top:calc(50% - 3px);
+  width:7px;height:7px;border:1px solid var(--muted)}
+.cats{margin-top:22px;font-family:var(--mono);font-size:11px;line-height:2.2;color:var(--muted)}
+
+.layers{margin:34px 0 0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.layers li{border-bottom:1px solid var(--rule);padding:18px 0;
+  display:grid;grid-template-columns:44px 210px 1fr;align-items:baseline;gap:14px}
+.layers .ln{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.layers b{font-size:14px;font-weight:700;color:var(--ink)}
+.layers span:last-child{font-size:12.5px;line-height:1.95;color:var(--body)}
+
+.formula{margin-top:30px;border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2);
+  padding:22px 0;background:rgba(255,255,255,.45)}
+.formula p{margin:0 0 10px;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink)}
+.formula p:last-child{margin-bottom:0}
+.formula .fnote{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:14px}
+
+@media (max-width:900px){
+  .problems,.delivery,.roi,.routes{grid-template-columns:minmax(0,1fr)}
+  .layers li{grid-template-columns:34px 1fr;gap:6px 12px}
+  .layers span:last-child{grid-column:2}
+}
+
+.cta{padding:140px 0 170px}
+.cta h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.6vw,40px);line-height:1.62;letter-spacing:.03em;margin:0 0 20px;text-wrap:balance}
+.cta p{max-width:72ch;font-size:15px;line-height:2.15;color:var(--body);margin:0 0 40px}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.1em;padding:18px 44px;transition:background .2s ease}
+.btn:hover{background:#1b3355}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-actions .btn.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--rule-2);padding:17px 36px}
+.cta-actions .btn.btn-ghost:hover{background:transparent;border-color:var(--ink)}
+
+.appendix{background:rgba(255,255,255,.55);border-top:1px solid var(--rule);padding:110px 0 130px;backdrop-filter:blur(7px)}
+.appendix h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:48px 0 14px;letter-spacing:.02em}
+.appendix h3:first-of-type{margin-top:0}
+.appendix p{font-size:14px;line-height:2.1;color:var(--body);max-width:78ch;margin:0 0 12px}
+.appendix ul{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.appendix li{font-size:13.5px;line-height:2;color:var(--body);padding-left:22px;position:relative;max-width:78ch}
+.appendix li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1px;background:var(--muted)}
+.appendix b{color:var(--ink);font-weight:500}
+.appendix code{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.8);padding:1px 5px;border:1px solid var(--rule)}
+
+@media (max-width:1080px){:root{--rail:200px}}
+@media (max-width:900px){
+  :root{--pad:20px}
+  section{padding:84px 0}
+  .hero{min-height:auto;padding:90px 0 70px}
+  
+  .hero::before{
+    background:radial-gradient(ellipse 56% 32% at 50% 50%,
+      rgba(255,255,255,.88) 0%, rgba(255,255,255,.76) 48%,
+      rgba(255,255,255,.44) 74%, rgba(255,255,255,0) 90%);
+  }
+  .stage{grid-template-columns:1fr}
+  .roles,.policy{grid-template-columns:1fr;gap:26px}
+  .pair-row{grid-template-columns:1fr;gap:10px;padding-left:16px}
+  .pair-row .side.r,.pair-row .gapmark{text-align:left}
+  .pair-row .rn{position:absolute;left:0;top:24px}
+  .ctrack{margin-left:0;width:100%}
+  .ctrack i{flex:1}
+  
+  .act{position:relative;padding-top:70px}
+  .act-note{padding-left:0}
+
+  .sheet{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  .rail-wrap{
+    position:fixed;left:0;right:0;bottom:0;top:auto;height:auto;z-index:40;
+    transform:translateY(103%);
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
+    pointer-events:none;
+  }
+  .rail-wrap.live{transform:none;pointer-events:auto}
+  .rail{
+    position:relative;top:auto;margin:0;
+    background:rgba(252,252,250,.97);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-top:1px solid var(--rule-2);border-bottom:none;
+    box-shadow:0 -16px 36px -24px rgba(52,50,44,.42);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  .rail-head{
+    border-top:none;padding:9px var(--pad) 9px;
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+    padding-right:calc(var(--pad) + 58px);   
+  }
+  .rail-head .rh-title{margin:0;font-size:12.5px}
+  .rail-count{margin:0;font-size:11px;color:var(--ink)}
+  
+  .rail-head .rh-lab,.rail-head .rh-id,.rail-head .rh-demo{display:none;margin:0}
+  .rail.open .rail-head .rh-lab,
+  .rail.open .rail-head .rh-id,
+  .rail.open .rail-head .rh-demo{display:block}
+
+  .rh-latest{
+    display:flex;align-items:baseline;gap:8px;flex-basis:100%;margin:2px 0 0;
+    font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--ink);
+    font-variant-numeric:tabular-nums;min-width:0;
+    padding-left:10px;position:relative;
+  }
+  .rh-latest::before{
+    content:"";position:absolute;left:0;top:.25em;bottom:.25em;width:2px;
+    background:var(--tick,var(--faint));
+  }
+  .rh-latest .rl-k{
+    flex:none;font-family:var(--sans);font-size:8.5px;letter-spacing:.14em;
+    color:var(--ink);background:#fff;border:1px solid var(--tick,var(--faint));
+    padding:1px 5px;
+  }
+  .rh-latest .rl-ev{flex:none;font-weight:500}
+  .rh-latest .rl-mt{
+    color:var(--muted);font-size:10.5px;min-width:0;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  @keyframes latestIn{
+    0%  {opacity:0;transform:translateY(7px)}
+    100%{opacity:1;transform:none}
+  }
+  .rh-latest.just{animation:latestIn .42s cubic-bezier(.22,1,.36,1)}
+
+  .ledger{display:none;margin:0;padding:0 var(--pad) 12px;
+          max-height:44svh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .rail.open .ledger{display:block}
+  .ledger li.lane{width:100%;display:block;margin-left:0}
+  
+  .rail.open .rh-latest{display:none}
+
+  .strip{display:block;position:absolute;right:var(--pad);top:7px;padding:0;z-index:1}
+  .strip button{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);background:transparent;border:none;padding:4px 0;cursor:pointer;text-decoration:underline}
+  .strip button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+}
+
+.card{
+  background:none;box-shadow:none;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+  border:1px solid var(--rule);
+}
+.bridge{background:none}
+.verdict{background:none}
+.formula{background:none}
+.scene .seen{background:none}
+
+.problems,.delivery,.roi,.routes{background:none}
+.problems li,.delivery li,.roi li,.routes li{
+  background:none;box-shadow:0 0 0 1px rgba(14,32,56,.055);
+}
+.policy-ref{background:none}
+.policy-ref>div{background:none;box-shadow:0 0 0 1px rgba(14,32,56,.055)}
+
+.hero-cta .btn-ghost{background:#fff}
+
+@media (max-width:900px){
+  .rail{background:#FCFCFA}
+}
+
+#njSiteBar,#njFoot{--nj-pad:80px;--nj-wrap:1280px}
+@media (max-width:1080px){ #njSiteBar,#njFoot{--nj-pad:40px} }
+@media (max-width:720px){  #njSiteBar,#njFoot{--nj-pad:24px} }
+
+#njSiteBar{
+  position:absolute;left:0;top:0;z-index:50;width:100%;
+  padding:22px var(--nj-pad) 0;
+}
+#njSiteBar .in{
+  max-width:var(--nj-wrap);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+#njSiteBar a{text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:10px}
+#njSiteBar img{width:56px;height:auto;display:block}
+#njSiteBar .bar-links{display:flex;gap:28px;align-items:center}
+#njSiteBar .bar-contact{color:var(--ink)}
+#njSiteBar .back{
+  font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--muted);
+  transition:color .3s ease;
+}
+#njSiteBar .back:hover{color:var(--blue-text)}
+#njFoot{position:relative;z-index:5;background:#fff;margin-top:96px}
+#njFoot .rb{
+  height:2px;opacity:.85;
+  background:linear-gradient(90deg,var(--s1) 0 14%,var(--s2) 14% 28%,var(--s3) 28% 43%,
+    var(--s4) 43% 57%,var(--s5) 57% 71%,var(--s6) 71% 86%,var(--s7) 86% 100%);
+}
+#njFoot .in{
+  
+  width:min(var(--nj-wrap), calc(100% - var(--nj-pad) * 2));
+  margin-inline:auto;padding:72px 0 36px;
+  display:grid;grid-template-columns:1.4fr 1fr;gap:48px;
+  font-family:var(--sans);
+}
+
+#njFoot img{width:56px;height:auto;display:block;margin-bottom:20px}
+#njFoot p{font-size:12.5px;line-height:2;color:var(--muted);margin:0}
+#njFoot p+p{margin-top:14px}
+#njFoot nav{display:flex;flex-direction:column;gap:11px;text-align:right}
+#njFoot .navs{display:grid;grid-template-columns:1fr 1fr;gap:28px;justify-items:end}
+#njFoot a{font-size:12.5px;color:var(--ink);text-decoration:none}
+#njFoot a:hover{color:var(--blue-text)}
+#njFoot .base{
+  width:min(var(--nj-wrap), calc(100% - var(--nj-pad) * 2));
+  margin-inline:auto;padding:0 0 40px;
+  font-family:var(--sans);font-size:11px;color:var(--faint);
+}
+#njFoot .base span{display:block;padding-top:20px;border-top:1px solid var(--rule)}
+
+@media (max-width:360px){ .nb,.ph{white-space:normal} }
+@media (max-width:900px){
+  #njFoot .in{grid-template-columns:1fr;gap:32px}
+  #njFoot .navs{justify-items:start}
+  #njFoot nav{text-align:left}
+}
+</style>
+<link rel="canonical" href="https://niji-global.com/products/brand-trust-platform/">
+<meta property="og:url" content="https://niji-global.com/products/brand-trust-platform/">
+<meta property="og:image" content="https://niji-global.com/assets/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="株式会社虹">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<script src="../../assets/js/analytics.js" async></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://niji-global.com/"}, {"@type": "ListItem", "position": 2, "name": "Niji Brand Trust Platform", "item": "https://niji-global.com/products/brand-trust-platform/"}]}</script>
+</head>
+<body>
+<canvas id="water" aria-hidden="true"></canvas>
+
+<div id="readbar" aria-hidden="true"></div>
+<header id="njSiteBar">
+  <div class="in">
+    <a href="../../index.html" aria-label="株式会社虹 ホーム"><img src="../../assets/img/logo-niji.png" alt="Niji" width="56"></a>
+    <div class="bar-links"><a class="back" href="../../index.html#products">← PRODUCTS へ戻る</a><a class="back bar-contact" href="../../contact.html">お問い合わせ →</a></div>
+  </div>
+</header>
+
+<main class="page">
+
+<section class="hero" data-field="hero">
+  <div class="wrap hero-wrap">
+    <p class="eyebrow">PRODUCTS ／ 自社プロダクト</p>
+    <h1>Niji Brand Trust Platform</h1>
+    <p class="lead"><span class="ph">製品の履歴を、</span><span class="ph">ブランドの信頼に変える。</span></p>
+    <p class="pair">Niji&nbsp;TS &nbsp;×&nbsp; <span class="nb">B-Watchdog™</span></p>
+    <p class="sub"><span class="ph">製造、</span><span class="ph">出荷、</span><span class="ph">販売、</span><span class="ph">所有。</span><br><span class="ph">一つひとつの製品に起きた事実を、</span><span class="ph">製品個体IDに重ねていく。</span><br><span class="ph">ユーザーはその場で正規性を確かめ、</span><span class="ph">ブランドは市場で起きている兆候を把握する。</span><span class="ph"><b>正規品確認だけで終わらない、</b></span><span class="ph"><b>ブランドの信頼を継続的に運用するための基盤です。</b></span></p>
+  </div>
+</section>
+
+<section id="problem" data-field="problem">
+  <div class="wrap">
+    <p class="eyebrow q">PROBLEM ／ ブランドの信頼を分断する4つの課題</p>
+    <h2 class="lede rev"><span class="ph">問題は、</span><span class="ph">製品の履歴と顧客接点が</span><span class="ph">つながっていないこと。</span></h2>
+    <p class="read">模倣品・非正規流通、流通の不透明さ、販売後の顧客接点、現場業務の負荷。<br>異なる課題に見えて、原因は一つです。</p>
+    <p class="read"><b>製品個体IDを起点に、製造・出荷・販売・所有の履歴と、<br>顧客との接点がつながっていない。</b></p>
+    <p class="read">その結果、正規性を十分に確かめられず、<br>異常がどこで起きたのかを追えず、<br>販売後の顧客との関係も継続できません。</p>
+
+    <ul class="problems">
+      <li><span class="pk">01 BRAND RISK</span><b><span class="ph">正規性を、</span><span class="ph">確かめきれない。</span></b><span>模倣品、横流し、並行流通、二次流通。<br>正規の製造・出荷履歴と、市場で起きていることを照合できなければ、<br>異常の兆候を捉えることができません。</span></li>
+      <li><span class="pk">02 TRACEABILITY</span><b><span class="ph">製品が、</span><span class="ph">どこを通ったのか追えない。</span></b><span>製造、出荷、倉庫、店舗、EC、販売後。<br>履歴が分断されていると、一つの製品がいつ、どこを通り、<br>どこで異常が生じたのかを追跡できません。</span></li>
+      <li><span class="pk">03 CUSTOMER CONNECTION</span><b><span class="ph">販売後の顧客と、</span><span class="ph">つながり続けられない。</span></b><span>購入者、所有者、保証、サポート、LINE、CRM。<br>製品と顧客の情報がつながっていなければ、<br>正規顧客との関係を販売後まで継続して育てることができません。</span></li>
+      <li><span class="pk">04 OPERATIONS</span><b><span class="ph">確認と判断が、</span><span class="ph">個別業務に分散する。</span></b><span>出荷登録、棚卸し、問い合わせ、鑑定依頼、品質対応。<br>製品情報が一元化されていないため、<br>確認・照合・判断が個別業務となり、<br>現場と管理部門の負荷が積み上がります。</span></li>
+    </ul>
+
+    <p class="closer"><span class="ph"><span class="lite">4つの課題を、</span><span class="ph">4つのシステムで解く必要はありません。</span></span><br><span class="ph">一つの製品個体IDを起点に、</span><span class="ph">履歴と顧客接点をつなぐ。</span><br><span class="ph">そこから、</span><span class="ph">ブランドの信頼を運用できる状態をつくります。</span></p>
+  </div>
+</section>
+
+<section id="roles" data-field="roles">
+  <div class="wrap">
+    <p class="eyebrow q">TWO LAYERS ／ 信頼を支える2つのレイヤー</p>
+    <h2 class="lede rev"><span class="ph">ブランドの信頼を、</span><span class="ph">製品の履歴が支える。</span></h2>
+    <p class="read">正規品であることを、IDだけで判断するのではありません。</p>
+    <p class="read">製造・出荷・販売・所有。<br>製品に積み重なる履歴をNiji&nbsp;TSが蓄積し、<br><span class="nb">B-Watchdog™</span>がその裏付けを顧客との接点へつなぎます。</p>
+    <p class="read"><b>一つの製品個体IDを起点に、<br>「信頼の根拠」と「信頼を確かめる体験」をつなぐ。<br>それが、Niji&nbsp;TS × <span class="nb">B-Watchdog™</span>です。</b></p>
+
+    <div class="roles">
+      <div class="card base" id="nijits">
+        <p class="k">TRACEABILITY BASE</p>
+        <h3>Niji&nbsp;TS</h3>
+        <p class="sub"><span class="ph">信頼の根拠を、</span><span class="ph">履歴として残す。</span></p>
+        <p>製品個体IDを起点に、<br>製造・出荷・在庫・販売・所有の履歴を蓄積します。</p>
+        <p>複数の履歴を同じ個体IDに接続し、<br>流通や所有の整合性を確認するための根拠をつくります。</p>
+        <ul><li>個体ID</li><li>製造・出荷</li><li>在庫・販売</li><li>所有</li><li>整合性確認</li></ul>
+      </div>
+      <div class="card front" id="bwatchdog">
+        <p class="k">FRONT EXPERIENCE</p>
+        <h3><span class="nb">B-Watchdog™</span></h3>
+        <p class="sub"><span class="ph">信頼を、</span><span class="ph">顧客に届ける。</span></p>
+        <p>製品のタグやコードを読み取り、正規品を確かめます。<br>そこからオーナー登録、保証・サポート、所有移転、<br>LINE / CRMまで、購入後のブランド体験へつなぎます。</p>
+        <ul><li>正規品の確認</li><li>オーナー登録</li><li>保証・サポート</li><li>所有移転</li><li>LINE・CRM</li></ul>
+      </div>
+    </div>
+    <p class="bridge"><span class="ph"><b>Niji&nbsp;TSが信頼の根拠をつくり、</b></span><br><span class="ph"><b><span class="nb">B-Watchdog™</span>がその信頼を顧客へ届ける。</b></span></p>
+  </div>
+</section>
+
+<section id="scenes" data-field="story">
+  <div class="wrap">
+    <p class="eyebrow q">SCENES ／ 製品の一生をたどる</p>
+    <h2 class="lede rev"><span class="ph">一つの製品IDに、</span><span class="ph">事実が積み重なっていく。</span></h2>
+    <p class="read">機能を並べるのではなく、一つの製品に何が起きるのかを7つの場面で見せます。<br>読み進めるほど、右の台帳に行が増えていきます。</p>
+
+    <div class="stage">
+      <div class="story">
+
+        <div class="act"><div class="act-inner"><span class="no">ACT I</span><h3>つくる、送る</h3></div></div>
+        <p class="act-note">まだ誰も手に取っていない段階で、その製品の履歴は始まっています。</p>
+
+        <div class="scene" data-scene="1" style="--tick:var(--s1)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-01.webp" alt="量産ラインを俯瞰する構図。同型のバックパックが等間隔で流れ、ロボットアームがタグを自動で装着していく。作業者は製品に触れず、離れた位置でモニタと在庫を確認している" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:41%;--ay:56%"></span>
+            <figcaption>接続点 ── ラインで装着されるタグ</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">その製品だけのIDが、</span><span class="ph">ここで生まれる。</span></h4>
+          <p class="body">製品ごとに個体IDを発行し、QR / NFC / RFIDなど、商品と運用に合った方法で製品へ接続します。</p>
+          <p class="seen"><b>記録されること</b>個体ID ／ 商品情報 ／ 発番・装着時点</p></div>
+          </div>
+        </div>
+
+        <div class="scene" data-scene="2" style="--tick:var(--s2)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-02.webp" alt="倉庫の出荷口。複数のQRタグが付いた段ボールを積んだ台車を、作業者がRFID読み取りゲートへ通している。ゲートは電波を発し、奥では別の作業者が端末で在庫を照合している" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:63%;--ay:44%"></span>
+            <figcaption>接続点 ── RFIDゲートの読み取り面</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">出荷した瞬間が、</span><span class="ph">履歴になる。</span></h4>
+          <p class="body">製品IDと出荷先を紐づけることで、「いつ、どこへ出荷されたか」が個体の履歴として残ります。<br>RFIDを使う場合は、複数製品の一括読み取りにも対応できます。</p>
+          <p class="seen"><b>記録されること</b>出荷日 ／ 出荷先 ／ 販売チャネル ／ 拠点情報</p></div>
+          </div>
+        </div>
+
+        <div class="act"><div class="act-inner"><span class="no">ACT II</span><h3>買う、持つ、渡す</h3></div></div>
+        <p class="act-note">ここから先が、購入者の目に触れる部分です。</p>
+
+        <div class="scene" data-scene="3" style="--tick:var(--s3)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-03.webp" alt="山小屋の玄関。バックパックに付いたタグへスマートフォンをかざす瞬間。画面には緑色の確認マークが表示されている" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:52%;--ay:62%"></span>
+            <figcaption>接続点 ── タグにかざしたスマートフォン</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">かざす。</span><br><span class="ph">履歴と照合する。</span></h4>
+          <p class="body">ユーザーが製品を読み取ると、その個体IDに紐づく流通履歴や利用状況を照合し、正規性の確認結果を返します。</p>
+          <p class="seen"><b>ユーザーに見えるもの</b>正規品確認 ／ 確認中 ／ 要確認</p></div>
+          </div>
+        </div>
+
+        <div class="scene" data-scene="4" style="--tick:var(--s4)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-04.webp" alt="山小屋のソファ。手にしたスマートフォンに盾のアイコンと登録項目が表示され、傍らにタグの付いたバックパックが置かれている" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:47%;--ay:50%"></span>
+            <figcaption>接続点 ── 保護の状態を示す画面</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">確認の次に、</span><span class="ph">関係が始まる。</span></h4>
+          <p class="body">正規品確認で終わらせず、オーナー登録、保証、サポート、LINE / CRMへつなげます。<br>ブランドにとって、販売後の顧客接点をつくる入口になります。</p>
+          <p class="seen"><b>ユーザーに見えるもの</b>オーナー登録 ／ 保証情報 ／ サポート導線</p></div>
+          </div>
+        </div>
+
+        <div class="scene" data-scene="5" style="--tick:var(--s5)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-05.webp" alt="雪山のカフェ。テーブルに置かれたタグ付きバックパックをはさみ、譲る側がスマートフォンの画面を示し、受け取る側が見ている" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:56%;--ay:53%"></span>
+            <figcaption>接続点 ── 譲る側が示す画面</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">持ち主が変わっても、</span><span class="ph">履歴をつなぐ。</span></h4>
+          <p class="body">二次流通や譲渡の場面では、所有移転の申請・確認を通じて、販売後の流通に新しい手がかりを残します。</p>
+          <p class="seen"><b>確認すること</b>既存所有情報 ／ 移転申請 ／ 所有履歴</p></div>
+          </div>
+        </div>
+
+        <div class="act"><div class="act-inner"><span class="no">ACT III</span><h3>見つける</h3></div></div>
+        <p class="act-note">ここが、正規品確認だけのサービスとの分かれ目です。</p>
+
+        <div class="scene" data-scene="6" style="--tick:var(--s6)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-06.webp" alt="左は雪山の正規店、右は夜の露店。離れた二か所で、同じバックパックの同じタグが同時に読み取られ、中央に警告の印が示されている" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:27%;--ay:55%"></span>
+            <span class="anchor" style="--ax:73%;--ay:55%"></span>
+            <figcaption>接続点 ── 左（正規店）と右（露店）、それぞれのタグ</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">コピーされても、</span><span class="ph">使われれば矛盾が現れる。</span></h4>
+          <p class="body">QRなどのID表現は複製される可能性があります。<br>だから<span class="nb">B-Watchdog™</span>は、IDそのものだけを見ません。<br>同じIDが、短時間に離れた場所から使われる。<br>正規出荷先と異なる市場で使われる。<br>既登録の製品に、別の所有者申請が入る。<b>時刻・場所・流通・所有の履歴を照合し、「同じIDを名乗る行動」の矛盾を捉えます。</b></p>
+          <p class="seen"><b>右の台帳で起きたこと</b>初めて、2行が同時に書かれました。<br>読み比べてください。</p></div>
+          </div>
+        </div>
+
+        <div class="scene" data-scene="7" style="--tick:var(--s7)">
+          <div class="sheet">
+          <figure class="plate">
+            <img src="../../assets/img/products/scene-07.webp" alt="オフィスのデスク。担当者が肩越しの視点で世界地図とグラフを含むダッシュボードに向かい、背後には量産中の同型バックパックが並ぶ" width="1672" height="941" loading="lazy" decoding="async">
+            <span class="anchor" style="--ax:58%;--ay:41%"></span>
+            <figcaption>接続点 ── 世界を見渡す画面</figcaption>
+          </figure>
+          <div class="txt"><h4 class="rev"><span class="ph">市場の兆候が、</span><span class="ph">判断できる形で集まる。</span></h4>
+          <p class="body">スキャンログ、確認結果、所有履歴、問い合わせ、申告情報。<br>散らばっていた情報を同じ製品個体IDで見られるようにします。<br>ブランド担当者は異常の兆候を確認し、鑑定依頼、顧客対応、管理者確認など、次のアクションへ進めます。</p>
+          <p class="seen"><b>ブランド側に見えるもの</b>異常兆候 ／ 個体履歴 ／ 対応ステータス ／ 監査ログ</p></div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="rail-wrap" aria-label="製品個体の履歴">
+        <div class="rail" id="rail">
+          <div class="rail-head">
+            <p class="rh-lab">Niji&nbsp;TS</p>
+            <p class="rh-title">個体の履歴</p>
+            <p class="rh-id">NJ-DEMO-4C1A-0007</p>
+            <span class="rh-demo">表示例</span>
+            <p class="rail-count" id="railCount">10行中 1行</p>
+                        <p class="rh-latest" id="railLatest" aria-live="polite">
+              <span class="rl-k">最新</span><span class="rl-ev">発番</span><span class="rl-mt">03-04 09:12 ／ 製造 MFG-01</span>
+            </p>
+          </div>
+          <div class="strip"><button type="button" id="stripToggle" aria-expanded="false" aria-controls="ledger">全履歴</button></div>
+          <ol class="ledger" id="ledger">
+            <li class="written" style="--tick:var(--muted)"><span class="ev">発番</span><span class="mt">03-04 09:12 ／ 製造 MFG-01</span></li>
+            <li data-row="1" style="--tick:var(--s1)"><span class="ev">タグ装着</span><span class="mt">03-04 11:40 ／ 検品 MFG-01</span></li>
+            <li data-row="2" style="--tick:var(--s2)"><span class="ev">出荷登録 <span class="qty">×48,000</span></span><span class="mt">03-06 08:05 ／ 仕向 JP-13・SG-02・DE-01</span></li>
+            <li data-row="3" style="--tick:var(--s3)"><span class="ev">初回スキャン</span><span class="mt">04-02 19:23 ／ JP-13 店頭</span></li>
+            <li data-row="4" style="--tick:var(--s4)"><span class="ev">所有者登録</span><span class="mt">04-02 19:31 ／ 所有者 B</span></li>
+            <li data-row="5" style="--tick:var(--s5)"><span class="ev">所有移転</span><span class="mt">07-18 14:06 ／ 所有者 B → C</span></li>
+            <li data-row="6" class="lane pair" style="--tick:var(--s6)"><span class="ev">スキャン</span><span class="mt">08-21 13:44<br>JP-13 店頭</span></li>
+            <li data-row="6" class="lane r pair" style="--tick:var(--s6)"><span class="ev">スキャン</span><span class="mt">08-21 13:52<br>SG-02 転送拠点</span></li>
+            <li data-row="7" style="--tick:var(--s7)"><span class="ev">ブランドによる審査へ</span><span class="mt">08-21 13:52 ／ 判定保留</span></li>
+            <li class="blank"><span class="ev">──</span></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section data-field="collate">
+  <div class="wrap">
+    <p class="eyebrow">COPY RESILIENCE ／ 市場の矛盾を捉える</p>
+    <h2 class="lede rev"><span class="ph">模倣やグレー流通は、</span><span class="ph"><span class="nb">「使われ方」</span>の矛盾から</span><span class="ph">見えてくる。</span></h2>
+    <p class="read">同じ製品個体IDが、異なる場所、異なる流通、異なる所有者として現れる。</p>
+    <p class="read"><span class="nb">B-Watchdog™</span>が見るのは、IDそのものではなく、<br>そのIDを名乗る行動と履歴の整合性です。</p>
+    <p class="read">製造・出荷・販売・所有の正規履歴と、<br>市場で発生するスキャンを照合することで、<br>模倣品や非正規・グレー流通の兆候を捉えます。</p>
+
+    <div class="collate-lead">
+      <span class="cstep" aria-hidden="true"><b id="collateN">0</b><em>/3</em></span>
+      <span class="hint" id="collateHint">スクロールすると、履歴が1組ずつ突き合わされます</span>
+      <span class="ctrack" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+
+    <div class="pairs" id="pairs">
+      <div class="pair-row">
+        <span class="rn" aria-hidden="true">01</span>
+        <div class="side"><span class="lab">01 LOCATION / TIME</span><span class="idmatch">NJ-DEMO-4C1A-0007</span> ／ 08-21 13:44 JP-13 店頭</div>
+        <div class="gapmark">時間・場所が矛盾<em>9分 / 約5,300km</em></div>
+        <div class="side r"><span class="lab">同じ製品個体ID</span><span class="idmatch">NJ-DEMO-4C1A-0007</span> ／ <span class="mis" data-ghost="08-21 13:52 SG-02 転送拠点">08-21 13:52 SG-02 転送拠点</span></div>
+      </div>
+      <div class="pair-row">
+        <span class="rn" aria-hidden="true">02</span>
+        <div class="side"><span class="lab">02 OWNERSHIP</span><span class="idmatch">NJ-DEMO-4C1A-0007</span> ／ 所有者 C（07-18 登録済）</div>
+        <div class="gapmark">所有情報が競合</div>
+        <div class="side r"><span class="lab">同じ製品個体ID</span><span class="idmatch">NJ-DEMO-4C1A-0007</span> ／ <span class="mis" data-ghost="所有者 D から申請">所有者 D から申請</span></div>
+      </div>
+      <div class="pair-row">
+        <span class="rn" aria-hidden="true">03</span>
+        <div class="side"><span class="lab">03 DISTRIBUTION</span><span class="idmatch">NJ-DEMO-4C1A-0007</span> ／ 仕向 JP-13</div>
+        <div class="gapmark">流通履歴と不整合</div>
+        <div class="side r"><span class="lab">同じ製品個体ID</span><span class="idmatch">NJ-DEMO-4C1A-0007</span> ／ <span class="mis" data-ghost="SG-02 で読取">SG-02 で読取</span></div>
+      </div>
+    </div>
+
+    <div class="cross"><i class="mark"></i>COLLISION ── 同じIDに、複数の履歴矛盾が重なる</div>
+    <p class="note">IDは同じ。<br><b>食い違っているのは、そのIDを名乗る行動です。</b></p>
+    <p class="note">時間・場所・所有・流通の履歴を重ねることで、<br>単独のスキャンでは見えない異常が浮かび上がります。</p>
+    <p class="note">矛盾が一定の条件を超えた場合は、<br>自動承認せず、保留・追加確認・ブランドによる審査へつなぎます。</p>
+    <p class="closer"><span class="ph">模倣品・グレー流通の兆候を、</span><br><span class="ph">製品個体IDに積み重なる<b>「履歴の矛盾」</b>から捉える。</span></p>
+      <p class="mid-cta"><a href="../../contact.html">導入について相談する →</a><a href="../../contact.html?type=doc">資料請求 →</a></p>
+  </div>
+</section>
+
+<section data-field="policy">
+  <div class="wrap">
+    <p class="eyebrow">TRUST POLICY ／ 判定の設計</p>
+    <h2 class="lede rev"><span class="ph">何を証拠とするかは、</span><span class="ph">ブランドごとに設計する。</span></h2>
+    <p class="read">高額品と日用品では、見るべきリスクが違います。<br>直販中心のブランドと、代理店・越境ECを持つブランドでも、異常の意味は変わります。<br><span class="nb">B-Watchdog™</span>では、商品特性、流通構造、許容リスクに応じて、判定材料の重みと閾値を設計します。<br>実際に動かして確かめてください。</p>
+
+    <div class="policy-ref">
+      <div><p class="prk">主な判定材料</p><p>製品個体ID ／ 出荷・拠点履歴 ／ 時刻・場所・端末 ／ オーナー登録・所有移転 ／ 申請・問い合わせ・証憑 ／ 過去の操作ログ</p></div>
+      <div><p class="prk">判定結果</p><p>即時承認 ／ 保留 ／ ブランドによる審査 ／ 否認 ／ 再判定</p></div>
+    </div>
+
+    <div class="policy">
+      <div class="controls">
+        <div class="ctl"><label for="w1">時間と場所の矛盾 ── 配点 <span class="v" id="v1">40</span></label><input type="range" id="w1" min="0" max="50" value="40"></div>
+        <div class="ctl"><label for="w2">所有者の競合 ── 配点 <span class="v" id="v2">35</span></label><input type="range" id="w2" min="0" max="50" value="35"></div>
+        <div class="ctl"><label for="w3">流通経路の不整合 ── 配点 <span class="v" id="v3">25</span></label><input type="range" id="w3" min="0" max="50" value="25"></div>
+        <div class="ctl"><label for="th">ブランドによる審査へ回すしきい値 <span class="v" id="vt">80</span></label><input type="range" id="th" min="20" max="150" value="80"></div>
+      </div>
+      <div class="verdict">
+        <p class="vh">この個体に対する判定</p>
+        <p class="score">異常スコア <span id="scoreVal">100</span> ／ しきい値 <span id="thVal">80</span></p>
+        <div class="bar"><i id="barFill"></i><u id="barTick"></u></div>
+        <p class="out" id="verdictOut" aria-live="polite"><span class="mark" id="verdictMark" hidden></span>ブランドによる審査</p>
+        <p class="warn" id="warnBox"></p>
+      </div>
+    </div>
+    <p class="ui-note">UI上のスコア・閾値は説明用の例示です。<br>実績値・性能値ではありません。</p>
+    <p class="closer"><span class="ph">固定ロジックではなく、</span><br><span class="ph">実際の運用データを見ながらブランド固有のTrust Policyへ調整していきます。</span></p>
+  </div>
+</section>
+
+<section id="fit" data-field="fit">
+  <div class="wrap">
+    <p class="eyebrow">TARGET FIT ／ 対象になる商品</p>
+    <h2 class="lede rev"><span class="ph">「本物であること」が、</span><span class="ph">価値になる商品へ。</span></h2>
+    <p class="read">「本物であること」「所有・流通の履歴」「正規顧客との接点」のいずれかが事業価値に直結する商品ほど、導入効果を設計しやすくなります。<b>まず5つを確認します。</b></p>
+
+    <ul class="fitcheck">
+      <li>商品単価・ブランド価値が高い</li>
+      <li>限定品・シリアル管理の対象がある</li>
+      <li>販売チャネル・流通経路が複数ある</li>
+      <li>購入後の保証・修理・問い合わせがある</li>
+      <li>正規顧客・所有者との接点を作りたい</li>
+    </ul>
+
+    <p class="hint-line">導入効果を設計しやすい4つの起点 ── 高単価・限定性がある／二次流通・非正規流通がある／保証・修理・自主回収がある／ファン化・CRMを強化したい</p>
+    <p class="cats">アパレル ／ スニーカー ／ バッグ ／ 時計・ジュエリー ／ 美容機器 ／ ヘルスケア製品 ／ 家電 ／ スポーツ用品 ／ コレクタブル ／ プレミアム雑貨・高付加価値日用品</p>
+  </div>
+</section>
+
+<section id="scope" data-field="scope">
+  <div class="wrap">
+    <p class="eyebrow">SERVICE SCOPE ／ 提供範囲</p>
+    <h2 class="lede rev"><span class="ph">アプリではなく、</span><span class="ph">信頼の仕組みを実装する。</span></h2>
+    <p class="read">Niji&nbsp;TS / <span class="nb">B-Watchdog™</span>は、アプリ単体の提供ではありません。<b>製品ID、履歴データ、ユーザー体験、ブランド管理、既存システムとの連携まで、必要なレイヤーを組み合わせて設計します。</b></p>
+
+    <ol class="layers">
+      <li><span class="ln">01</span><b>導入設計</b><span>商品特性・流通構造・既存システムを整理し、PoC / 本導入のスコープを定義</span></li>
+      <li><span class="ln">02</span><b>個体ID・タグ設計</b><span>QR / NFC / RFIDから、商品と運用に合う識別方式を設計</span></li>
+      <li><span class="ln">03</span><b>履歴データ基盤</b><span>製造・出荷・在庫・販売・所有の履歴を製品個体IDに接続</span></li>
+      <li><span class="ln">04</span><b><span class="nb">B-Watchdog™</span> Webアプリ</b><span>正規品確認、オーナー登録、所有移転、問い合わせ・鑑定依頼などの導線を提供</span></li>
+      <li><span class="ln">05</span><b>ブランド管理画面</b><span>スキャンログ、異常兆候、問い合わせ、対応ステータスを管理</span></li>
+      <li><span class="ln">06</span><b>外部連携・AI活用</b><span>LINE、CRM、EC、WMS、BI、AI分析などへ接続し、活用領域を拡張</span></li>
+    </ol>
+
+    <p class="hint-line">提供レベルは3つに分けています。<br>期待値と見積条件を先に揃えるためです。</p>
+    <ul class="delivery">
+      <li><span class="dk">STANDARD</span><b>標準提供できる範囲</b><span>製品ID / Webアプリ / 簡易履歴 / 基本的な管理機能。<br>PoCで早期に検証しやすい機能を中心に構成します。</span></li>
+      <li><span class="dk">CUSTOM</span><b>個別に設計・開発する範囲</b><span>WMS / ERP / CRM / EC連携、権限管理、独自業務フローなど。<br>要件整理後に、工数・費用・導入順序を設計します。</span></li>
+      <li><span class="dk">EXTENSION</span><b>段階的に拡張する範囲</b><span>AI分析、BI、全社トレーサビリティ統合など。<br>PoC結果と事業優先度を踏まえ、必要な範囲から拡張します。</span></li>
+    </ul>
+
+  </div>
+</section>
+
+<section data-field="plans">
+  <div class="wrap">
+    <p class="eyebrow">HOW TO START ／ 導入の入口</p>
+    <h2 class="lede rev"><span class="ph">まずは、</span><span class="ph">1商品・1チャネルから。</span></h2>
+    <p class="read">大規模な全社基盤を前提にせず、課題・現場・既存システムに合わせて<b>小さく始めます。</b>3つの入口は同じ台帳を使います。違うのは、どの現場から書き始めるかです。</p>
+    <ul class="mx-cards"><li><span class="pn2">ENTRY</span><b><span class="nb">B-Watchdog™</span>から始める</b><span>特定商品・限定品で、正規品確認と顧客接点を先に試したい。</span><span class="r"><span>範囲</span>製品ID・Webアプリ・簡易履歴・管理画面</span></li><li><span class="pn2">OPERATIONS</span><b>出荷・棚卸しから始める</b><span>倉庫・店舗・出荷の作業負荷を減らし、拠点履歴を個体IDに残したい。</span><span class="r"><span>範囲</span>RFID等による入出荷・棚卸し・拠点履歴管理</span></li><li><span class="pn2">ENTERPRISE</span><b>Niji&nbsp;TSを本格実装する</b><span>製造から再流通まで、商品のすべての工程を履歴として残したい。</span><span class="r"><span>範囲</span>全12工程を、1商品で通して検証</span></li></ul>
+    <div class="mx-wrap">
+    <table class="mx">
+      <caption class="sr-only">3つの導入入口と、最初に動かす工程</caption>
+      <thead><tr><th scope="col" class="mx-cap">工程 ／ 同じ台帳</th><th scope="col"><span class="pn2">ENTRY</span><b class="mx-t"><span class="nb">B-Watchdog™</span>から始める</b><span class="mx-d">特定商品・限定品で、正規品確認と顧客接点を先に試したい。</span><span class="mx-r"><span>範囲</span>製品ID・Webアプリ・簡易履歴・管理画面</span><span class="mx-c">6 / 12 工程</span></th><th scope="col"><span class="pn2">OPERATIONS</span><b class="mx-t">出荷・棚卸しから始める</b><span class="mx-d">倉庫・店舗・出荷の作業負荷を減らし、拠点履歴を個体IDに残したい。</span><span class="mx-r"><span>範囲</span>RFID等による入出荷・棚卸し・拠点履歴管理</span><span class="mx-c">7 / 12 工程</span></th><th scope="col"><span class="pn2">ENTERPRISE</span><b class="mx-t">Niji&nbsp;TSを本格実装する</b><span class="mx-d">製造から再流通まで、商品のすべての工程を履歴として残したい。</span><span class="mx-r"><span>範囲</span>全12工程を、1商品で通して検証</span><span class="mx-c">12 / 12 工程</span></th></tr></thead>
+      <tbody><tr><th scope="row" style="--tick:var(--muted)">発番<span class="mt">個体ID・製造</span></th><td><i class="on" style="background:var(--muted)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--muted)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--muted)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s1)">タグ装着<span class="mt">エンコード・検品</span></th><td><i class="on" style="background:var(--s1)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--s1)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--s1)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s2)">入荷・棚入れ<span class="mt">拠点・ロケーション</span></th><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s2)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--s2)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s2)">棚卸し<span class="mt">一括読取・差異リスト</span></th><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s2)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--s2)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s3)">出荷登録<span class="mt">出荷検品・仕向</span></th><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s3)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--s3)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s3)">移動・返品<span class="mt">拠点間・再販可否</span></th><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s3)"></i><span class="sr-only">最初に動かす</span></td><td><i class="on" style="background:var(--s3)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s4)">初回スキャン<span class="mt">正規品確認</span></th><td><i class="on" style="background:var(--s4)"></i><span class="sr-only">最初に動かす</span></td><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s4)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s5)">所有者登録<span class="mt">保証・CRM</span></th><td><i class="on" style="background:var(--s5)"></i><span class="sr-only">最初に動かす</span></td><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s5)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s5)">所有移転<span class="mt">譲渡の引継ぎ</span></th><td><i class="on" style="background:var(--s5)"></i><span class="sr-only">最初に動かす</span></td><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s5)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s6)">スキャン（店頭）<span class="mt">時刻・地点</span></th><td><i class="on" style="background:var(--s6)"></i><span class="sr-only">最初に動かす</span></td><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s6)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s6)">スキャン（経路外）<span class="mt">衝突検知</span></th><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s6)"></i><span class="sr-only">最初に動かす</span></td></tr><tr><th scope="row" style="--tick:var(--s7)">ブランドによる審査へ<span class="mt">監査ログ</span></th><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td class="no"><i></i><span class="sr-only">あとから足せる</span></td><td><i class="on" style="background:var(--s7)"></i><span class="sr-only">最初に動かす</span></td></tr></tbody>
+    </table>
+    </div>
+    <div class="closer2">
+      <p class="c1"><span class="ph">どの入口も、</span><span class="ph">1商品・1チャネル・1導線で検証を始めます。</span></p>
+      <p class="c2">期間は8〜12週間が目安です。対象範囲、タグ方式、外部連携の有無によって変わります。</p>
+      <dl class="c3"><dt>PoCで計測する項目</dt><dd><b>守る</b>異常兆候／誤検知・見逃し／保留率／審査負荷</dd><dd><b>減らす</b>現場・管理工数／問い合わせ・鑑定対応</dd><dd><b>増やす</b>スキャン率／オーナー登録率</dd></dl>
+      <p class="c2">この実データをもとに、本導入範囲、運用体制、判定ポリシー、概算費用を具体化します。</p>
+    </div>
+    <p class="mid-cta"><a href="../../contact.html">導入について相談する →</a><a href="../../contact.html?type=doc">資料請求 →</a></p>
+
+  </div>
+</section>
+
+<section id="roi" data-field="roi">
+  <div class="wrap">
+    <p class="eyebrow">ROI ／ 投資判断</p>
+    <h2 class="lede rev"><span class="ph">ROIは、</span><span class="ph"><span class="nb">「守る・減らす・増やす」</span>で見る。</span></h2>
+    <p class="read">Niji&nbsp;TS / <span class="nb">B-Watchdog™</span>の価値は、単一のコスト削減だけでは測れません。<b>守る価値、減らすコスト、増やす顧客接点。</b>3つの効果を合わせて投資判断します。</p>
+
+    <ul class="roi">
+      <li><span class="rk">01 守る</span><b>ブランド保護</b><span>模倣品・非正規流通・所有衝突などの兆候を把握し、ブランド毀損リスクを抑える。</span><em>異常スキャン数 ／ 対応件数 ／ 対象チャネル</em></li>
+      <li><span class="rk">02 減らす</span><b>業務効率化</b><span>出荷、棚卸し、拠点確認、問い合わせ、鑑定対応の工数を減らす。</span><em>削減工数 ／ 作業時間 ／ 対応単価 ／ 棚卸精度</em></li>
+      <li><span class="rk">03 増やす</span><b>顧客接点</b><span>オーナー登録、保証、LINE / CRM連携を通じ、正規顧客との継続接点を増やす。</span><em>登録率 ／ LINE連携率 ／ 再購入率 ／ 反応率</em></li>
+    </ul>
+
+    <div class="formula">
+      <p><b>年間効果</b> ＝ ブランド保護効果 ＋ 業務削減効果 ＋ 顧客接点効果</p>
+      <p><b>年間ROI</b> ＝（年間効果 − 年間投資額）÷ 年間投資額</p>
+      <p class="fnote">年間投資額は、PoC範囲・年間ID数・タグ方式・外部連携・運用体制で変わります。</p>
+    </div>
+
+    <p class="closer"><span class="ph">初回提案で判断軸を揃え、</span><span class="ph">PoCで実測値を取り、</span><br><span class="ph">本導入のROIへ落とし込みます。</span></p>
+  </div>
+</section>
+
+<section id="faq" data-field="faq">
+  <div class="wrap">
+        <h2 class="eyebrow q">FAQ ／ よくあるご質問</h2>
+
+    <div class="faq">
+      <details class="qa">
+        <summary>
+          <h3>Niji Brand Trust Platform とは何ですか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>Niji Brand Trust Platform は、製品個体IDを起点に製造・出荷・在庫・販売・所有の履歴を蓄積し、その履歴を根拠に正規性を確認できるようにするブランド信頼基盤です。履歴を蓄積する Niji&nbsp;TS と、その信頼を顧客接点へ届ける <span class="nb">B-Watchdog™</span> の2つのレイヤーで構成されます。</p></div>
+      </details>
+      <details class="qa">
+        <summary>
+          <h3>Niji&nbsp;TS と <span class="nb">B-Watchdog™</span> は何が違いますか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>Niji&nbsp;TS は信頼の根拠を履歴として残す基盤です。製品個体IDを起点に履歴を蓄積し、流通や所有の整合性を確認するための根拠をつくります。<span class="nb">B-Watchdog™</span> はその信頼を顧客に届けるフロント体験です。製品のタグやコードを読み取ることで正規性を確認し、オーナー登録、保証・サポート、所有移転、LINE / CRM まで、購入後のブランド体験へつなぎます。</p></div>
+      </details>
+      <details class="qa">
+        <summary>
+          <h3>模倣品や非正規流通の兆候は、どのように捉えるのですか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>製造・出荷・販売・所有の正規履歴と、市場で発生するスキャンを照合します。同じ製品個体IDが短時間のうちに物理的に成立しない複数地点から読み取られる（時間・場所の矛盾）、すでにオーナー登録された製品に別のユーザーから所有申請が入る（所有情報の競合）、正規の出荷先とは異なる地域や市場から読み取られる（流通履歴との不整合）。こうした矛盾から異常の兆候を捉えます。矛盾が一定の条件を超えた場合は、自動承認せず、保留・追加確認・ブランドによる審査へつなぎます。</p></div>
+      </details>
+      <details class="qa">
+        <summary>
+          <h3>どのタグ方式に対応していますか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>QR / NFC / RFID など、商品と運用に合った方法で製品個体IDを製品へ接続します。RFID を使う場合は、複数製品の一括読み取りにも対応できます。</p></div>
+      </details>
+      <details class="qa">
+        <summary>
+          <h3>既存の基幹システムや物流システムと連携できますか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>できます。API・データ連携を前提に設計します。アパレル・繊維の領域では、製品・半製品の個体／ロット管理と棚卸を、既存の基幹・物流システムと連携して実装しています。</p></div>
+      </details>
+      <details class="qa">
+        <summary>
+          <h3>正規性の判定基準は、どのように決まりますか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>商品特性、流通構造、許容リスクに応じて、判定材料の重みと閾値をブランドごとに設計します。高額品と日用品では見るべきリスクが異なり、直販中心のブランドと代理店・越境ECを持つブランドでも、異常の意味が変わるためです。</p></div>
+      </details>
+      <details class="qa">
+        <summary>
+          <h3>導入はどこから始められますか？</h3>
+          <span class="mk" aria-hidden="true"></span>
+        </summary>
+        <div class="qa-a"><p>1商品・1チャネル・1導線を起点に、8〜12週間を目安として検証します。PoC で得た実データをもとに、本導入範囲、運用体制、判定ポリシー、概算費用を具体化します。対象商品やタグ方式が決まっていない構想段階からご相談いただけます。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact" data-field="cta">
+  <div class="wrap">
+    <h2>まず、1商品から設計します。</h2>
+    <p>対象商品の特性、流通の構造、既存システムの状況をうかがい、Niji&nbsp;TS / <span class="nb">B-Watchdog™</span>をどこから始めるべきか整理します。<br>構想段階でも構いません。<br>対象商品やタグ方式が決まっていない状態からご相談いただけます。</p>
+    <ul class="routes">
+      <li><b>サービス概要</b><span>Niji&nbsp;TS / <span class="nb">B-Watchdog™</span>の考え方、機能、導入パターンをご説明します。</span></li>
+      <li><b>技術・セキュリティ確認</b><span>データ保管、権限管理、既存システム連携など、情報システム・調達部門の確認事項に対応します。</span></li>
+      <li><b>PoC / 導入設計</b><span>対象商品、チャネル、確認したいKPIを整理し、検証範囲と進め方をご提案します。</span></li>
+    </ul>
+    <div class="cta-actions"><a class="btn" href="../../contact.html">導入について相談する</a><a class="btn btn-ghost" href="../../contact.html?type=doc">資料請求</a></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://niji-global.com/#organization",
+      "name": "株式会社虹",
+      "legalName": "株式会社虹",
+      "foundingDate": "2025-10-31",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "法人番号",
+        "value": "4010001259985"
+      },
+      "description": "RFID・NFCを基盤に、製品や資産の個体管理・トレーサビリティのシステムを提供する会社。"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "#niji-brand-trust-platform",
+      "name": "Niji Brand Trust Platform",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ブランド保護 / トレーサビリティ",
+      "operatingSystem": "Web",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://niji-global.com/#organization"
+      },
+      "description": "製品個体IDを起点に製造・出荷・在庫・販売・所有の履歴を蓄積し、その履歴を根拠に正規性を確認できるようにするブランド信頼基盤。履歴を蓄積する Niji TS と、その信頼を顧客接点へ届ける B-Watchdog™ の2つのレイヤーで構成される。",
+      "featureList": [
+        "製品個体IDの発行とタグ（QR / NFC / RFID）への接続",
+        "製造・出荷・在庫・販売・所有の履歴蓄積",
+        "正規性の確認とユーザーへの結果提示",
+        "オーナー登録・保証・サポート・所有移転",
+        "LINE / CRM への接続",
+        "時間・場所・所有・流通の履歴照合による異常兆候の検知",
+        "ブランドごとの判定ポリシー設計（判定材料の重みと閾値）"
+      ],
+      "hasPart": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "B-Watchdog™",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "publisher": {
+            "@id": "https://niji-global.com/#organization"
+          },
+          "description": "信頼を顧客に届けるフロント体験。製品のタグやコードを読み取ることで正規性を確認し、オーナー登録、保証・サポート、所有移転、LINE / CRM まで、購入後のブランド体験へつなぐ。"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Niji TS",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "publisher": {
+            "@id": "https://niji-global.com/#organization"
+          },
+          "description": "信頼の根拠を履歴として残す基盤。製品個体IDを起点に製造・出荷・在庫・販売・所有の履歴を蓄積し、流通や所有の整合性を確認するための根拠をつくる。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "#faq",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Niji Brand Trust Platform とは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Niji Brand Trust Platform は、製品個体IDを起点に製造・出荷・在庫・販売・所有の履歴を蓄積し、その履歴を根拠に正規性を確認できるようにするブランド信頼基盤です。履歴を蓄積する Niji TS と、その信頼を顧客接点へ届ける B-Watchdog™ の2つのレイヤーで構成されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Niji TS と B-Watchdog™ は何が違いますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Niji TS は信頼の根拠を履歴として残す基盤です。製品個体IDを起点に履歴を蓄積し、流通や所有の整合性を確認するための根拠をつくります。B-Watchdog™ はその信頼を顧客に届けるフロント体験です。製品のタグやコードを読み取ることで正規性を確認し、オーナー登録、保証・サポート、所有移転、LINE / CRM まで、購入後のブランド体験へつなぎます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "模倣品や非正規流通の兆候は、どのように捉えるのですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "製造・出荷・販売・所有の正規履歴と、市場で発生するスキャンを照合します。同じ製品個体IDが短時間のうちに物理的に成立しない複数地点から読み取られる（時間・場所の矛盾）、すでにオーナー登録された製品に別のユーザーから所有申請が入る（所有情報の競合）、正規の出荷先とは異なる地域や市場から読み取られる（流通履歴との不整合）。こうした矛盾から異常の兆候を捉えます。矛盾が一定の条件を超えた場合は、自動承認せず、保留・追加確認・ブランドによる審査へつなぎます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どのタグ方式に対応していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QR / NFC / RFID など、商品と運用に合った方法で製品個体IDを製品へ接続します。RFID を使う場合は、複数製品の一括読み取りにも対応できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "既存の基幹システムや物流システムと連携できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "できます。API・データ連携を前提に設計します。アパレル・繊維の領域では、製品・半製品の個体／ロット管理と棚卸を、既存の基幹・物流システムと連携して実装しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "正規性の判定基準は、どのように決まりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "商品特性、流通構造、許容リスクに応じて、判定材料の重みと閾値をブランドごとに設計します。高額品と日用品では見るべきリスクが異なり、直販中心のブランドと代理店・越境ECを持つブランドでも、異常の意味が変わるためです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "導入はどこから始められますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1商品・1チャネル・1導線を起点に、8〜12週間を目安として検証します。PoC で得た実データをもとに、本導入範囲、運用体制、判定ポリシー、概算費用を具体化します。対象商品やタグ方式が決まっていない構想段階からご相談いただけます。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "inLanguage": "ja",
+      "name": "Niji Brand Trust Platform ／ Niji TS × B-Watchdog™",
+      "about": {
+        "@id": "#niji-brand-trust-platform"
+      },
+      "publisher": {
+        "@id": "https://niji-global.com/#organization"
+      },
+      "description": "製品個体IDに製造・出荷・販売・所有の履歴を積み重ね、その履歴を根拠に正規性を確認する。模倣品や非正規・グレー流通の兆候は、履歴の矛盾から捉える。"
+    }
+  ]
+}
+</script>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+  
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  
+  var cv = document.getElementById('water');
+  if (cv && cv.getContext) {
+    var ctx = cv.getContext('2d', { alpha: true });
+    var MOTION = reduce ? 0.5 : 1.0;   
+
+    var SPECTRUM = [
+      [232, 175, 168], [239, 199, 166], [228, 213, 160], [174, 208, 187],
+      [149, 192, 224], [179, 182, 215], [198, 177, 208]
+    ];
+    
+    function spectrumAt(u) {
+      var t = Math.max(0, Math.min(1, u)) * (SPECTRUM.length - 1);
+      var k = Math.min(SPECTRUM.length - 2, Math.floor(t)), f = t - k;
+      var a = SPECTRUM[k], b = SPECTRUM[k + 1];
+      return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f];
+    }
+
+    
+    var LAND_SEGS = [
+      [12,286,302],[13,205,211],[13,213,223],[13,267,310],[14,195,235],[14,265,316],[15,182,237],[15,241,317],
+      [15,320,321],[16,176,234],[16,237,317],[16,319,322],[16,326,336],[16,473,478],[16,484,487],[17,169,176],
+      [17,178,337],[17,460,461],[17,469,478],[17,480,483],[17,488,490],[17,539,543],[17,546,553],[18,167,331],
+      [18,449,463],[18,467,490],[18,517,520],[18,544,555],[19,159,162],[19,166,221],[19,225,328],[19,392,393],
+      [19,395,414],[19,422,427],[19,452,462],[19,464,482],[19,542,558],[20,159,162],[20,166,218],[20,229,325],
+      [20,381,414],[20,460,462],[20,477,479],[20,512,515],[20,542,560],[21,148,157],[21,168,213],[21,222,322],
+      [21,381,411],[21,513,514],[21,546,559],[21,561,568],[22,135,141],[22,150,160],[22,163,168],[22,171,211],
+      [22,215,320],[22,381,404],[22,412,419],[22,553,570],[23,130,131],[23,133,141],[23,150,161],[23,163,170],
+      [23,174,209],[23,214,317],[23,321,322],[23,382,398],[23,400,406],[23,558,570],[23,572,575],[24,126,127],
+      [24,129,140],[24,147,149],[24,155,162],[24,165,173],[24,177,179],[24,183,208],[24,215,324],[24,387,396],
+      [24,401,409],[24,559,560],[24,565,571],[25,119,129],[25,134,139],[25,148,151],[25,167,172],[25,177,180],
+      [25,182,203],[25,215,323],[25,388,395],[25,401,407],[25,495,495],[25,538,539],[25,550,553],[25,562,575],
+      [26,117,128],[26,130,133],[26,140,143],[26,150,153],[26,156,164],[26,166,204],[26,217,323],[26,390,394],
+      [26,490,497],[26,551,552],[26,554,555],[26,557,558],[26,561,585],[26,656,658],[27,114,135],[27,139,144],
+      [27,146,148],[27,150,164],[27,167,202],[27,221,322],[27,480,497],[27,545,586],[27,635,639],[27,642,644],
+      [27,665,665],[28,114,115],[28,117,149],[28,152,171],[28,175,201],[28,225,226],[28,239,321],[28,475,492],
+      [28,524,524],[28,539,587],[28,631,632],[28,634,650],[28,652,653],[29,124,148],[29,150,152],[29,158,173],
+      [29,175,200],[29,242,325],[29,471,484],[29,523,524],[29,533,587],[29,630,650],[29,652,661],[30,115,117],
+      [30,128,146],[30,160,160],[30,164,173],[30,175,201],[30,244,321],[30,324,324],[30,397,398],[30,471,481],
+      [30,529,529],[30,531,585],[30,635,646],[30,654,661],[31,110,126],[31,132,136],[31,162,164],[31,169,177],
+      [31,183,186],[31,188,188],[31,195,196],[31,245,321],[31,397,398],[31,469,478],[31,524,529],[31,532,586],
+      [31,630,632],[31,640,642],[32,111,129],[32,146,150],[32,156,166],[32,168,179],[32,183,190],[32,192,205],
+      [32,247,319],[32,467,475],[32,501,502],[32,511,512],[32,521,577],[32,579,597],[32,606,614],[32,631,632],
+      [32,640,646],[33,110,131],[33,138,138],[33,143,150],[33,154,166],[33,168,177],[33,181,207],[33,248,318],
+      [33,466,473],[33,499,503],[33,508,513],[33,517,518],[33,520,600],[33,605,618],[33,639,646],[34,109,149],
+      [34,154,176],[34,180,209],[34,247,315],[34,465,472],[34,497,505],[34,508,511],[34,514,519],[34,521,618],
+      [34,641,651],[35,108,150],[35,156,167],[35,169,172],[35,180,211],[35,248,315],[35,463,471],[35,497,505],
+      [35,509,618],[35,638,659],[36,0,3],[36,108,119],[36,122,151],[36,159,166],[36,168,173],[36,179,216],
+      [36,248,316],[36,462,471],[36,495,504],[36,506,618],[36,624,626],[36,630,661],[36,719,719],[37,0,5],
+      [37,45,50],[37,112,118],[37,123,151],[37,161,163],[37,166,174],[37,180,218],[37,249,316],[37,342,344],
+      [37,409,412],[37,414,416],[37,463,473],[37,493,620],[37,623,664],[37,669,676],[37,717,719],[38,0,2],
+      [38,39,56],[38,58,58],[38,60,61],[38,103,104],[38,123,154],[38,158,159],[38,166,175],[38,181,223],
+      [38,250,309],[38,311,316],[38,341,343],[38,403,421],[38,466,475],[38,492,505],[38,507,681],[38,717,719],
+      [39,34,74],[39,98,100],[39,103,106],[39,110,111],[39,125,159],[39,166,176],[39,182,225],[39,250,316],
+      [39,397,421],[39,476,480],[39,493,505],[39,507,680],[39,696,696],[39,700,703],[40,33,82],[40,91,107],
+      [40,109,111],[40,113,118],[40,125,158],[40,162,178],[40,185,186],[40,188,225],[40,250,315],[40,394,426],
+      [40,457,458],[40,477,488],[40,493,505],[40,507,698],[40,700,715],[41,32,84],[41,88,124],[41,126,169],
+      [41,171,183],[41,189,197],[41,201,203],[41,205,226],[41,251,255],[41,257,311],[41,390,433],[41,456,460],
+      [41,468,468],[41,477,478],[41,480,492],[41,494,494],[41,496,505],[41,507,698],[41,701,719],[42,0,3],
+      [42,27,156],[42,158,159],[42,161,184],[42,188,197],[42,201,202],[42,206,224],[42,253,308],[42,388,436],
+      [42,446,451],[42,456,459],[42,463,468],[42,470,495],[42,497,719],[43,0,6],[43,26,134],[43,141,153],
+      [43,162,184],[43,186,196],[43,201,202],[43,206,230],[43,253,304],[43,385,440],[43,447,453],[43,459,719],
+      [44,0,9],[44,29,184],[44,186,197],[44,205,232],[44,252,295],[44,385,386],[44,389,442],[44,447,453],
+      [44,455,506],[44,508,719],[45,0,14],[45,32,197],[45,205,209],[45,214,236],[45,252,293],[45,388,442],
+      [45,447,451],[45,455,504],[45,507,719],[46,0,18],[46,30,32],[46,34,196],[46,212,237],[46,252,292],
+      [46,327,328],[46,386,442],[46,444,445],[46,448,719],[47,0,20],[47,26,194],[47,211,236],[47,252,290],
+      [47,312,317],[47,319,319],[47,321,330],[47,384,719],[48,0,20],[48,23,193],[48,211,225],[48,228,235],
+      [48,253,287],[48,311,332],[48,383,429],[48,439,719],[49,0,1],[49,3,4],[49,7,16],[49,24,185],
+      [49,187,193],[49,204,226],[49,229,233],[49,254,280],[49,311,332],[49,383,403],[49,409,429],[49,431,431],
+      [49,433,435],[49,439,719],[50,8,15],[50,26,185],[50,187,196],[50,203,229],[50,232,232],[50,255,279],
+      [50,311,332],[50,381,402],[50,408,429],[50,431,431],[50,433,719],[51,11,15],[51,29,30],[51,33,34],
+      [51,37,184],[51,186,198],[51,203,230],[51,255,279],[51,314,331],[51,380,403],[51,406,432],[51,434,716],
+      [52,16,19],[52,35,35],[52,37,182],[52,185,192],[52,194,199],[52,204,206],[52,214,231],[52,256,278],
+      [52,314,327],[52,376,401],[52,404,717],[53,16,22],[53,30,178],[53,188,190],[53,197,198],[53,202,206],
+      [53,216,231],[53,257,277],[53,321,323],[53,374,399],[53,402,718],[54,20,20],[54,29,178],[54,192,196],
+      [54,204,206],[54,210,212],[54,217,231],[54,258,276],[54,372,397],[54,402,719],[55,28,174],[55,192,195],
+      [55,199,201],[55,203,214],[55,221,228],[55,230,231],[55,259,275],[55,345,347],[55,370,395],[55,402,686],
+      [55,688,713],[55,716,718],[56,27,174],[56,199,201],[56,203,216],[56,226,227],[56,229,230],[56,260,275],
+      [56,346,346],[56,369,394],[56,402,709],[57,28,172],[57,204,221],[57,229,230],[57,262,275],[57,346,346],
+      [57,369,394],[57,402,673],[57,679,683],[57,687,706],[58,13,14],[58,29,171],[58,202,221],[58,223,224],
+      [58,230,230],[58,263,274],[58,356,358],[58,370,396],[58,402,672],[58,679,682],[58,684,704],[59,13,15],
+      [59,25,170],[59,204,220],[59,223,224],[59,229,231],[59,269,273],[59,356,357],[59,369,397],[59,399,415],
+      [59,417,670],[59,682,695],[59,698,701],[60,26,28],[60,31,54],[60,56,65],[60,70,71],[60,76,170],
+      [60,199,200],[60,204,220],[60,229,232],[60,271,273],[60,357,357],[60,370,397],[60,405,407],[60,409,413],
+      [60,416,669],[60,681,690],[60,692,692],[60,700,700],[61,35,52],[61,56,58],[61,80,170],[61,203,221],
+      [61,228,233],[61,353,355],[61,370,397],[61,405,658],[61,660,670],[61,679,689],[62,35,55],[62,83,173],
+      [62,202,223],[62,226,234],[62,347,347],[62,349,354],[62,371,379],[62,382,395],[62,403,644],[62,662,665],
+      [62,678,689],[63,41,42],[63,44,51],[63,53,56],[63,85,174],[63,203,235],[63,345,347],[63,349,353],
+      [63,371,377],[63,382,393],[63,403,642],[63,675,684],[64,44,55],[64,86,174],[64,200,200],[64,205,236],
+      [64,344,356],[64,379,381],[64,383,393],[64,396,398],[64,403,405],[64,408,640],[64,673,686],[65,19,19],
+      [65,42,47],[65,50,55],[65,88,180],[65,200,200],[65,206,237],[65,344,356],[65,377,394],[65,396,397],
+      [65,402,639],[65,673,685],[66,20,21],[66,40,46],[66,50,52],[66,89,183],[66,200,201],[66,206,237],
+      [66,344,355],[66,376,381],[66,384,393],[66,396,396],[66,402,637],[66,671,686],[67,37,43],[67,50,50],
+      [67,90,185],[67,199,202],[67,206,238],[67,347,354],[67,376,381],[67,384,393],[67,402,636],[67,671,686],
+      [68,35,42],[68,48,48],[68,92,188],[68,199,201],[68,205,239],[68,347,356],[68,376,388],[68,402,634],
+      [68,671,684],[69,32,41],[69,92,195],[69,203,242],[69,343,357],[69,376,390],[69,401,636],[69,671,683],
+      [69,691,692],[70,30,35],[70,39,39],[70,41,41],[70,93,195],[70,200,245],[70,342,358],[70,376,387],
+      [70,393,397],[70,399,636],[70,671,684],[70,692,696],[71,26,31],[71,34,34],[71,93,96],[71,98,195],
+      [71,200,245],[71,339,359],[71,377,635],[71,637,640],[71,644,645],[71,671,681],[72,23,27],[72,93,96],
+      [72,98,195],[72,201,247],[72,339,347],[72,353,360],[72,372,641],[72,645,646],[72,671,679],[73,22,26],
+      [73,94,96],[73,99,200],[73,202,248],[73,339,347],[73,350,360],[73,369,646],[73,672,680],[73,705,705],
+      [74,18,18],[74,20,22],[74,95,97],[74,101,198],[74,202,248],[74,340,347],[74,350,363],[74,369,646],
+      [74,672,677],[74,704,707],[75,7,15],[75,96,97],[75,102,197],[75,200,248],[75,339,347],[75,350,363],
+      [75,368,646],[75,672,677],[75,706,707],[75,715,715],[75,719,719],[76,3,7],[76,9,9],[76,97,97],
+      [76,103,249],[76,339,344],[76,349,362],[76,366,646],[76,672,676],[76,714,719],[77,103,248],[77,340,341],
+      [77,351,362],[77,364,641],[77,644,647],[77,673,675],[77,718,718],[78,103,242],[78,245,249],[78,350,361],
+      [78,363,641],[78,644,647],[78,670,673],[79,103,240],[79,244,248],[79,348,352],[79,362,641],[79,644,647],
+      [79,670,672],[80,105,226],[80,231,235],[80,243,252],[80,354,354],[80,356,357],[80,360,641],[80,644,648],
+      [80,669,669],[81,106,236],[81,243,252],[81,354,640],[81,644,648],[81,669,669],[82,108,231],[82,241,253],
+      [82,350,640],[82,643,645],[82,648,649],[82,667,668],[83,110,231],[83,241,254],[83,350,640],[83,644,645],
+      [84,110,231],[84,236,237],[84,241,254],[84,351,639],[84,643,645],[84,665,666],[85,111,230],[85,232,232],
+      [85,235,236],[85,239,239],[85,247,254],[85,354,638],[85,643,646],[85,664,664],[86,111,233],[86,238,239],
+      [86,247,249],[86,251,254],[86,355,461],[86,463,637],[86,643,647],[86,663,664],[87,111,235],[87,237,240],
+      [87,356,421],[87,423,431],[87,435,458],[87,466,636],[87,643,644],[87,646,647],[87,659,661],[88,112,240],
+      [88,357,420],[88,425,430],[88,435,457],[88,465,635],[88,643,644],[88,657,660],[89,111,238],[89,357,385],
+      [89,387,419],[89,425,455],[89,460,460],[89,462,634],[89,641,644],[89,655,657],[90,111,235],[90,357,385],
+      [90,387,419],[90,426,430],[90,434,454],[90,459,633],[90,643,646],[90,652,655],[91,111,224],[91,227,232],
+      [91,240,240],[91,357,385],[91,389,417],[91,427,428],[91,436,454],[91,460,632],[91,643,653],[92,111,221],
+      [92,227,230],[92,239,240],[92,343,349],[92,352,352],[92,357,376],[92,380,387],[92,390,417],[92,438,455],
+      [92,461,631],[92,642,653],[93,111,219],[93,341,373],[93,378,378],[93,380,387],[93,392,416],[93,439,455],
+      [93,462,630],[93,640,652],[94,110,218],[94,341,366],[94,377,388],[94,393,415],[94,441,455],[94,463,628],
+      [94,639,649],[95,111,219],[95,342,366],[95,377,379],[95,382,389],[95,397,415],[95,426,427],[95,429,430],
+      [95,443,456],[95,464,621],[95,638,642],[95,644,646],[96,111,220],[96,342,366],[96,377,378],[96,384,392],
+      [96,398,416],[96,423,432],[96,443,457],[96,464,465],[96,467,620],[96,639,642],[97,111,220],[97,342,364],
+      [97,376,379],[97,385,394],[97,398,435],[97,437,458],[97,465,465],[97,468,619],[97,640,642],[98,111,215],
+      [98,342,361],[98,376,379],[98,387,396],[98,398,415],[98,417,460],[98,465,619],[98,639,643],[99,111,212],
+      [99,342,360],[99,367,368],[99,376,379],[99,389,396],[99,398,408],[99,410,460],[99,465,601],[99,603,618],
+      [99,639,643],[100,112,211],[100,297,297],[100,341,359],[100,364,368],[100,376,379],[100,391,393],[100,396,396],
+      [100,399,407],[100,410,410],[100,412,458],[100,465,599],[100,602,615],[100,639,643],[101,112,211],[101,297,297],
+      [101,341,359],[101,362,366],[101,376,379],[101,391,394],[101,399,407],[101,411,458],[101,466,598],[101,602,605],
+      [101,610,615],[101,639,643],[102,112,210],[102,302,305],[102,341,360],[102,362,363],[102,376,377],[102,391,394],
+      [102,401,409],[102,411,457],[102,466,595],[102,602,603],[102,610,616],[102,639,643],[103,113,209],[103,302,303],
+      [103,341,359],[103,385,393],[103,400,409],[103,411,457],[103,467,597],[103,609,617],[103,636,643],[104,114,209],
+      [104,308,309],[104,342,358],[104,384,392],[104,401,458],[104,467,598],[104,600,604],[104,609,618],[104,621,621],
+      [104,634,634],[104,636,642],[105,115,208],[105,309,309],[105,342,357],[105,372,374],[105,377,382],[105,386,390],
+      [105,403,406],[105,408,411],[105,413,461],[105,467,605],[105,612,618],[105,621,621],[105,633,642],[106,115,208],
+      [106,309,309],[106,347,356],[106,362,384],[106,388,390],[106,403,406],[106,408,605],[106,612,618],[106,633,641],
+      [107,116,208],[107,347,349],[107,360,381],[107,388,388],[107,404,406],[107,410,410],[107,415,416],[107,418,421],
+      [107,424,428],[107,431,601],[107,612,619],[107,626,626],[107,632,641],[108,117,209],[108,347,349],[108,357,382],
+      [108,388,389],[108,407,408],[108,414,415],[108,428,429],[108,431,600],[108,612,619],[108,625,641],[109,117,209],
+      [109,347,382],[109,407,412],[109,414,414],[109,424,428],[109,431,599],[109,612,618],[109,624,640],[110,118,207],
+      [110,347,382],[110,409,410],[110,424,428],[110,431,599],[110,612,618],[110,623,639],[111,119,204],[111,346,380],
+      [111,431,600],[111,612,614],[111,618,618],[111,621,633],[112,119,120],[112,123,204],[112,344,382],[112,430,601],
+      [112,613,613],[112,619,632],[113,120,201],[113,342,383],[113,430,601],[113,612,613],[113,618,628],[113,631,631],
+      [113,639,639],[114,122,123],[114,125,200],[114,325,326],[114,341,389],[114,400,406],[114,429,602],[114,617,626],
+      [115,125,199],[115,230,230],[115,341,390],[115,400,409],[115,429,603],[115,619,623],[116,126,198],[116,340,391],
+      [116,399,412],[116,421,423],[116,428,603],[116,619,622],[117,126,130],[117,132,197],[117,340,395],[117,400,417],
+      [117,419,603],[117,620,622],[118,127,130],[118,133,197],[118,340,397],[118,399,603],[118,621,622],[119,128,130],
+      [119,134,197],[119,340,604],[119,620,621],[120,128,132],[120,134,182],[120,188,197],[120,339,457],[120,460,604],
+      [121,123,123],[121,129,170],[121,176,181],[121,193,198],[121,332,333],[121,339,456],[121,461,603],[122,123,123],
+      [122,131,169],[122,181,181],[122,194,198],[122,323,324],[122,327,327],[122,331,332],[122,337,456],[122,461,603],
+      [122,619,619],[123,129,129],[123,131,134],[123,136,167],[123,194,198],[123,324,329],[123,331,332],[123,335,457],
+      [123,462,603],[123,618,619],[124,129,135],[124,137,166],[124,194,199],[124,323,324],[124,328,329],[124,333,428],
+      [124,430,458],[124,463,601],[124,617,618],[125,130,135],[125,138,165],[125,194,199],[125,333,427],[125,431,459],
+      [125,465,601],[126,132,137],[126,140,165],[126,195,199],[126,202,205],[126,332,428],[126,432,460],[126,466,600],
+      [126,615,616],[126,644,644],[127,134,137],[127,141,165],[127,195,199],[127,205,205],[127,331,428],[127,432,462],
+      [127,472,472],[127,474,599],[127,615,615],[128,135,137],[128,141,165],[128,196,199],[128,205,206],[128,330,429],
+      [128,433,463],[128,471,472],[128,474,599],[129,135,138],[129,141,165],[129,197,199],[129,203,207],[129,330,429],
+      [129,433,463],[129,470,472],[129,477,599],[129,602,603],[130,135,138],[130,143,164],[130,196,198],[130,203,205],
+      [130,207,208],[130,329,430],[130,434,463],[130,468,473],[130,493,597],[130,601,603],[130,608,608],[130,610,610],
+      [131,136,140],[131,144,164],[131,203,204],[131,208,211],[131,328,431],[131,434,474],[131,494,596],[131,600,603],
+      [131,607,608],[132,138,140],[132,146,164],[132,204,204],[132,207,210],[132,328,431],[132,436,477],[132,495,595],
+      [132,600,603],[133,139,141],[133,146,164],[133,193,198],[133,208,210],[133,327,431],[133,437,478],[133,496,593],
+      [133,600,602],[134,139,140],[134,147,164],[134,191,203],[134,210,212],[134,327,432],[134,437,479],[134,497,592],
+      [134,600,602],[135,39,41],[135,148,164],[135,190,193],[135,195,204],[135,211,214],[135,326,433],[135,438,479],
+      [135,497,588],[135,600,601],[136,39,41],[136,43,44],[136,146,146],[136,148,165],[136,182,185],[136,190,194],
+      [136,199,205],[136,213,216],[136,326,433],[136,437,479],[136,498,540],[136,543,585],[136,601,601],[137,43,46],
+      [137,149,165],[137,179,186],[137,193,194],[137,202,208],[137,212,213],[137,325,434],[137,438,478],[137,499,533],
+      [137,544,575],[137,578,582],[138,45,48],[138,148,165],[138,179,186],[138,203,210],[138,212,213],[138,325,434],
+      [138,438,477],[138,500,503],[138,505,533],[138,544,575],[138,579,581],[138,603,603],[139,48,49],[139,148,166],
+      [139,179,186],[139,204,211],[139,214,214],[139,327,434],[139,439,477],[139,505,533],[139,545,573],[139,579,581],
+      [139,603,604],[140,47,50],[140,149,167],[140,178,185],[140,204,210],[140,213,220],[140,327,434],[140,440,475],
+      [140,505,532],[140,545,572],[140,578,582],[141,48,50],[141,149,168],[141,177,185],[141,197,197],[141,214,221],
+      [141,326,434],[141,441,475],[141,505,530],[141,546,571],[141,577,581],[141,602,603],[142,48,48],[142,137,138],
+      [142,151,170],[142,174,184],[142,204,204],[142,211,223],[142,225,226],[142,231,231],[142,327,435],[142,442,475],
+      [142,505,529],[142,546,571],[142,577,581],[142,601,604],[142,651,651],[143,152,184],[143,203,207],[143,211,223],
+      [143,225,231],[143,233,234],[143,327,437],[143,442,473],[143,505,528],[143,548,572],[143,577,580],[143,601,604],
+      [143,651,651],[144,155,184],[144,204,207],[144,216,217],[144,225,228],[144,230,230],[144,236,236],[144,327,437],
+      [144,443,472],[144,506,526],[144,548,573],[144,600,604],[145,157,184],[145,234,234],[145,236,236],[145,309,310],
+      [145,327,438],[145,443,470],[145,506,525],[145,548,574],[145,600,605],[146,159,183],[146,188,188],[146,235,237],
+      [146,309,311],[146,314,314],[146,327,438],[146,443,467],[146,469,469],[146,506,524],[146,548,575],[146,600,604],
+      [147,162,183],[147,186,188],[147,236,237],[147,311,311],[147,314,314],[147,326,440],[147,445,465],[147,506,524],
+      [147,548,552],[147,554,576],[147,599,604],[147,651,651],[148,164,169],[148,172,192],[148,236,237],[148,314,314],
+      [148,326,440],[148,445,464],[148,507,522],[148,548,551],[148,555,577],[148,599,603],[149,173,193],[149,237,237],
+      [149,311,313],[149,326,440],[149,445,463],[149,507,520],[149,555,577],[149,599,604],[149,651,651],[150,174,193],
+      [150,237,238],[150,310,312],[150,324,442],[150,445,460],[150,508,520],[150,555,578],[150,600,604],[150,651,651],
+      [151,175,193],[151,237,238],[151,325,443],[151,445,458],[151,508,520],[151,555,578],[151,600,606],[151,608,608],
+      [151,650,650],[152,177,193],[152,237,238],[152,326,456],[152,509,520],[152,546,546],[152,556,578],[152,600,608],
+      [152,649,649],[153,181,192],[153,237,237],[153,240,241],[153,326,453],[153,509,520],[153,545,546],[153,556,578],
+      [153,600,608],[153,649,649],[154,184,192],[154,219,220],[154,326,450],[154,466,469],[154,509,520],[154,545,545],
+      [154,556,578],[154,601,604],[154,606,610],[155,185,192],[155,215,217],[155,219,223],[155,236,236],[155,326,446],
+      [155,466,468],[155,510,520],[155,545,546],[155,555,560],[155,564,578],[155,599,611],[156,186,192],[156,214,217],
+      [156,219,221],[156,327,446],[156,459,462],[156,510,519],[156,545,546],[156,556,559],[156,564,578],[156,599,600],
+      [156,603,611],[157,187,192],[157,210,223],[157,231,232],[157,238,238],[157,327,447],[157,454,462],[157,505,505],
+      [157,511,519],[157,545,545],[157,556,559],[157,565,578],[157,598,599],[157,604,611],[157,693,693],[158,188,192],
+      [158,209,227],[158,229,229],[158,231,238],[158,329,448],[158,450,462],[158,511,519],[158,544,545],[158,556,559],
+      [158,566,576],[158,598,600],[158,603,610],[159,188,193],[159,208,238],[159,330,462],[159,512,519],[159,556,558],
+      [159,567,574],[159,597,599],[159,603,603],[159,605,612],[160,188,194],[160,200,201],[160,208,237],[160,332,461],
+      [160,512,521],[160,556,560],[160,569,573],[160,596,597],[160,604,612],[160,636,636],[161,191,196],[161,198,204],
+      [161,207,238],[161,333,461],[161,512,521],[161,545,545],[161,556,560],[161,569,572],[161,595,597],[161,605,607],
+      [161,609,612],[161,636,636],[162,192,240],[162,333,461],[162,513,516],[162,519,522],[162,556,560],[162,569,570],
+      [162,573,573],[162,594,596],[162,606,612],[163,192,241],[163,333,460],[163,506,506],[163,513,516],[163,519,522],
+      [163,546,547],[163,556,560],[163,593,594],[163,604,612],[164,196,199],[164,203,242],[164,334,459],[164,519,523],
+      [164,546,546],[164,556,560],[164,593,594],[164,604,613],[164,629,629],[165,196,196],[165,198,199],[165,203,243],
+      [165,334,459],[165,519,523],[165,547,547],[165,558,561],[165,594,594],[165,603,606],[165,608,613],[165,629,629],
+      [165,663,663],[165,697,697],[165,702,703],[166,204,244],[166,336,458],[166,519,523],[166,547,547],[166,559,563],
+      [166,592,595],[166,603,604],[166,607,612],[166,676,676],[166,703,703],[167,205,245],[167,338,458],[167,519,523],
+      [167,559,564],[167,592,596],[167,601,604],[167,608,612],[167,699,699],[168,204,253],[168,339,362],[168,369,457],
+      [168,520,521],[168,550,551],[168,560,565],[168,591,597],[168,601,602],[168,609,611],[168,699,699],[169,205,255],
+      [169,340,359],[169,370,457],[169,550,555],[169,560,566],[169,589,600],[169,685,685],[170,205,256],[170,342,347],
+      [170,354,356],[170,370,456],[170,550,556],[170,561,566],[170,587,597],[170,613,613],[171,204,257],[171,344,345],
+      [171,371,374],[171,377,455],[171,506,507],[171,551,556],[171,561,566],[171,576,576],[171,587,597],[171,613,613],
+      [172,41,41],[172,205,257],[172,377,455],[172,552,558],[172,561,566],[172,576,576],[172,586,595],[172,610,611],
+      [172,613,613],[173,204,258],[173,376,377],[173,379,454],[173,506,506],[173,554,559],[173,562,566],[173,571,572],
+      [173,585,595],[173,611,611],[173,622,622],[173,705,705],[174,203,258],[174,379,453],[174,551,552],[174,554,560],
+      [174,562,568],[174,571,571],[174,577,577],[174,582,595],[174,610,610],[174,616,617],[175,45,45],[175,202,259],
+      [175,379,452],[175,552,552],[175,554,568],[175,579,579],[175,582,596],[175,615,617],[176,44,45],[176,201,260],
+      [176,374,374],[176,379,450],[176,554,554],[176,556,568],[176,578,596],[176,609,610],[176,615,617],[176,705,706],
+      [177,201,260],[177,378,448],[177,554,555],[177,557,569],[177,577,597],[177,601,604],[177,608,610],[177,614,617],
+      [177,705,706],[178,199,259],[178,378,447],[178,554,555],[178,557,569],[178,577,597],[178,599,609],[178,614,617],
+      [178,705,706],[179,176,177],[179,199,261],[179,372,373],[179,378,446],[179,556,556],[179,558,569],[179,577,595],
+      [179,599,608],[179,614,618],[180,176,179],[180,199,263],[180,378,445],[180,556,557],[180,559,570],[180,578,595],
+      [180,599,600],[180,603,603],[180,614,616],[180,618,622],[180,624,625],[180,693,693],[181,177,181],[181,198,266],
+      [181,377,444],[181,556,557],[181,560,569],[181,578,595],[181,599,600],[181,602,606],[181,614,616],[181,620,632],
+      [181,693,693],[181,699,699],[181,708,709],[182,177,179],[182,198,270],[182,377,443],[182,557,558],[182,560,568],
+      [182,578,594],[182,598,607],[182,614,615],[182,621,629],[182,631,632],[182,635,635],[182,659,659],[182,709,709],
+      [183,198,270],[183,378,443],[183,557,558],[183,561,572],[183,577,577],[183,579,593],[183,598,612],[183,614,616],
+      [183,619,620],[183,623,628],[183,630,638],[183,653,654],[183,659,659],[184,198,271],[184,273,274],[184,378,442],
+      [184,559,559],[184,561,572],[184,580,593],[184,598,603],[184,608,609],[184,611,612],[184,619,620],[184,624,628],
+      [184,632,641],[184,653,655],[184,659,660],[185,16,16],[185,198,280],[185,379,441],[185,559,560],[185,562,576],
+      [185,580,593],[185,597,604],[185,615,620],[185,623,629],[185,631,643],[185,660,664],[186,17,17],[186,198,281],
+      [186,380,440],[186,560,560],[186,562,573],[186,575,576],[186,581,592],[186,597,604],[186,612,621],[186,624,647],
+      [186,662,665],[187,198,283],[187,381,439],[187,564,571],[187,583,583],[187,589,592],[187,597,606],[187,612,617],
+      [187,620,621],[187,625,649],[187,664,665],[188,15,15],[188,17,17],[188,49,50],[188,197,284],[188,382,439],
+      [188,565,571],[188,589,589],[188,592,592],[188,599,600],[188,603,606],[188,625,627],[188,629,650],[188,663,667],
+      [189,10,10],[189,15,15],[189,197,286],[189,383,439],[189,470,471],[189,566,571],[189,598,600],[189,602,606],
+      [189,631,652],[189,662,666],[190,197,289],[190,384,439],[190,564,564],[190,567,571],[190,598,600],[190,603,607],
+      [190,626,626],[190,629,629],[190,634,651],[190,654,657],[190,659,664],[190,669,669],[191,48,48],[191,197,289],
+      [191,384,438],[191,568,572],[191,574,574],[191,585,585],[191,598,601],[191,605,605],[191,607,608],[191,625,626],
+      [191,628,629],[191,636,663],[191,669,670],[192,197,290],[192,384,439],[192,571,577],[192,581,582],[192,600,601],
+      [192,608,608],[192,628,629],[192,636,655],[192,657,662],[192,669,671],[193,199,290],[193,385,438],[193,570,588],
+      [193,590,591],[193,628,629],[193,637,655],[193,670,674],[194,200,290],[194,385,439],[194,504,504],[194,572,588],
+      [194,601,601],[194,617,617],[194,622,623],[194,636,654],[194,671,671],[194,673,675],[194,717,717],[195,200,290],
+      [195,331,331],[195,386,439],[195,574,588],[195,611,614],[195,619,619],[195,622,623],[195,635,655],[195,673,674],
+      [195,676,678],[196,201,290],[196,386,438],[196,580,616],[196,619,619],[196,621,622],[196,635,647],[196,651,656],
+      [196,662,662],[196,673,675],[196,677,679],[196,681,681],[196,716,716],[196,718,718],[197,15,15],[197,79,80],
+      [197,202,289],[197,385,438],[197,587,614],[197,640,647],[197,652,657],[197,662,662],[197,665,665],[197,674,676],
+      [197,678,682],[197,718,718],[198,17,17],[198,79,79],[198,202,289],[198,385,439],[198,593,595],[198,597,600],
+      [198,607,612],[198,641,646],[198,653,658],[198,660,661],[198,665,665],[198,678,682],[199,81,82],[199,203,288],
+      [199,386,439],[199,597,601],[199,607,609],[199,654,662],[199,679,683],[200,81,82],[200,203,287],[200,386,440],
+      [200,571,571],[200,599,601],[200,603,603],[200,606,609],[200,644,644],[200,655,662],[200,682,684],[201,82,82],
+      [201,204,286],[201,387,441],[201,571,571],[201,603,603],[201,605,606],[201,625,625],[201,644,645],[201,659,661],
+      [201,683,684],[201,691,692],[202,56,56],[202,204,285],[202,387,441],[202,446,446],[202,620,626],[202,632,633],
+      [202,644,645],[202,666,668],[202,679,680],[203,205,285],[203,387,441],[203,446,446],[203,620,622],[203,624,629],
+      [203,631,633],[203,643,646],[203,666,667],[203,679,681],[203,693,693],[204,205,284],[204,387,441],[204,447,449],
+      [204,457,459],[204,621,633],[204,643,646],[204,714,714],[205,206,283],[205,385,441],[205,450,450],[205,457,459],
+      [205,620,633],[205,643,646],[205,714,714],[206,7,7],[206,14,15],[206,207,282],[206,385,441],[206,456,460],
+      [206,620,633],[206,643,647],[207,14,17],[207,207,282],[207,384,441],[207,455,460],[207,612,614],[207,619,633],
+      [207,642,647],[207,694,695],[208,3,3],[208,16,18],[208,207,282],[208,384,441],[208,455,460],[208,610,615],
+      [208,618,633],[208,643,649],[208,694,695],[209,208,281],[209,384,441],[209,454,460],[209,610,631],[209,643,650],
+      [209,693,694],[209,696,696],[210,209,282],[210,384,441],[210,453,460],[210,608,632],[210,642,650],[210,693,696],
+      [211,69,69],[211,210,282],[211,348,348],[211,383,440],[211,450,460],[211,608,634],[211,642,650],[211,693,694],
+      [211,696,696],[212,0,0],[212,68,69],[212,74,75],[212,212,282],[212,348,348],[212,383,440],[212,448,459],
+      [212,605,635],[212,638,639],[212,642,650],[212,694,696],[212,717,719],[213,0,0],[213,56,57],[213,72,73],
+      [213,214,281],[213,383,439],[213,448,460],[213,604,639],[213,642,651],[213,694,696],[213,716,719],[214,1,2],
+      [214,60,60],[214,215,281],[214,383,437],[214,447,459],[214,604,639],[214,641,652],[214,714,716],[214,718,719],
+      [215,1,3],[215,60,61],[215,78,78],[215,217,281],[215,383,435],[215,447,458],[215,604,652],[215,696,697],
+      [215,714,718],[216,2,2],[216,78,78],[216,85,87],[216,218,280],[216,383,433],[216,448,458],[216,603,652],
+      [216,714,718],[217,0,0],[217,11,12],[217,20,20],[217,87,87],[217,219,280],[217,384,433],[217,448,458],
+      [217,603,652],[217,697,698],[217,716,716],[218,0,0],[218,2,2],[218,20,20],[218,219,280],[218,385,431],
+      [218,448,458],[218,602,655],[218,679,679],[218,698,698],[218,715,716],[219,219,280],[219,385,430],[219,448,457],
+      [219,475,475],[219,598,656],[219,698,698],[220,219,279],[220,386,429],[220,448,457],[220,474,475],[220,595,658],
+      [220,688,689],[220,693,693],[220,699,699],[221,2,2],[221,82,82],[221,219,279],[221,386,429],[221,447,457],
+      [221,470,471],[221,474,475],[221,590,590],[221,592,658],[221,688,690],[221,692,694],[222,9,10],[222,40,40],
+      [222,219,278],[222,387,430],[222,447,456],[222,470,471],[222,590,658],[222,689,692],[222,694,696],[223,219,278],
+      [223,387,430],[223,446,456],[223,587,658],[223,690,693],[223,695,696],[223,709,709],[224,219,277],[224,388,431],
+      [224,446,456],[224,587,661],[224,692,694],[225,219,276],[225,388,431],[225,446,455],[225,587,661],[225,694,695],
+      [226,218,272],[226,388,431],[226,447,455],[226,587,662],[227,218,269],[227,388,431],[227,447,455],[227,586,662],
+      [228,103,103],[228,218,267],[228,388,430],[228,447,454],[228,586,664],[229,218,265],[229,389,430],[229,447,454],
+      [229,587,666],[230,218,264],[230,389,428],[230,448,453],[230,587,666],[231,218,263],[231,389,425],[231,450,451],
+      [231,585,666],[232,218,263],[232,389,425],[232,586,666],[233,218,262],[233,390,425],[233,586,666],[234,141,141],
+      [234,218,263],[234,390,425],[234,587,667],[235,217,263],[235,390,425],[235,588,666],[236,217,262],[236,391,425],
+      [236,588,667],[237,216,262],[237,392,424],[237,589,667],[238,216,261],[238,393,423],[238,589,666],[239,217,260],
+      [239,394,422],[239,589,666],[240,216,259],[240,394,421],[240,589,666],[241,216,259],[241,394,421],[241,590,666],
+      [242,216,258],[242,395,420],[242,590,666],[243,216,257],[243,396,419],[243,591,665],[244,216,255],[244,396,418],
+      [244,591,616],[244,624,665],[245,216,255],[245,395,417],[245,591,611],[245,628,664],[246,216,254],[246,395,415],
+      [246,591,608],[246,628,663],[247,202,202],[247,216,253],[247,396,414],[247,589,607],[247,629,662],[248,215,252],
+      [248,396,411],[248,589,599],[248,630,632],[248,634,662],[248,705,706],[249,215,251],[249,398,400],[249,591,597],
+      [249,630,631],[249,634,661],[249,705,707],[250,214,245],[250,593,596],[250,633,661],[250,706,708],[251,214,245],
+      [251,633,660],[251,706,709],[252,214,246],[252,633,635],[252,638,660],[252,707,711],[253,213,246],[253,639,660],
+      [253,708,711],[254,212,246],[254,639,659],[254,709,711],[255,212,245],[255,640,659],[255,709,717],[256,212,244],
+      [256,641,655],[256,709,716],[257,212,242],[257,645,647],[257,649,654],[257,708,716],[258,213,236],[258,652,652],
+      [258,707,715],[259,212,235],[259,647,648],[259,655,656],[259,707,714],[260,212,235],[260,647,649],[260,655,656],
+      [260,705,705],[260,710,713],[261,212,235],[261,649,651],[261,653,656],[261,704,712],[262,212,229],[262,231,234],
+      [262,649,656],[262,704,712],[263,211,229],[263,649,656],[263,702,708],[263,710,710],[264,211,232],[264,650,656],
+      [264,702,708],[265,211,232],[265,650,656],[265,701,707],[266,211,231],[266,651,655],[266,699,706],[267,6,7],
+      [267,210,229],[267,652,654],[267,697,706],[268,6,7],[268,210,229],[268,696,703],[269,209,228],[269,694,702],
+      [270,210,228],[270,693,702],[271,209,225],[271,692,701],[272,209,224],[272,463,463],[272,693,700],[273,208,226],
+      [273,435,435],[273,695,699],[274,211,228],[274,695,696],[275,209,228],[276,208,228],[277,208,226],[277,497,499],
+      [278,208,224],[278,497,501],[279,208,224],[279,497,500],[280,209,223],[281,209,221],[281,691,692],[282,209,221],
+      [282,238,244],[283,209,222],[283,237,244],[284,209,223],[284,238,243],[284,698,698],[285,210,223],[285,506,506],
+      [285,698,698],[286,211,223],[286,506,507],[287,212,225],[287,284,285],[288,213,227],[288,283,287],[288,677,677],
+      [289,216,232],[289,286,288],[289,677,677],[290,218,227],[291,223,225],[296,307,307],[301,268,269],[302,249,251],
+      [303,242,244],[304,238,238],[304,240,244],[305,234,235],[305,237,240],[305,247,247],[306,234,234],[306,238,238],
+      [306,243,249],[307,236,236],[307,238,248],[308,232,246],[309,231,240],[309,242,242],[309,245,245],[310,231,237],
+      [310,560,562],[310,565,566],[311,227,238],[311,464,470],[311,544,545],[311,560,567],[311,582,587],[312,226,226],
+      [312,228,238],[312,460,474],[312,552,554],[312,556,557],[312,560,574],[312,581,590],[312,610,613],[312,619,635],
+      [312,684,685],[313,222,232],[313,234,234],[313,456,458],[313,460,474],[313,530,591],[313,599,600],[313,603,614],
+      [313,618,647],[313,685,686],[314,221,230],[314,452,454],[314,456,482],[314,526,649],[314,689,689],[315,221,229],
+      [315,448,499],[315,520,653],[315,689,689],[316,225,230],[316,232,234],[316,443,499],[316,517,662],[316,667,668],
+      [317,216,219],[317,225,233],[317,237,238],[317,425,428],[317,439,499],[317,516,670],[318,214,220],[318,222,236],
+      [318,425,430],[318,439,499],[318,512,679],[319,208,211],[319,214,237],[319,391,393],[319,425,436],[319,438,498],
+      [319,506,680],[320,208,210],[320,216,236],[320,347,348],[320,353,354],[320,361,362],[320,365,366],[320,368,369],
+      [320,374,380],[320,384,398],[320,402,404],[320,407,408],[320,411,413],[320,418,498],[320,503,682],[320,684,685],
+      [321,206,212],[321,217,239],[321,339,340],[321,344,348],[321,352,355],[321,364,411],[321,413,498],[321,503,695],
+      [322,207,238],[322,335,342],[322,344,497],[322,502,698],[322,700,700],[323,155,167],[323,209,223],[323,225,238],
+      [323,335,495],[323,499,701],[324,155,168],[324,170,170],[324,210,223],[324,225,238],[324,327,327],[324,334,494],
+      [324,496,700],[325,149,150],[325,153,155],[325,157,158],[325,160,160],[325,162,167],[325,169,172],[325,176,183],
+      [325,198,199],[325,208,211],[325,214,221],[325,223,239],[325,326,327],[325,331,700],[326,105,108],[326,149,150],
+      [326,153,189],[326,197,202],[326,204,240],[326,327,699],[327,105,111],[327,113,122],[327,126,127],[327,130,131],
+      [327,154,238],[327,317,318],[327,326,693],[327,698,699],[328,94,98],[328,103,105],[328,108,112],[328,114,133],
+      [328,136,139],[328,156,238],[328,315,319],[328,324,690],[329,87,139],[329,157,237],[329,323,690],[330,75,75],
+      [330,78,233],[330,319,319],[330,321,685],[331,67,232],[331,307,685],[332,60,227],[332,301,685],[333,58,220],
+      [333,297,685],[334,43,211],[334,291,687],[334,692,698],[335,42,214],[335,262,270],[335,289,688],[335,692,698],
+      [336,44,212],[336,223,226],[336,260,272],[336,287,695],[337,31,37],[337,47,205],[337,218,225],[337,258,273],
+      [337,287,694],[338,31,40],[338,50,197],[338,199,207],[338,216,225],[338,258,274],[338,286,683],[339,33,42],
+      [339,48,51],[339,58,207],[339,216,220],[339,224,228],[339,237,240],[339,256,274],[339,294,681],[340,50,52],
+      [340,58,208],[340,226,241],[340,251,273],[340,294,681],[341,57,223],[341,228,240],[341,251,265],[341,281,284],
+      [341,286,681],[342,32,38],[342,45,229],[342,276,682],[343,34,39],[343,42,43],[343,50,235],[343,258,264],
+      [343,266,267],[343,273,686],[344,43,44],[344,51,238],[344,248,690],[345,11,18],[345,32,36],[345,48,237],
+      [345,244,694],[345,696,696],[346,13,40],[346,42,702],[347,22,712],[348,0,13],[348,29,719],[349,0,719],
+      [350,0,719],[351,0,719],[352,0,719],[353,0,719],[354,0,719],[355,0,719],[356,0,719],[357,0,719],
+      [358,0,719],[359,0,719]
+    ];
+    var LAND_STEP = 0.5;
+    var LAND_COLS = 720, LAND_ROWS = 360;
+    var LAND = (function () {
+      var g = [], r, c;
+      for (r = 0; r < LAND_ROWS; r++) {
+        g[r] = new Uint8Array(LAND_COLS);
+      }
+      for (var i = 0; i < LAND_SEGS.length; i++) {
+        var s = LAND_SEGS[i], row = g[s[0]];
+        for (c = s[1]; c <= s[2] && c < LAND_COLS; c++) row[c] = 1;
+      }
+      return g;
+    })();
+    function isLand(latDeg, lonDeg) {
+      var r = Math.floor((90 - latDeg) / LAND_STEP);
+      var c = Math.floor((lonDeg + 180) / LAND_STEP);
+      if (r < 0) r = 0; else if (r > LAND_ROWS - 1) r = LAND_ROWS - 1;
+      c = ((c % LAND_COLS) + LAND_COLS) % LAND_COLS;
+      return LAND[r][c] === 1;
+    }
+
+    var HUBS = [
+      { lat: 35.7,  lon: 139.7 },  
+      { lat: 1.35,  lon: 103.8 },  
+      { lat: 51.5,  lon: 0.0   },  
+      { lat: 40.7,  lon: -74.0 },  
+      { lat: 48.9,  lon: 2.4   },  
+      { lat: 31.2,  lon: 121.5 },  
+      { lat: -23.5, lon: -46.6 },  
+      { lat: -33.9, lon: 151.2 },  
+      { lat: 19.4,  lon: -99.1 },  
+      { lat: 25.2,  lon: 55.3  },  
+      { lat: 37.6,  lon: 127.0 },  
+      { lat: -26.2, lon: 28.0  },  
+      { lat: 19.1,  lon: 72.9  },  
+      { lat: 52.5,  lon: 13.4  },  
+      { lat: 34.0,  lon: -118.2 }  
+    ];
+    function toVec(latDeg, lonDeg) {
+      var la = latDeg * Math.PI / 180, lo = lonDeg * Math.PI / 180;
+      return [Math.cos(la) * Math.cos(lo), Math.sin(la), Math.cos(la) * Math.sin(lo)];
+    }
+    var HUBV = HUBS.map(function (h) { return toVec(h.lat, h.lon); });
+    
+    var LINKS = [];
+    (function () {
+      for (var i = 0; i < HUBV.length; i++) {
+        for (var j = i + 1; j < HUBV.length; j++) {
+          var d = HUBV[i][0]*HUBV[j][0] + HUBV[i][1]*HUBV[j][1] + HUBV[i][2]*HUBV[j][2];
+          var ang = Math.acos(Math.max(-1, Math.min(1, d)));
+          if (ang > 0.45 && ang < 2.35) LINKS.push({ a: i, b: j, ang: ang, ph: LINKS.length * 0.37 });
+        }
+      }
+    })();
+
+    function slerp(a, b, ang, t, out) {
+      var s = Math.sin(ang);
+      if (s < 1e-6) { out[0]=a[0]; out[1]=a[1]; out[2]=a[2]; return out; }
+      var k1 = Math.sin((1 - t) * ang) / s, k2 = Math.sin(t * ang) / s;
+      out[0] = a[0]*k1 + b[0]*k2;
+      out[1] = a[1]*k1 + b[1]*k2;
+      out[2] = a[2]*k1 + b[2]*k2;
+      return out;
+    }
+
+    var W = 0, H = 0, DPR = 1, minDim = 0, COUNT = 0;
+    var particles = [];
+    var tSec = 0;
+
+    var SIN_N = 2048, SIN_MASK = SIN_N - 1, TAU = 6.283185307179586;
+    var SIN_T = new Float32Array(SIN_N);
+    for (var _si = 0; _si < SIN_N; _si++) SIN_T[_si] = Math.sin(_si / SIN_N * TAU);
+    var SIN_K = SIN_N / TAU;
+    function fsin(x) { return SIN_T[((x * SIN_K) | 0) & SIN_MASK]; }
+    function fcos(x) { return SIN_T[(((x + 1.5707963267948966) * SIN_K) | 0) & SIN_MASK]; }
+    var running = false, rafId = 0, lastT = 0;
+
+    var globeAmt = 1, globeTarget = 1;
+    
+    var spin = Math.PI / 2;       
+    var lastScrollY = 0, scrollIdle = 0;
+    var processTable = document.querySelector('.mx-wrap');
+    var processTableResumeCue = document.querySelector('.closer2 .c1');
+    var processTableVisible = false;
+    function refreshProcessTableVisibility() {
+      if (!processTable) return;
+      var r = processTable.getBoundingClientRect();
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      var cueVisible = false;
+      if (processTableResumeCue) {
+        var cueRect = processTableResumeCue.getBoundingClientRect();
+        cueVisible = cueRect.bottom > 0 && cueRect.top < h;
+      }
+      processTableVisible = r.bottom > 0 && r.top < h && !cueVisible;
+    }
+    if (processTable) {
+      window.addEventListener('scroll', refreshProcessTableVisibility, { passive: true });
+      window.addEventListener('resize', refreshProcessTableVisibility, { passive: true });
+      refreshProcessTableVisibility();
+    }
+
+    var GX = 0, GY = 0, GR = 200, CAM_D = 900;
+
+    var ptr = { x: -9999, y: -9999, sp: 0, on: false, lastRx: -9999, lastRy: -9999 };
+    var rings = [], RING_MAX = 6;
+    var PUSH_R = 150, PUSH_F = 0.60;
+    var RING_SPEED = 230, RING_BAND = 52, RING_F = 0.85, RING_LIFE = 1.5;
+    var SPRING = 0.020, DAMP = 0.90;
+
+    var laidW = 0, laidH = 0, seededW = 0, seededH = 0;
+
+    function resize() {
+      var w = cv.clientWidth, h = cv.clientHeight;
+      if (!w || !h) return false;
+      if (w === laidW && h === laidH) return false;
+      laidW = w; laidH = h;
+
+      W = w; H = h;
+      minDim = Math.min(W, H);
+      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * DPR);
+      cv.height = Math.round(H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+      
+      GR0 = Math.min(W, H) * (W < 760 ? 0.41 : 0.44);   
+      if (!gInit) {
+        
+        gInit = true;
+        GX = W * 0.5; GY = H * 0.5; GR = GR0;
+        gxT = GX; gyT = GY; grT = GR0;
+      } else {
+        
+        if (gxT > W) gxT = W * 0.5;
+        if (gyT > H) gyT = H * 0.5;
+        var hiR = GR0 * 1.02; if (grT > hiR) grT = hiR;
+      }
+      CAM_D = GR * 3.4;
+
+      
+      if (w !== seededW || Math.abs(h - seededH) >= 120 || !particles.length) {
+        seededW = w; seededH = h;
+        COUNT = W < 760 ? 26000 : 70000;
+        seed();
+      }
+
+      var nw = Math.ceil(W / QM_CELL), nh = Math.ceil(H / QM_CELL);
+      if (nw !== qmW || nh !== qmH || !qmGrid) {
+        qmW = nw; qmH = nh;
+        qmGrid = new Float32Array(qmW * qmH);
+        qmGrid.fill(1);
+      }
+      qmCollectSoon();
+      return true;
+    }
+
+    function seed() {
+      particles.length = 0;
+      var GA = Math.PI * (3 - Math.sqrt(5));   
+
+      var GEN = COUNT * 3;
+      var landPts = [], seaPts = [];
+      for (var i = 0; i < GEN; i++) {
+        var y = 1 - (i / (GEN - 1)) * 2;
+        var rr = Math.sqrt(Math.max(0, 1 - y * y));
+        var phi = i * GA;
+        var sx = Math.cos(phi) * rr, sz = Math.sin(phi) * rr;
+        var latDeg = Math.asin(y) * 180 / Math.PI;
+        var lonDeg = Math.atan2(sz, sx) * 180 / Math.PI;
+        
+        var jLat = (Math.random() - 0.5) * 0.6, jLon = (Math.random() - 0.5) * 0.6;
+        (isLand(latDeg + jLat, lonDeg + jLon) ? landPts : seaPts).push([sx, y, sz]);
+      }
+
+      var RS = Math.max(0.52, Math.min(1.12, GR / 450));
+      var wantLand = Math.min(landPts.length, Math.round(COUNT * 0.42));
+      var wantSea = Math.min(seaPts.length, COUNT - wantLand);
+
+      function take(src, want, isLandPt) {
+        var stride = src.length / want;
+        for (var k = 0; k < want; k++) {
+          var v = src[Math.floor(k * stride)];
+          var lane = particles.length % 7;
+          particles.push({
+            sx: v[0], sy: v[1], sz: v[2],
+            land: isLandPt,
+            lane: lane,
+            u: Math.random(),
+            uSpeed: (0.020 + Math.random() * 0.026) * (lane % 2 === 0 ? 1 : -1),
+            bandOff: (Math.random() - 0.5),
+            ph: Math.random() * 6.2832,
+
+            r: (isLandPt ? (3.9 + Math.random() * 1.0) : (3.1 + Math.random() * 0.9)) * RS,
+            
+            link: (particles.length % 47 === 0),
+            lk: 0, zoneK: 0,
+            x: 0, y: 0, depthS: 1, vis: 1,
+            ox: 0, oy: 0, ovx: 0, ovy: 0
+          });
+        }
+      }
+      take(landPts, wantLand, true);
+      take(seaPts, wantSea, false);
+
+      linkers.length = 0;
+      for (var q = 0; q < particles.length; q++) {
+        if (particles[q].link) linkers.push(particles[q]);
+      }
+    }
+
+    
+    var _laneBase = new Float64Array(7);
+    var _lanePh1 = new Float64Array(7);
+    var _lanePh2 = new Float64Array(7);
+    var _bandX1 = 0, _bandX0 = 0, _bandAmp = 0, _bandAmp2 = 0, _bandOffK = 0;
+    function bandFrame() {
+      _bandX1 = W * 1.38; _bandX0 = -W * 0.19;
+      _bandAmp = H * 0.17; _bandAmp2 = _bandAmp * 0.30;
+      _bandOffK = H * 0.155;
+      for (var l = 0; l < 7; l++) {
+        _laneBase[l] = H * 0.5 + ((l - 3) / 3) * H * 0.40;
+        _lanePh1[l] = tSec * 0.52 + l * 0.42;
+        _lanePh2[l] = -tSec * 0.37 + l * 0.80;
+      }
+    }
+    function bandPoint(p, out) {
+      var lane = p.lane, u = p.u;
+      out[0] = u * _bandX1 + _bandX0;      
+      out[1] = _laneBase[lane]
+             + fsin(u * 4.6 + _lanePh1[lane]) * _bandAmp
+             + fsin(u * 9.4 + _lanePh2[lane]) * _bandAmp2
+             + p.bandOff * _bandOffK;
+      return out;
+    }
+
+    var _bp = [0, 0], _sv = [0, 0, 0];
+
+    var QM_CELL = 24, QM_INV = 1 / 24, QM_HALF = 12;
+
+    var QM_FEATHER = 56;        
+    var QM_RADIUS = 13;         
+    var QM_TRIM = 0.20;         
+    var QM_QUIET = 0.10;        
+    var QM_OPEN = 0.35;         
+    var qmRelax = 0;            
+    var qmW = 0, qmH = 0, qmGrid = null;
+    var qmStatic = [], qmLive = [], qmLiveRects = [], qmLiveT = 0;
+    var bgAmt = 1, bgTarget = 1;
+
+    
+    var QUIET_SEL = 'p.read,.closer,.note,.hint-line,.cats,.ui-note,' +
+      '.eyebrow,h2.lede,.cta h2,.cta p,.qa,' +
+      '.card,.bridge,.formula,.verdict,.collate-lead,' +
+      '.problems li,.delivery li,.roi li,.routes li,' +
+      '.fitcheck li,.layers li,.mx th,.mx td,' +
+      '.closer2 p,.closer2 dt,.closer2 dd,.mid-cta,.mx-cards li,.pair-row,.ctl,.policy-ref>div,' +
+      '.act,.act-note,.sheet,.rail';
+
+    function qmIsStuck(el) {
+      for (var n = el; n && n !== document.body; n = n.parentElement) {
+        var ps = getComputedStyle(n).position;
+        if (ps === 'sticky' || ps === 'fixed') return true;
+      }
+      return false;
+    }
+
+    function qmCollect() {
+      if (!qmGrid) return;
+      qmStatic.length = 0; qmLive.length = 0;
+      var list = document.querySelectorAll(QUIET_SEL);
+      var sy = window.scrollY || window.pageYOffset || 0;
+      var rg = document.createRange();
+      for (var i = 0; i < list.length; i++) {
+        var el = list[i];
+        if (el.closest('.hero') || el.closest('.appendix') || el.closest('.build-note')) continue;
+        if (qmIsStuck(el)) { qmLive.push(el); continue; }
+
+        rg.selectNodeContents(el);
+        var rs = rg.getClientRects();
+        for (var k = 0; k < rs.length; k++) {
+          var q = rs[k];
+          if (q.width < 6 || q.height < 6) continue;
+          
+          var tr = q.height * QM_TRIM;
+          qmStatic.push({ x: q.left, y: q.top + tr + sy, w: q.width, h: q.height - tr * 2 });
+        }
+      }
+      
+      qmStatic.sort(function (a, b) { return a.y - b.y; });
+
+      var st = document.querySelector('.stage');
+      if (st) { var sr = st.getBoundingClientRect(); stageTop = sr.top + sy; stageH = sr.height; }
+      else { stageTop = -1e9; stageH = 0; }
+    }
+    var qmCollectT = 0, qmCollected = false;
+    function qmCollectSoon() {
+      
+      if (!qmCollected) { qmCollected = true; qmCollect(); return; }
+      clearTimeout(qmCollectT);
+      qmCollectT = setTimeout(qmCollect, 180);
+    }
+
+    
+    function qmAt(x, y) {
+      if (!qmGrid) return 1;
+      var fx = x * QM_INV - 0.5, fy = y * QM_INV - 0.5;
+      if (fx < 0) fx = 0; else if (fx > qmW - 1) fx = qmW - 1;
+      if (fy < 0) fy = 0; else if (fy > qmH - 1) fy = qmH - 1;
+      var gx = fx | 0, gy = fy | 0;
+      var tx = fx - gx, ty = fy - gy;
+      var gx1 = gx + 1 < qmW ? gx + 1 : gx;
+      var r0 = gy * qmW, r1 = (gy + 1 < qmH ? gy + 1 : gy) * qmW;
+      var a = qmGrid[r0 + gx], b = qmGrid[r0 + gx1];
+      var c = qmGrid[r1 + gx], e = qmGrid[r1 + gx1];
+      var u = a + (b - a) * tx;
+      return u + ((c + (e - c) * tx) - u) * ty;
+    }
+
+    function qmStamp(x, y, w, h) {
+      var hw = w * 0.5, hh = h * 0.5;
+      var cx = x + hw, cy = y + hh;
+      var rr = Math.min(QM_RADIUS, hw, hh);
+      var ix = hw - rr, iy = hh - rr;
+      var x0 = Math.floor((x - QM_FEATHER) * QM_INV), x1 = Math.ceil((x + w + QM_FEATHER) * QM_INV);
+      var y0 = Math.floor((y - QM_FEATHER) * QM_INV), y1 = Math.ceil((y + h + QM_FEATHER) * QM_INV);
+      if (x1 <= 0 || y1 <= 0 || x0 >= qmW || y0 >= qmH) return;
+      if (x0 < 0) x0 = 0; if (y0 < 0) y0 = 0;
+      if (x1 > qmW) x1 = qmW; if (y1 > qmH) y1 = qmH;
+      var lim = rr + QM_FEATHER, lim2 = lim * lim;
+      var invF = 1 / QM_FEATHER, rng = 1 - QM_QUIET;
+      for (var gy = y0; gy < y1; gy++) {
+        var dy = Math.abs((gy * QM_CELL + QM_HALF) - cy) - iy; if (dy < 0) dy = 0;
+        if (dy >= lim) continue;
+        var dy2 = dy * dy, row = gy * qmW;
+        for (var gx = x0; gx < x1; gx++) {
+          var dx = Math.abs((gx * QM_CELL + QM_HALF) - cx) - ix; if (dx < 0) dx = 0;
+          var d2 = dx * dx + dy2;
+          if (d2 >= lim2) continue;
+          var d = Math.sqrt(d2) - rr;
+          var t = d <= 0 ? 0 : d * invF;
+          
+          t = t * t * t * (t * (t * 6 - 15) + 10);
+          var v = QM_QUIET + rng * t;
+          if (v < qmGrid[row + gx]) qmGrid[row + gx] = v;
+        }
+      }
+    }
+
+    function qmBuild(now) {
+      if (!qmGrid) return;
+      qmGrid.fill(1);
+      var i, s, sy = window.scrollY || window.pageYOffset || 0;
+
+      var yMin = sy - 200, yMax = sy + H + QM_FEATHER;
+      var lo = 0, hi = qmStatic.length;
+      while (lo < hi) { var mid = (lo + hi) >> 1; if (qmStatic[mid].y < yMin) lo = mid + 1; else hi = mid; }
+      for (i = lo; i < qmStatic.length; i++) {
+        s = qmStatic[i];
+        if (s.y > yMax) break;
+        qmStamp(s.x, s.y - sy, s.w, s.h);
+      }
+
+      var hk = 0;
+      if (stageH > 0) {
+        var stTop = stageTop - sy, stBot = stTop + stageH;
+        
+        var fin = (H + 300 - stTop) / (H * 0.65 + 300);
+        var fout = (stBot + 300) / (H * 0.65 + 300);
+        if (fin < 0) fin = 0; else if (fin > 1) fin = 1;
+        if (fout < 0) fout = 0; else if (fout > 1) fout = 1;
+        hk = fin < fout ? fin : fout;
+      }
+      sceneHide = hk;
+      
+      if (now - qmLiveT > 50) {
+        qmLiveT = now; qmLiveRects.length = 0;
+        for (i = 0; i < qmLive.length; i++) {
+          var r = qmLive[i].getBoundingClientRect();
+          if (r.height < 8 || r.top > H + QM_FEATHER || r.bottom < -QM_FEATHER) continue;
+          qmLiveRects.push({ x: r.left, y: r.top, w: r.width, h: r.height });
+        }
+      }
+      for (i = 0; i < qmLiveRects.length; i++) {
+        s = qmLiveRects[i]; qmStamp(s.x, s.y, s.w, s.h);
+      }
+      
+      var sum = 0, n = qmGrid.length;
+      for (i = 0; i < n; i++) sum += qmGrid[i];
+      var cover = 1 - sum / n;
+
+      bgTarget = 1 - (cover < 0.86 ? cover / 0.86 : 1) * 0.40;
+    }
+
+    var qmDist = null;
+    var GR0 = 200;                        
+    var gxT = 0, gyT = 0, grT = 200;      
+    var gInit = false, qmOpenR = 0;       
+    var openK = 1;                        
+    var stageTop = -1e9, stageH = 0;      
+    var sceneHide = 0;                    
+
+    function qmFindOpen() {
+      if (!qmGrid) return;
+      var n = qmGrid.length, i, x, y, d, idx;
+      if (!qmDist || qmDist.length !== n) qmDist = new Float32Array(n);
+      var BIG = 1e6;
+      
+      for (i = 0; i < n; i++) qmDist[i] = qmGrid[i] > QM_OPEN ? BIG : 0;
+
+      for (y = 0; y < qmH; y++) {
+        for (x = 0; x < qmW; x++) {
+          idx = y * qmW + x;
+          d = qmDist[idx];
+          if (d === 0) continue;
+          if (x === 0 || y === 0) { qmDist[idx] = 1; continue; }   
+          var a1 = qmDist[idx - 1] + 1;
+          var b1 = qmDist[idx - qmW] + 1;
+          var c1 = qmDist[idx - qmW - 1] + 1.414;
+          var e1 = (x + 1 < qmW) ? qmDist[idx - qmW + 1] + 1.414 : 1;
+          if (a1 < d) d = a1;
+          if (b1 < d) d = b1;
+          if (c1 < d) d = c1;
+          if (e1 < d) d = e1;
+          qmDist[idx] = d;
+        }
+      }
+      
+      var best = 0, bi = 0;
+      for (y = qmH - 1; y >= 0; y--) {
+        for (x = qmW - 1; x >= 0; x--) {
+          idx = y * qmW + x;
+          d = qmDist[idx];
+          if (d === 0) continue;
+          if (x === qmW - 1 || y === qmH - 1) d = 1;
+          else {
+            var a2 = qmDist[idx + 1] + 1;
+            var b2 = qmDist[idx + qmW] + 1;
+            var c2 = qmDist[idx + qmW + 1] + 1.414;
+            var e2 = (x > 0) ? qmDist[idx + qmW - 1] + 1.414 : 1;
+            if (a2 < d) d = a2;
+            if (b2 < d) d = b2;
+            if (c2 < d) d = c2;
+            if (e2 < d) d = e2;
+          }
+          qmDist[idx] = d;
+          if (d > best) { best = d; bi = idx; }
+        }
+      }
+
+      var bxi = bi % qmW, byi = (bi / qmW) | 0;
+      var reach = best * 1.6; if (reach < 2) reach = 2;
+      var rx0 = Math.max(0, Math.floor(bxi - reach)), rx1 = Math.min(qmW - 1, Math.ceil(bxi + reach));
+      var ry0 = Math.max(0, Math.floor(byi - reach)), ry1 = Math.min(qmH - 1, Math.ceil(byi + reach));
+      var thr = best * 0.94, sx = 0, sy = 0, cnt = 0;
+      for (y = ry0; y <= ry1; y++) {
+        for (x = rx0; x <= rx1; x++) {
+          if (qmDist[y * qmW + x] >= thr) { sx += x; sy += y; cnt++; }
+        }
+      }
+      var bx = cnt ? sx / cnt : bxi;
+      var by = cnt ? sy / cnt : byi;
+
+      gxT = (bx + 0.5) * QM_CELL;
+      gyT = (by + 0.5) * QM_CELL;
+      qmOpenR = best * QM_CELL;    
+
+      var lo = GR0 * 0.20, hi = GR0 * 1.02;
+      grT = qmOpenR < lo ? lo : (qmOpenR > hi ? hi : qmOpenR);
+
+      openK = qmOpenR >= lo ? 1 : Math.max(0.22, qmOpenR / lo);
+
+      var mg = grT * 0.72;
+      if (gxT < mg) gxT = mg; else if (gxT > W - mg) gxT = W - mg;
+      if (gyT < mg) gyT = mg; else if (gyT > H - mg) gyT = H - mg;
+    }
+
+    function step(dt) {
+      tSec += dt / 60;
+
+      var sy = window.scrollY || window.pageYOffset || 0;
+      var dv = Math.abs(sy - lastScrollY);
+      lastScrollY = sy;
+      if (dv > 0.6) scrollIdle = 0; else scrollIdle += dt;
+      globeTarget = processTableVisible ? 0 : ((scrollIdle > 26) ? 1 : 0);
+      
+      var k = (globeTarget > globeAmt ? 0.020 : 0.045) * dt;
+      globeAmt += (globeTarget - globeAmt) * Math.max(0, Math.min(1, k));
+      if (globeAmt < 0) globeAmt = 0; else if (globeAmt > 1) globeAmt = 1;
+
+      spin -= 0.0022 * dt * MOTION;
+
+      for (var i = 0; i < COUNT; i++) {
+        var p = particles[i];
+        p.u += p.uSpeed * dt * 0.016 * MOTION;
+        if (p.u > 1.15) p.u -= 1.3; else if (p.u < -0.15) p.u += 1.3;
+      }
+    }
+
+    
+    var _spinC = 1, _spinS = 0, _dmp = 1;
+    function globePos(p, out) {
+      var c = _spinC, s = _spinS;
+      
+      var rx = p.sz * c - p.sx * s;
+      var rz = p.sx * c + p.sz * s;
+      var ry = p.sy;
+      
+      var sc = CAM_D / (CAM_D + GR * (1 - rz) * 0.85);
+      out[0] = GX + rx * GR * sc;
+      out[1] = GY - ry * GR * sc;
+      out[2] = rz;      
+      out[3] = sc;
+      return out;
+    }
+
+    var _gp = [0, 0, 0, 1];
+
+    function draw(now) {
+      var dt = lastT ? Math.min((now - lastT) / 16.7, 3) : 1;
+      lastT = now;
+      step(dt);
+
+      var g = globeAmt;
+      var ge = g * g * (3 - 2 * g);        
+
+      ctx.clearRect(0, 0, W, H);
+
+      _spinC = Math.cos(spin); _spinS = Math.sin(spin);
+      _dmp = Math.pow(DAMP, dt);
+      bandFrame();
+      qmBuild(now);
+
+      if (globeTarget === 0) qmFindOpen();
+
+      bgAmt += (bgTarget * openK - bgAmt) * Math.max(0, Math.min(1, 0.045 * dt));
+      var gk = Math.max(0, Math.min(1, 0.032 * dt));
+      GX += (gxT - GX) * gk;
+      GY += (gyT - GY) * gk;
+      GR += (grT - GR) * gk;
+      CAM_D = GR * 3.4;
+
+      var fitR = grT > 0 ? qmOpenR / grT : 0;
+      var fit = (fitR - 0.92) / 0.08;
+      if (fit < 0) fit = 0; else if (fit > 1) fit = 1;
+      
+      var rg2 = (ge - 0.88) / 0.12;
+      if (rg2 < 0) rg2 = 0; else if (rg2 > 1) rg2 = 1;
+      qmRelax = rg2 * rg2 * (3 - 2 * rg2) * fit * fit;
+
+      for (var i = 0; i < COUNT; i++) {
+        var p = particles[i];
+        globePos(p, _gp);
+        bandPoint(p, _bp);
+
+        var wob = 1 - ge;
+        var wx = 0, wy = 0;
+        if (wob > 0.01) {
+          var wa = tSec * 0.62 + p.ph;
+          var wb = tSec * 1.07 + p.ph * 2.1;
+          wx = (fcos(wa) * 13 + fsin(wb) * 6) * wob;
+          wy = (fsin(wa) * 10 + fcos(wb) * 5) * wob;
+        }
+
+        var bx = _bp[0] + wx + (_gp[0] - (_bp[0] + wx)) * ge;
+        var by = _bp[1] + wy + (_gp[1] - (_bp[1] + wy)) * ge;
+
+        var facing = _gp[2];
+        var backHide = Math.max(0, Math.min(1, (facing + 0.05) / 0.30));
+        var rimFade = 0.52 + 0.48 * Math.max(0, facing);
+        p.vis = (1 - ge) + ge * backHide * rimFade;
+        p.depthS = (1 - ge) + ge * _gp[3];
+
+        if (!reduce && (ptr.on || rings.length ||
+                        p.ox || p.oy || p.ovx || p.ovy)) {
+          if (ptr.on) {
+            var dx = bx + p.ox - ptr.x, dy = by + p.oy - ptr.y;
+            var d2 = dx * dx + dy * dy;
+            if (d2 < PUSH_R * PUSH_R) {
+              var dd = Math.sqrt(d2) || 0.001;
+              var f = 1 - dd / PUSH_R;
+              var push = f * f * PUSH_F * (0.35 + Math.min(1, ptr.sp / 26));
+              p.ovx += (dx / dd) * push * dt;
+              p.ovy += (dy / dd) * push * dt;
+            }
+          }
+          for (var w2 = 0; w2 < rings.length; w2++) {
+            var rg = rings[w2];
+            var rx2 = bx + p.ox - rg.x, ry2 = by + p.oy - rg.y;
+            var rd = Math.sqrt(rx2 * rx2 + ry2 * ry2) || 0.001;
+            var band = rd - rg.t * RING_SPEED;
+            if (band < -RING_BAND || band > RING_BAND) continue;
+            var amp = (1 - Math.abs(band) / RING_BAND) * (1 - rg.t / RING_LIFE) * rg.pw;
+            p.ovx += (rx2 / rd) * amp * RING_F * dt;
+            p.ovy += (ry2 / rd) * amp * RING_F * dt;
+          }
+          p.ovx += -p.ox * SPRING * dt;
+          p.ovy += -p.oy * SPRING * dt;
+          p.ovx *= _dmp; p.ovy *= _dmp;
+          p.ox += p.ovx * dt;
+          p.oy += p.ovy * dt;
+        }
+
+        p.x = bx + p.ox;
+        p.y = by + p.oy;
+
+        
+        if (qmGrid) {
+          var qv = qmAt(p.x, p.y);
+          p.vis *= qv + (1 - qv) * qmRelax;
+        }
+      }
+
+      for (var w = rings.length - 1; w >= 0; w--) {
+        rings[w].t += dt / 60;
+        if (rings[w].t > RING_LIFE) rings.splice(w, 1);
+      }
+
+      var alpha = bgAmt * (1 - sceneHide);
+
+      if (alpha > 0.004) {
+        ctx.globalAlpha = alpha;
+
+        if (ge > 0.06) drawHubArcs(ge);
+
+        drawParticles(ge);
+
+        drawLinks(1 - ge);
+
+        ctx.globalAlpha = 1;
+      }
+
+      if (running) rafId = requestAnimationFrame(draw);
+    }
+
+    var LINK_R = 96;                 
+    var LINK_MAX_PER = 3;            
+    var ZONES = 4;                   
+    var linkers = [];
+    var cells = [], cellsW = 0, cellsH = 0;
+    var _zx = [], _zy = [], _zr = [];
+    var LINK_BUCKETS = 3;
+    var linkPaths = [];
+
+    function drawLinks(amt) {
+      if (reduce || amt <= 0.04 || !linkers.length) return;
+
+      var minWH = Math.min(W, H);
+      for (var z = 0; z < ZONES; z++) {
+        var ph = z * 1.73;
+        _zx[z] = W * (0.5 + 0.34 * Math.sin(tSec * 0.108 + ph));
+        _zy[z] = H * (0.5 + 0.29 * Math.cos(tSec * 0.081 + ph * 1.4));
+        _zr[z] = minWH * (0.20 + 0.055 * Math.sin(tSec * 0.167 + ph));
+      }
+
+      var cw = Math.max(1, Math.ceil(W / LINK_R));
+      var ch = Math.max(1, Math.ceil(H / LINK_R));
+      if (cw !== cellsW || ch !== cellsH) {
+        cellsW = cw; cellsH = ch;
+        cells = new Array(cw * ch);
+        for (var c0 = 0; c0 < cells.length; c0++) cells[c0] = [];
+      } else {
+        for (var c1 = 0; c1 < cells.length; c1++) cells[c1].length = 0;
+      }
+
+      var i, p;
+      for (i = 0; i < linkers.length; i++) {
+        p = linkers[i];
+        p.lk = 0;
+        var near = 0;
+        for (var z2 = 0; z2 < ZONES; z2++) {
+          var zdx = p.x - _zx[z2], zdy = p.y - _zy[z2];
+          var zd = Math.sqrt(zdx * zdx + zdy * zdy);
+          if (zd < _zr[z2]) {
+            var f = 1 - zd / _zr[z2];
+            if (f > near) near = f;
+          }
+        }
+        
+        near *= qmAt(p.x, p.y);
+        if (near <= 0.02) continue;
+        p.zoneK = near < 1 ? near : 1;
+        var gx = (p.x / LINK_R) | 0, gy = (p.y / LINK_R) | 0;
+        if (gx < 0 || gy < 0 || gx >= cw || gy >= ch) continue;
+        cells[gy * cw + gx].push(p);
+      }
+
+      for (var b = 0; b < LINK_BUCKETS; b++) {
+        if (!linkPaths[b]) linkPaths[b] = [];
+        linkPaths[b].length = 0;
+      }
+
+      var NB = [[1, 0], [-1, 1], [0, 1], [1, 1]];
+      for (var cy = 0; cy < ch; cy++) {
+        for (var cx = 0; cx < cw; cx++) {
+          var arr = cells[cy * cw + cx];
+          if (!arr.length) continue;
+          for (var a = 0; a < arr.length; a++) {
+            var pa = arr[a];
+            
+            for (var a2 = a + 1; a2 < arr.length; a2++) tryLink(pa, arr[a2]);
+            
+            for (var nb = 0; nb < 4; nb++) {
+              var nx = cx + NB[nb][0], ny = cy + NB[nb][1];
+              if (nx < 0 || ny < 0 || nx >= cw || ny >= ch) continue;
+              var arr2 = cells[ny * cw + nx];
+              for (var a3 = 0; a3 < arr2.length; a3++) tryLink(pa, arr2[a3]);
+            }
+          }
+        }
+      }
+
+      function tryLink(p1, p2) {
+        if (p1.lk >= LINK_MAX_PER || p2.lk >= LINK_MAX_PER) return;
+        var dx = p2.x - p1.x, dy = p2.y - p1.y;
+        var d2 = dx * dx + dy * dy;
+        if (d2 > LINK_R * LINK_R) return;
+        var d = Math.sqrt(d2);
+        
+        var s = (1 - d / LINK_R) * Math.min(p1.zoneK, p2.zoneK) * amt;
+        if (s < 0.06) return;
+        p1.lk++; p2.lk++;
+        var bi = s > 0.42 ? 2 : (s > 0.20 ? 1 : 0);
+        var pth = linkPaths[bi];
+        pth.push(p1.x, p1.y, p2.x, p2.y);
+      }
+
+      var ALPHA = [0.055, 0.11, 0.19];
+      ctx.lineCap = 'round';
+      for (var bb = 0; bb < LINK_BUCKETS; bb++) {
+        var pts = linkPaths[bb];
+        if (!pts.length) continue;
+        ctx.strokeStyle = 'rgba(96,142,190,' + (ALPHA[bb] * amt).toFixed(3) + ')';
+        ctx.lineWidth = 0.7;
+        ctx.beginPath();
+        for (var q = 0; q < pts.length; q += 4) {
+          ctx.moveTo(pts[q], pts[q + 1]);
+          ctx.lineTo(pts[q + 2], pts[q + 3]);
+        }
+        ctx.stroke();
+      }
+    }
+
+    
+    var SEA_C = [206, 214, 224], LAND_C = [126, 148, 176];
+    var DEPTH_BANDS = 4;
+    var bucket = [];      
+    function drawParticles(ge) {
+      var i, p, b;
+      var nb = (ge > 0.5) ? DEPTH_BANDS * 2 : 7;
+      for (i = 0; i < nb; i++) { if (!bucket[i]) bucket[i] = []; bucket[i].length = 0; }
+
+      for (i = 0; i < COUNT; i++) {
+        p = particles[i];
+        if (p.vis <= 0.02) continue;
+        if (ge > 0.5) {
+          var db = Math.min(DEPTH_BANDS - 1, Math.max(0, Math.floor(p.depthS * DEPTH_BANDS * 0.92)));
+          b = (p.land ? DEPTH_BANDS : 0) + db;
+        } else {
+          b = p.lane;
+        }
+        bucket[b].push(p);
+      }
+
+      
+      var gs = GR0 > 0 ? GR / GR0 : 1;
+      var sizeK = (0.50 + 0.50 * ge) * (1 - ge + ge * (0.42 + 0.58 * gs));
+
+      for (i = 0; i < nb; i++) {
+        var arr = bucket[i];
+        if (!arr.length) continue;
+        var col, alpha;
+        if (ge > 0.5) {
+          var t = (ge - 0.5) / 0.5;
+          var isLandB = i >= DEPTH_BANDS;
+          var dbi = i % DEPTH_BANDS;
+          var depthK = (dbi + 0.5) / DEPTH_BANDS;      
+          var baseC = isLandB ? LAND_C : SEA_C;
+          
+          var bandC = spectrumAt(i / nb);
+          col = [
+            bandC[0] + (baseC[0] - bandC[0]) * t,
+            bandC[1] + (baseC[1] - bandC[1]) * t,
+            bandC[2] + (baseC[2] - bandC[2]) * t
+          ];
+          
+          alpha = ((isLandB ? 0.80 : 0.55) * (0.62 + 0.38 * depthK)) * t + 0.42 * (1 - t);
+        } else {
+          
+          var rc = spectrumAt(i / 7);
+          col = [rc[0] + (255 - rc[0]) * 0.30,
+                 rc[1] + (255 - rc[1]) * 0.30,
+                 rc[2] + (255 - rc[2]) * 0.30];
+          alpha = 0.42;
+        }
+        ctx.fillStyle = 'rgba(' + (col[0]|0) + ',' + (col[1]|0) + ',' + (col[2]|0) + ',' + alpha.toFixed(3) + ')';
+        ctx.beginPath();
+        for (var k = 0; k < arr.length; k++) {
+          p = arr[k];
+          var s = p.r * sizeK * Math.min(1.5, Math.max(0.5, p.depthS)) * p.vis;
+          if (s < 0.25) continue;
+          ctx.rect(p.x - s * 0.5, p.y - s * 0.5, s, s);
+        }
+        ctx.fill();
+      }
+    }
+
+    var FLIGHTS = [];
+    var FLIGHT_MAX = 5;
+
+    function newFlight(now) {
+      
+      var k = 0, tries = 0, used, ok = false, best = 0;
+      var cc = Math.cos(spin), ss = Math.sin(spin);
+      do {
+        k = (Math.random() * LINKS.length) | 0;
+        used = false;
+        for (var i = 0; i < FLIGHTS.length; i++) { if (FLIGHTS[i].k === k) { used = true; break; } }
+        
+        var Lk = LINKS[k], MA = HUBV[Lk.a], MB = HUBV[Lk.b];
+        var mz = ((MA[0] + MB[0]) * cc + (MA[2] + MB[2]) * ss) * 0.5;
+        if (!used && mz > best) { best = mz; }
+        ok = (!used && mz > 0.34);
+        tries++;
+      } while (!ok && tries < 60);
+      return {
+        k: k,
+        t0:   now + Math.random() * 0.7,      
+        draw: 1.3 + Math.random() * 0.9,      
+        hold: 0.25 + Math.random() * 0.45,    
+        fade: 0.75 + Math.random() * 0.55,    
+        hue:  Math.random()                   
+      };
+    }
+
+    function stepFlights(now) {
+      for (var i = FLIGHTS.length - 1; i >= 0; i--) {
+        var f = FLIGHTS[i];
+        if (now - f.t0 > f.draw + f.hold + f.fade) FLIGHTS.splice(i, 1);
+      }
+      while (FLIGHTS.length < FLIGHT_MAX) FLIGHTS.push(newFlight(now));
+    }
+
+    function drawHubArcs(ge) {
+      stepFlights(tSec);
+      var c = Math.cos(spin), s = Math.sin(spin);
+      var STEP = 34;
+      ctx.lineCap = 'round';
+
+      for (var fi = 0; fi < FLIGHTS.length; fi++) {
+        var F = FLIGHTS[fi];
+        var u = tSec - F.t0;
+        if (u < 0) continue;                       
+
+        var head, life;
+        if (u < F.draw) {
+          var x = u / F.draw;
+          head = x * x * (3 - 2 * x);              
+          life = 1;
+        } else if (u < F.draw + F.hold) {
+          head = 1; life = 1;
+        } else {
+          head = 1;
+          life = 1 - (u - F.draw - F.hold) / F.fade;
+        }
+        if (life <= 0.004 || head <= 0) continue;
+
+        var L = LINKS[F.k];
+        var A = HUBV[L.a], B = HUBV[L.b];
+        var hx0 = 0, hy0 = 0, hs0 = 0, hOK = false;   
+
+        for (var n = 0; n < STEP; n++) {
+          var t0 = n / STEP;
+          if (t0 >= head) break;                   
+          var t1 = Math.min((n + 1) / STEP, head); 
+
+          slerp(A, B, L.ang, t0, _sv);
+          
+          var x0 = _sv[2] * c - _sv[0] * s, z0 = _sv[0] * c + _sv[2] * s, y0 = _sv[1];
+          slerp(A, B, L.ang, t1, _sv);
+          var x1 = _sv[2] * c - _sv[0] * s, z1 = _sv[0] * c + _sv[2] * s, y1 = _sv[1];
+          if (z0 < 0.02 || z1 < 0.02) continue;    
+
+          var lift0 = 1 + 0.20 * Math.sin(t0 * Math.PI);
+          var lift1 = 1 + 0.20 * Math.sin(t1 * Math.PI);
+          var sc0 = CAM_D / (CAM_D + GR * (1 - z0) * 0.85);
+          var sc1 = CAM_D / (CAM_D + GR * (1 - z1) * 0.85);
+          var px0 = GX + x0 * GR * lift0 * sc0, py0 = GY - y0 * GR * lift0 * sc0;
+          var px1 = GX + x1 * GR * lift1 * sc1, py1 = GY - y1 * GR * lift1 * sc1;
+
+          var glow = Math.max(0, 1 - (head - t0) / 0.22);
+          var edge = Math.sin(Math.min(1, t0 / 0.10) * Math.PI * 0.5)      
+                   * Math.sin(Math.min(1, (1 - t0) / 0.10) * Math.PI * 0.5); 
+          var a = (0.56 + 1.05 * glow * glow) * edge * life * ge * Math.min(1, z0 * 2.2);
+          a *= qmAt((px0 + px1) * 0.5, (py0 + py1) * 0.5);   
+
+          if (t1 >= head) { hx0 = px1; hy0 = py1; hs0 = sc1; hOK = (z1 >= 0.02); }
+          if (a <= 0.006) continue;
+
+          var col = spectrumAt((t0 + F.hue) % 1);
+          ctx.strokeStyle = 'rgba(' + (col[0]|0) + ',' + (col[1]|0) + ',' + (col[2]|0) + ',' + a.toFixed(3) + ')';
+          ctx.lineWidth = (1.6 + 2.6 * glow) * sc0;
+          ctx.beginPath();
+          ctx.moveTo(px0, py0);
+          ctx.lineTo(px1, py1);
+          ctx.stroke();
+        }
+
+        if (hOK && u < F.draw) {
+          var hc = spectrumAt((head + F.hue) % 1);
+          var hA = 0.85 * life * ge * qmAt(hx0, hy0);
+          if (hA > 0.01) {
+            ctx.beginPath();
+            ctx.arc(hx0, hy0, 2.1 * hs0, 0, 6.2832);
+            ctx.fillStyle = 'rgba(' + (hc[0]|0) + ',' + (hc[1]|0) + ',' + (hc[2]|0) + ',' + hA.toFixed(3) + ')';
+            ctx.fill();
+          }
+        }
+
+        for (var e = 0; e < 2; e++) {
+          var lit = (e === 0) ? 1 : Math.max(0, (head - 0.90) / 0.10);
+          if (lit <= 0.02) continue;
+          var Vv = (e === 0) ? A : B;
+          var vx = Vv[2] * c - Vv[0] * s, vz = Vv[0] * c + Vv[2] * s, vy = Vv[1];
+          if (vz < 0.05) continue;
+          var scv = CAM_D / (CAM_D + GR * (1 - vz) * 0.85);
+          var hxx = GX + vx * GR * scv, hyy = GY - vy * GR * scv;
+          var ha = 0.62 * lit * life * ge * Math.min(1, vz * 2.2) * qmAt(hxx, hyy);
+          if (ha <= 0.01) continue;
+          ctx.beginPath();
+          ctx.arc(hxx, hyy, 1.9 * scv, 0, 6.2832);
+          ctx.fillStyle = 'rgba(3,104,181,' + ha.toFixed(3) + ')';
+          ctx.fill();
+        }
+      }
+    }
+
+    function start() {
+      stop();
+      running = true; lastT = 0;
+      rafId = requestAnimationFrame(draw);
+    }
+    function stop() { running = false; if (rafId) cancelAnimationFrame(rafId); rafId = 0; }
+
+    function init() {
+      
+      if (resize()) { lastT = 0; draw(performance.now()); }   
+      start();
+    }
+
+    if (!reduce) {
+      window.addEventListener('pointermove', function (e) {
+        var nx = e.clientX, ny = e.clientY;
+        ptr.sp = ptr.on ? Math.hypot(nx - ptr.x, ny - ptr.y) : 0;
+        ptr.x = nx; ptr.y = ny; ptr.on = true;
+        
+        if (Math.hypot(nx - ptr.lastRx, ny - ptr.lastRy) > 62) {
+          ptr.lastRx = nx; ptr.lastRy = ny;
+          if (rings.length >= RING_MAX) rings.shift();
+          rings.push({ x: nx, y: ny, t: 0, pw: Math.min(1, 0.30 + ptr.sp / 34) });
+        }
+      }, { passive: true });
+      window.addEventListener('pointerleave', function () { ptr.on = false; }, { passive: true });
+      window.addEventListener('pointerdown', function (e) {
+        if (rings.length >= RING_MAX) rings.shift();
+        rings.push({ x: e.clientX, y: e.clientY, t: 0, pw: 1 });
+      }, { passive: true });
+    }
+
+    function onBoxChange() {
+      if (resize()) { lastT = 0; draw(performance.now()); }
+    }
+    if (window.ResizeObserver) new ResizeObserver(onBoxChange).observe(cv);
+    else window.addEventListener('resize', onBoxChange, { passive: true });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else { onBoxChange(); start(); }
+    });
+
+    window.__nijiBg = function () {
+      return {
+        地球の中心: [Math.round(GX), Math.round(GY)],
+        地球の半径: Math.round(GR),
+        目標: { x: Math.round(gxT), y: Math.round(gyT), r: Math.round(grT) },
+        実際の余白半径: Math.round(qmOpenR),
+        シーン帯で非表示: +sceneHide.toFixed(2),
+        シーン帯: [Math.round(stageTop), Math.round(stageH)],
+        静める行の数: qmStatic.length,
+        基準半径: Math.round(GR0),
+        余白比: +(GR / (GR0 || 1)).toFixed(3),
+        背景の濃さ: +bgAmt.toFixed(3),
+        地球度: +globeAmt.toFixed(3)
+      };
+    };
+
+    if (document.readyState === 'complete') qmCollectSoon();
+    else window.addEventListener('load', qmCollectSoon);
+    setTimeout(qmCollect, 1600);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(qmCollectSoon);
+
+    init();
+  }
+
+  var ledger = document.getElementById('ledger');
+  var rows = ledger ? ledger.querySelectorAll('li[data-row]') : [];
+  var countEl = document.getElementById('railCount');
+  var latestEl = document.getElementById('railLatest');
+  var rail = document.getElementById('rail');
+  var railWrap = document.querySelector('.rail-wrap');
+  var storySec = document.querySelector('[data-field="story"]');
+  var total = ledger ? ledger.querySelectorAll('li').length : 0;
+  var scenes = [].slice.call(document.querySelectorAll('.scene[data-scene]'));
+  var revs = [].slice.call(document.querySelectorAll('.rev'));
+
+  function updateCount() {
+    if (!countEl || !ledger) return;
+    countEl.textContent = total + '行中 ' + ledger.querySelectorAll('li.written').length + '行';
+  }
+  
+  function flash(el) {
+    el.classList.add('just');
+    setTimeout(function () { el.classList.remove('just'); }, 1700);
+  }
+  
+  function showLatest(written) {
+    if (!latestEl || !written.length) return;
+    var last = written[written.length - 1];
+    var ev = last.querySelector('.ev');
+    var evTxt = ev ? ev.textContent.trim() : '';
+    var metas = [];
+    var tmp = document.createElement('div');
+    for (var i = 0; i < written.length; i++) {
+      var m = written[i].querySelector('.mt');
+      if (!m) continue;
+      
+      tmp.innerHTML = m.innerHTML.replace(/<br\s*\/?>/gi, ' ');
+      metas.push(tmp.textContent.replace(/\s+/g, ' ').trim());
+    }
+    if (written.length > 1) evTxt += ' ×' + written.length;
+    latestEl.style.setProperty('--tick', last.style.getPropertyValue('--tick') || '');
+    var evEl = latestEl.querySelector('.rl-ev');
+    var mtEl = latestEl.querySelector('.rl-mt');
+    if (evEl) evEl.textContent = evTxt;
+    if (mtEl) mtEl.textContent = metas.join(' ／ ');
+    if (!reduce) {
+      latestEl.classList.remove('just');
+      void latestEl.offsetWidth;
+      latestEl.classList.add('just');
+    }
+  }
+
+  function write(no) {
+    var wrote = false, justWritten = [];
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].getAttribute('data-row') === String(no) && !rows[i].classList.contains('written')) {
+        rows[i].classList.add('written');
+        if (!reduce) flash(rows[i]);
+        justWritten.push(rows[i]);
+        wrote = true;
+      }
+    }
+    if (wrote) {
+      showLatest(justWritten);
+      updateCount();
+      if (!reduce && countEl) {
+        countEl.classList.remove('bump');
+        void countEl.offsetWidth;      
+        countEl.classList.add('bump');
+      }
+    }
+  }
+  function writeAll() {
+    for (var i = 0; i < rows.length; i++) rows[i].classList.add('written');
+    for (var j = 0; j < revs.length; j++) revs[j].classList.add('in');
+    for (var k = 0; k < scenes.length; k++) scenes[k].classList.add('in');
+    updateCount();
+  }
+
+  if (reduce) {
+    writeAll();
+  } else {
+    if (ledger) ledger.classList.add('progressive');
+
+    var check = function () {
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      if (!h) return;
+      var line = h * 0.58;
+
+      for (var i = 0; i < scenes.length; i++) {
+        var s = scenes[i];
+        var r = s.getBoundingClientRect();
+        if (!s.classList.contains('in') && r.top < h * 0.9) s.classList.add('in');
+        if (s.getAttribute('data-done')) continue;
+        if (r.top < line) { s.setAttribute('data-done', '1'); write(s.getAttribute('data-scene')); }
+      }
+      for (var k = 0; k < revs.length; k++) {
+        var e = revs[k];
+        if (!e.classList.contains('in') && e.getBoundingClientRect().top < h * 0.92) e.classList.add('in');
+      }
+
+      
+      if (railWrap && storySec) {
+        var sr = storySec.getBoundingClientRect();
+        var onStory = sr.top < h * 0.72 && sr.bottom > h * 0.16;
+        if (onStory !== railWrap.classList.contains('live')) {
+          railWrap.classList.toggle('live', onStory);
+          
+          if (!onStory && rail && rail.classList.contains('open')) closeRail();
+        }
+      }
+    };
+
+    var last = 0, trailing = null;
+    var run = function () { last = (window.performance ? performance.now() : +new Date()); check(); };
+    var onScroll = function () {
+      var now = window.performance ? performance.now() : +new Date();
+      if (now - last > 70) run();
+      else { clearTimeout(trailing); trailing = setTimeout(run, 80); }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('load', run);
+    run();
+    updateCount();
+  }
+
+  if (reduce && scenes.length && rows.length) {
+    var updateReducedSceneHighlight = function () {
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      if (!h) return;
+      var front = null;
+      for (var i = 0; i < scenes.length; i++) {
+        var rect = scenes[i].getBoundingClientRect();
+        if (rect.top <= h * 0.42 && rect.bottom > 0) front = scenes[i];
+      }
+      if (!front) return;
+      var no = front.getAttribute('data-scene');
+      for (var j = 0; j < rows.length; j++) {
+        rows[j].classList.toggle('now', rows[j].getAttribute('data-row') === no);
+      }
+    };
+    window.addEventListener('scroll', updateReducedSceneHighlight, { passive: true });
+    window.addEventListener('resize', updateReducedSceneHighlight, { passive: true });
+    updateReducedSceneHighlight();
+  }
+
+  (function () {
+    if (reduce) return;
+    var sheets = [];
+    for (var i = 0; i < scenes.length; i++) {
+      var sh = scenes[i].querySelector('.sheet');
+      if (sh) sheets.push({ scene: scenes[i], sheet: sh, next: null });
+    }
+    for (var j = 0; j < sheets.length - 1; j++) sheets[j].next = sheets[j + 1].scene;
+    if (!sheets.length) return;
+
+    var storyEl = scenes[0].parentNode;
+    var kids = storyEl.children;
+    for (var z = 0; z < kids.length; z++) kids[z].style.zIndex = String(z + 1);
+
+    function levelSheets() {
+      var max = 0, s;
+      for (s = 0; s < sheets.length; s++) {
+        sheets[s].sheet.style.minHeight = '';
+      }
+      for (s = 0; s < sheets.length; s++) {
+        var h = sheets[s].sheet.getBoundingClientRect().height;
+        if (h > max) max = h;
+      }
+      for (s = 0; s < sheets.length; s++) {
+        sheets[s].sheet.style.minHeight = Math.ceil(max) + 'px';
+      }
+    }
+    levelSheets();
+    var lvT = 0;
+    window.addEventListener('resize', function () {
+      clearTimeout(lvT);
+      lvT = setTimeout(levelSheets, 160);
+    }, { passive: true });
+    
+    if (document.readyState !== 'complete') window.addEventListener('load', levelSheets);
+
+    var rid = 0, on = false, curScene = null;
+    var ledgerRows = document.querySelectorAll('#ledger li[data-row]');
+    function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function ease(x) { return 1 - Math.pow(1 - x, 3); }   
+
+    function markLedger(no) {
+      if (no === curScene) return;
+      curScene = no;
+      for (var i = 0; i < ledgerRows.length; i++) {
+        ledgerRows[i].classList.toggle('now', ledgerRows[i].getAttribute('data-row') === no);
+      }
+    }
+
+    function frame() {
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      if (h) {
+        var front = null;
+
+        for (var q = 0; q < sheets.length; q++) {
+          sheets[q].pr = sheets[q].next
+            ? clamp01(1 - sheets[q].next.getBoundingClientRect().top / h)
+            : 0;
+        }
+
+        for (var k = 0; k < sheets.length; k++) {
+          var it = sheets[k];
+          var rect = it.scene.getBoundingClientRect();
+
+          var pr = it.pr;
+          var e = ease(pr);
+          
+          var deeper = sheets[k + 1] ? sheets[k + 1].pr : 0;
+          var gone = clamp01(deeper * 3.2);
+          it.sheet.style.setProperty('--sc', (1 - e * 0.062).toFixed(4));
+          it.sheet.style.setProperty('--ty', (-e * 22).toFixed(1) + 'px');
+          it.sheet.style.setProperty('--op', ((1 - e * 0.45) * (1 - gone)).toFixed(4));
+          it.sheet.style.setProperty('--vl', (e * 0.38).toFixed(4));
+
+          var en = ease(clamp01(1 - rect.top / (h * 0.72)));
+          it.sheet.style.setProperty('--en', en.toFixed(4));
+
+          if (rect.top <= h * 0.42 && rect.bottom > 0) front = it.scene;
+        }
+        if (front) markLedger(front.getAttribute('data-scene'));
+      }
+      if (on) rid = requestAnimationFrame(frame);
+    }
+    function go() { if (on) return; on = true; rid = requestAnimationFrame(frame); }
+    function halt() { on = false; if (rid) cancelAnimationFrame(rid); rid = 0; }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) halt(); else go();
+    });
+    frame();   
+    go();
+    
+    window.addEventListener('scroll', function () { if (!on || document.hidden) frame(); }, { passive: true });
+  })();
+
+  
+  var pairs = document.getElementById('pairs');
+  var cHint = document.getElementById('collateHint');
+  var cNum = document.getElementById('collateN');
+  var cTrack = document.querySelectorAll('.ctrack i');
+
+  if (pairs) {
+    var prows = pairs.querySelectorAll('.pair-row');
+    var solved = 0;
+    var syncLedgerDim = function () {
+      if (!ledger) return;
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      var r = pairs.getBoundingClientRect();
+      var collateVisible = r.top < h * 0.82 && r.bottom > h * 0.18;
+      ledger.classList.toggle('dim', solved >= prows.length && collateVisible);
+    };
+
+    var resolveRow = function (row, idx) {
+      if (row.classList.contains('res')) return;
+      row.classList.add('res');
+      solved++;
+      if (cNum) cNum.textContent = String(solved);
+      if (cTrack[idx]) cTrack[idx].classList.add('lit');
+      if (cHint) {
+        cHint.textContent = solved < prows.length
+          ? '同じ製品個体IDが、別の履歴として現れています'
+          : '履歴の矛盾を検知';
+      }
+      
+      if (solved >= prows.length) syncLedgerDim();
+    };
+
+    if (reduce) {
+      
+      for (var pi = 0; pi < prows.length; pi++) resolveRow(prows[pi], pi);
+    } else {
+      pairs.classList.add('staged');
+      var pairCheck = function () {
+        var h = window.innerHeight || document.documentElement.clientHeight;
+        if (!h) {
+          
+          for (var k = 0; k < prows.length; k++) resolveRow(prows[k], k);
+          return;
+        }
+        
+        var line = h * 0.82;
+        for (var i = 0; i < prows.length; i++) {
+          if (prows[i].getBoundingClientRect().top < line) resolveRow(prows[i], i);
+        }
+      };
+      window.addEventListener('scroll', pairCheck, { passive: true });
+      window.addEventListener('resize', pairCheck, { passive: true });
+      document.addEventListener('visibilitychange', pairCheck);
+      pairCheck();
+      
+      setTimeout(function () {
+        if (solved === 0 && pairs.getBoundingClientRect().top < (window.innerHeight || 800)) pairCheck();
+      }, 1200);
+    }
+    window.addEventListener('scroll', syncLedgerDim, { passive: true });
+    window.addEventListener('resize', syncLedgerDim, { passive: true });
+    syncLedgerDim();
+  }
+
+  var w1 = document.getElementById('w1'), w2 = document.getElementById('w2'),
+      w3 = document.getElementById('w3'), th = document.getElementById('th');
+  var outEl = document.getElementById('verdictOut'), warnEl = document.getElementById('warnBox');
+  var scoreVal = document.getElementById('scoreVal'), thVal = document.getElementById('thVal');
+  var barFill = document.getElementById('barFill'), barTick = document.getElementById('barTick');
+  var vMark = document.getElementById('verdictMark');
+
+  function recalc() {
+    if (!w1) return;
+    var a = +w1.value, b = +w2.value, c = +w3.value, t = +th.value, score = a + b + c, max = 150;
+    document.getElementById('v1').textContent = a;
+    document.getElementById('v2').textContent = b;
+    document.getElementById('v3').textContent = c;
+    document.getElementById('vt').textContent = t;
+    scoreVal.textContent = score; thVal.textContent = t;
+    barFill.style.transform = 'scaleX(' + Math.min(1, score / max) + ')';
+    barTick.style.left = Math.min(100, (t / max) * 100) + '%';
+    var v, warn;
+    if (score >= t * 1.5) v = '否認';
+    else if (score >= t) v = 'ブランドによる審査';
+    else if (score >= t * 0.8) v = '保留';
+    else v = '即時承認';
+
+    outEl.textContent = v;
+    if (vMark) { outEl.insertBefore(vMark, outEl.firstChild); vMark.hidden = (v !== '即時承認'); }
+
+    if (v === '即時承認') warn = '<b>いま、コピー品が正規品として通りました。</b>大阪と福岡で8分間に読み取られた同じ個体が、そのまま承認されています。判定を緩めるほど正規の購入者を待たせずに済み、同時に見逃しが増えます。この線を引くのはブランド側です。';
+    else if (v === '保留') warn = '保留にすると、購入者の画面は「確認中」のまま止まります。安全側ですが、正規の購入者を待たせる回数も増えます。';
+    else if (v === '否認') warn = '否認は強い判断です。誤って正規品を弾くと、購入者の信頼を直接損ないます。運用初期はブランドによる審査を厚くする設計が現実的です。';
+    else warn = 'ブランドによる審査へ回ります。機械は矛盾を見つけるところまでを担い、最終的な判断は担当者が下します。シーン07の画面がその場所です。';
+    warnEl.innerHTML = warn;
+  }
+  [w1, w2, w3, th].forEach(function (el) { if (el) el.addEventListener('input', recalc); });
+  recalc();
+
+
+  var stripToggle = document.getElementById('stripToggle');
+  function setRail(open) {
+    if (!rail) return;
+    rail.classList.toggle('open', open);
+    if (stripToggle) {
+      stripToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      stripToggle.textContent = open ? '閉じる' : '全履歴';
+    }
+  }
+  function closeRail() { setRail(false); }
+  if (stripToggle && rail) {
+    stripToggle.addEventListener('click', function () {
+      setRail(!rail.classList.contains('open'));
+    });
+  }
+})();
+
+(function () {
+  'use strict';
+  var ENABLE = true;
+  
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  if (!ENABLE || reduce || coarse) return;
+  if (!('scrollTo' in window)) return;
+
+  var LERP = 0.11;               
+  var current = window.scrollY || 0;
+  var target = current;
+  var raf = 0;
+
+  var rafAlive = false;
+  requestAnimationFrame(function () { rafAlive = true; });
+
+  var htmlEl = document.documentElement;
+  var prevBehavior = htmlEl.style.scrollBehavior;
+  htmlEl.style.scrollBehavior = 'auto';
+
+  function maxScroll() {
+    return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  }
+
+  var lastT = 0;
+  function loop(now) {
+    rafAlive = true;
+    var dt = lastT ? Math.min((now - lastT) / 16.7, 4) : 1;   
+    lastT = now;
+    var k = 1 - Math.pow(1 - LERP, dt);
+    var diff = target - current;
+    if (Math.abs(diff) < 0.4) {
+      current = target;
+      window.scrollTo(0, current);
+      raf = 0;
+      lastT = 0;          
+      return;
+    }
+    current += diff * k;
+    window.scrollTo(0, current);
+    raf = requestAnimationFrame(loop);
+  }
+  function kick() { if (!raf) raf = requestAnimationFrame(loop); }
+
+  window.addEventListener('wheel', function (e) {
+    
+    var tag = e.target && e.target.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+    
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    
+    if (!rafAlive) return;
+
+    e.preventDefault();
+    
+    var mul = e.deltaMode === 1 ? 18 : (e.deltaMode === 2 ? window.innerHeight : 1);
+    target = Math.min(maxScroll(), Math.max(0, target + e.deltaY * mul));
+    kick();
+  }, { passive: false });
+
+  window.addEventListener('scroll', function () {
+    if (Math.abs(window.scrollY - current) > 2) {
+      current = target = window.scrollY;
+    }
+  }, { passive: true });
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href');
+    if (!id || id.length < 2) return;
+    var el = document.querySelector(id);
+    if (!el) return;
+    if (!rafAlive) return;   
+    e.preventDefault();
+    var top = el.getBoundingClientRect().top + window.scrollY;
+    target = Math.min(maxScroll(), Math.max(0, top));
+    kick();
+  });
+
+  window.addEventListener('resize', function () {
+    target = Math.min(maxScroll(), target);
+  }, { passive: true });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; }
+    else if (!document.hidden) { current = target = window.scrollY; }
+  });
+
+  window.__nijiSmoothOff = function () {
+    if (raf) { cancelAnimationFrame(raf); raf = 0; }
+    rafAlive = false;
+    htmlEl.style.scrollBehavior = prevBehavior;
+  };
+})();
+
+(function () {
+  'use strict';
+  var bar = document.getElementById('readbar');
+  if (!bar) return;
+  
+  if (window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()')) return;
+
+  var pending = false;
+  function paint() {
+    pending = false;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var v = max > 0 ? (window.scrollY || window.pageYOffset || 0) / max : 0;
+    bar.style.setProperty('--rb', (v < 0 ? 0 : v > 1 ? 1 : v).toFixed(4));
+  }
+  function onScroll() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(paint);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('load', paint);
+  paint();
+})();
+</script>
+<footer id="njFoot">
+  <div class="rb"></div>
+  <div class="in">
+    <div>
+      <img src="../../assets/img/logo-niji.png" alt="Niji" width="56">
+      <p>Making the Invisible, Visible.<br>現場の情報を、事業を動かす基盤へ。</p>
+      <p>〒105-0012<br>東京都港区芝大門1-2-14 H1O浜松町818</p>
+    </div>
+    <div class="navs">
+      <nav aria-label="サイトマップ">
+        <a href="../../index.html#services">Service</a>
+        <a href="../../index.html#solutions">Solutions</a>
+        <a href="../../index.html#products">Products</a>
+        <a href="../../index.html#fields">Fields</a>
+        <a href="../../index.html#approach">Approach</a>
+        <a href="../../index.html#news">News</a>
+      </nav>
+      <nav aria-label="会社情報">
+        <a href="../../company.html">Company</a>
+        <a href="../../contact.html">Contact</a>
+        <a href="../../contact.html?type=doc">資料請求</a>
+        <a href="../../privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </div>
+  <div class="base"><span>© 2026 株式会社虹 / Niji Inc.</span></div>
+</footer>
+
+</body>
+</html>

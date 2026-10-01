@@ -1,0 +1,116 @@
+/* ============================================================================
+   トップページ用のスタイル（index.html だけが読み込む）
+   ============================================================================ */
+
+/* ── SERVICE：提供一覧 ── */
+.offer{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+.offer .label{margin-bottom:22px}
+.offer__grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.offer__item{position:relative;display:flex;flex-direction:column;gap:6px;padding:26px 56px 26px 32px;transition:background .3s}
+.offer__item+.offer__item{border-left:1px solid var(--line)}
+.offer__item:hover{background:var(--mist)}
+.offer__kind{font-size:.66rem;letter-spacing:.2em;color:var(--sub)}
+.offer__name{font-size:1.2rem;font-weight:500;color:var(--ink)}
+.offer__desc{font-size:.84rem;color:var(--sub)}
+.offer__go{position:absolute;right:24px;top:50%;transform:translateY(-50%);color:var(--ink);transition:transform .3s}
+.offer__item:hover .offer__go{transform:translate(4px,-50%)}
+@media (max-width:900px){
+  .offer__grid{grid-template-columns:1fr}
+  .offer__item,.offer__item+.offer__item{padding:20px 40px 20px 0;border-left:none;border-bottom:1px solid var(--line)}
+  .offer__go{right:8px}
+}
+
+/* ── SOLUTIONS：工程線 ── */
+.pline{margin-top:8px;padding:28px 0 8px;border-top:1px solid var(--line)}
+.pline__bar{display:flex;align-items:center;gap:14px;font-size:.82rem;color:var(--sub);padding:10px 0;border-top:2px solid var(--sp5);border-bottom:1px solid var(--line);margin-bottom:26px}
+.pline__bar span{font-weight:500;color:var(--sp5-t);letter-spacing:.06em}
+.pline__steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);position:relative}
+.pline__steps::before{content:"";position:absolute;left:0;right:0;top:6px;height:1px;background:var(--sp5)}
+.pline__steps li{position:relative;padding-top:26px;padding-right:10px}
+.pline__steps li::before{content:"";position:absolute;left:0;top:0;width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--sp5)}
+.pline__steps li.is-stock::before{background:var(--sp4);border-color:var(--sp4)}
+.pline__steps li.is-bw::before{background:var(--sp2);border-color:var(--sp2)}
+.pline__steps b{display:block;font-size:.95rem;font-weight:500;color:var(--ink);margin-bottom:4px}
+.pline__steps span{font-size:.76rem;color:var(--sub)}
+.pline__use{display:grid;grid-template-columns:repeat(7,1fr);margin-top:26px}
+.pline__u{font-size:.8rem;color:var(--sub);line-height:1.8;padding-top:12px;border-top:2px solid}
+.pline__u span{display:block;font-weight:500;color:var(--ink);font-size:.86rem}
+.pline__u--stock{grid-column:3 / span 2;border-color:var(--sp4);margin-right:24px}
+.pline__u--bw{grid-column:5 / span 3;border-color:var(--sp2)}
+@media (max-width:900px){
+  .pline__steps{grid-template-columns:1fr;gap:16px;padding-left:28px}
+  .pline__steps::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .pline__steps li{padding:0}
+  .pline__steps li::before{left:-28px;top:3px}
+  .pline__use{grid-template-columns:1fr;gap:14px}
+  .pline__u--stock,.pline__u--bw{grid-column:auto;margin:0}
+}
+
+/* ── PRODUCTS：Niji TS の機能タイル（B-Watchdog™ を大きめに） ── */
+.pgrid{display:grid;grid-template-columns:1fr 1.25fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pcard{display:flex;flex-direction:column;padding:30px 26px;transition:background .3s}
+.pcard+.pcard{border-left:1px solid var(--line)}
+.pcard:hover{background:var(--mist)}
+.pcard__tag{font-size:.66rem;letter-spacing:.16em;color:var(--sp7-t);margin-bottom:10px}
+.pcard h3{font-size:1.1rem;font-weight:500;margin-bottom:12px}
+.pcard--hero h3{font-size:1.3rem}
+.pcard p{font-size:.83rem;color:var(--sub);line-height:1.95}
+.pcard .pcard__catch{font-size:.95rem;color:var(--ink);font-weight:500;line-height:1.8;margin-bottom:8px}
+.pcard__feats{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.pcard__feats li{font-size:.7rem;color:var(--sub);border:1px solid var(--line);border-radius:2px;padding:3px 9px;background:#fff}
+.pcard__go{margin-top:auto;padding-top:22px;font-size:.78rem;letter-spacing:.08em;color:var(--ink);position:relative;display:inline-block;width:max-content}
+.pcard__go::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .32s cubic-bezier(.22,.8,.3,1)}
+.pcard:hover .pcard__go::after,.pcard:focus-visible .pcard__go::after{transform:scaleX(1)}
+.custom-note{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px;padding:20px 24px;border-left:2px solid var(--sp3)}
+.custom-note p{font-size:.86rem;color:var(--sub);line-height:1.9}
+.custom-note b{font-weight:500;color:var(--ink);margin-right:8px}
+@media (max-width:1080px){
+  .pgrid{grid-template-columns:1fr 1fr}
+  .pcard:nth-child(3){border-left:none}
+  .pcard:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:720px){
+  .pgrid{grid-template-columns:1fr}
+  .pcard+.pcard{border-left:none;border-top:1px solid var(--line)}
+  .pcard{padding:24px 4px}
+  .custom-note{flex-direction:column;align-items:flex-start}
+}
+
+/* ── REPRESENTATIVES：扱う領域の短縮版 ── */
+.domains3{margin-top:56px;border-top:1px solid var(--line)}
+.domains3__row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;padding:16px 0;border-bottom:1px solid var(--line);font-size:.86rem;color:var(--ink)}
+.domains3__k{min-width:9em;font-size:.68rem;letter-spacing:.18em;color:var(--dc)}
+.domains3__row span:not(.domains3__k)::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--line);margin-right:9px;vertical-align:2px}
+
+/* SERVICE：提供一覧のすぐ下に、個別開発の進め方（旧 WHAT WE DO）を続ける */
+.offer{padding-bottom:112px}
+.offer__custom{margin-top:96px}
+/* PRODUCTS：2列 */
+.pgrid{grid-template-columns:1fr 1fr}
+.pcard{padding:34px 40px}
+.pcard--hero h3{font-size:1.1rem}
+@media (max-width:1080px){ .pgrid{grid-template-columns:1fr 1fr} .pcard:nth-child(n+3){border-top:none} }
+@media (max-width:720px){ .pgrid{grid-template-columns:1fr} .pcard{padding:26px 4px} }
+/* SOLUTIONS：使いどころの帯に小さなイラストを添える（主張しすぎない大きさ・濃さ） */
+.pline__u{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:start}
+.pline__u img{width:112px;height:80px;object-fit:cover;border-radius:2px;opacity:.9}
+.pline__u p{font-size:.8rem;color:var(--sub);line-height:1.8}
+.pline__u p span{display:block;font-weight:500;color:var(--ink);font-size:.86rem}
+@media (max-width:900px){ .pline__u{grid-template-columns:88px minmax(0,1fr)} .pline__u img{width:88px;height:64px} }
+.custom-note .txtlink{white-space:nowrap;flex:none}
+/* PRODUCTS：左右のカードで、ラベル・名前・一言・補足・特長・リンクの行をそろえる（subgrid） */
+@media (min-width:721px){
+  .pgrid{grid-template-rows:repeat(6,auto)}
+  .pcard{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:0;align-content:start}
+  .pcard__feats{align-self:start}
+  .pcard__go{align-self:end}
+}
+/* 個別開発の注記：縦に積む */
+.custom-note{display:block}
+.custom-note p+p{margin-top:6px}
+.custom-note b{display:block;margin:0 0 4px}
+.custom-note .custom-note__cta{margin-top:16px}
+.custom-note .custom-note__cta .txtlink{white-space:normal}
+/* SERVICE：コアの一文 */
+.offer__core{font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.9;margin:-4px 0 26px}
+.offer__core span{display:block;font-size:.86rem;font-weight:400;color:var(--sub)}
