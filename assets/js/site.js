@@ -46,6 +46,43 @@
     }
   }
 
+  /* ── Top page section navigation: keep the jump, clean the URL ── */
+  function initTopPageHash() {
+    if (!document.body || document.body.id !== 'top') return;
+
+    function stripHash() {
+      if (!window.location.hash || !window.history || !window.history.replaceState) return;
+      window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+    }
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      var link = target && target.closest ? target.closest('a[href]') : null;
+      if (!link) return;
+
+      var destination;
+      try {
+        destination = new URL(link.href, window.location.href);
+      } catch (error) {
+        return;
+      }
+      if (destination.origin !== window.location.origin ||
+          destination.pathname !== window.location.pathname || !destination.hash) return;
+
+      window.setTimeout(stripHash, 0);
+    });
+
+    if (window.location.hash) {
+      if (document.readyState === 'complete') {
+        window.setTimeout(stripHash, 0);
+      } else {
+        window.addEventListener('load', function () {
+          window.requestAnimationFrame(stripHash);
+        }, { once: true });
+      }
+    }
+  }
+
   /* ── 4. reveal ───────────────────────────────────────── */
   function initReveal() {
     var targets = $$('.reveal, .row, .field, .band, .steps');
@@ -460,7 +497,7 @@
     });
   }
 
-  function boot() { initHeader(); initReveal(); initStages(); initHero(); initNavBox(); }
+  function boot() { initHeader(); initTopPageHash(); initReveal(); initStages(); initHero(); initNavBox(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
