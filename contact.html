@@ -152,8 +152,6 @@
         <p class="note" data-for="contact"><a class="txtlink" href="contact.html?type=doc" data-switch="doc">まずは資料だけ受け取りたい方は、資料請求へ →</a></p>
         <p class="note" data-for="doc" hidden><a class="txtlink" href="contact.html" data-switch="contact">具体的なご相談内容がある方は、お問い合わせへ →</a></p>
         <p class="note" id="formError" role="alert" hidden>送信に失敗しました。通信状況を確認し、時間をおいて再度お試しください。</p>
-        <p class="note" id="formDoneContact" role="status" hidden style="color:var(--sp4-t)">お問い合わせを受け付けました。内容を拝見のうえ、担当者より追ってご連絡いたします。</p>
-        <p class="note" id="formDoneDoc" role="status" hidden style="color:var(--sp4-t)">資料請求を受け付けました。担当者より、ご記入いただいたメールアドレス宛に資料をお送りします。</p>
       </form>
 
       <div class="aftersend" data-for="doc" hidden>
@@ -225,17 +223,10 @@
       c=document.getElementById('consent'), b=document.getElementById('submitBtn'),
       live=document.getElementById('modeLive'),
       error=document.getElementById('formError'), subject=document.getElementById('formSubject'),
-      done={contact:document.getElementById('formDoneContact'),doc:document.getElementById('formDoneDoc')},
       TYPES={contact:1,doc:1}, TOPIC_TO_INTEREST={nijits:1,bwatchdog:1,inventory:1,custom:1},
       sending=false, submitted=false;
 
   function updateSubmitButton(){ b.disabled=!c.checked||sending||submitted; }
-
-  function lockFormAfterSubmit(){
-    var controls=f.querySelectorAll('input,textarea,select,button'), links=f.querySelectorAll('[data-switch]');
-    for(var i=0;i<controls.length;i++) controls[i].disabled=true;
-    for(var j=0;j<links.length;j++) links[j].hidden=true;
-  }
 
   function setMode(mode, announce){
     if(!TYPES[mode]) mode='contact';
@@ -291,7 +282,7 @@
     grp('topic','err-topic',mode==='contact'); grp('interest','err-interest',mode==='doc'); grp('stage','err-stage',mode==='doc');
     if(firstBad){ firstBad.focus(); return; }
     if(!f.checkValidity()){ f.reportValidity(); return; }
-    done.contact.hidden=true; done.doc.hidden=true; error.hidden=true;
+    error.hidden=true;
     subject.value='株式会社虹｜'+(mode==='doc'?'資料請求':'お問い合わせ');
     sending=true; f.setAttribute('aria-busy','true'); updateSubmitButton();
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
@@ -301,7 +292,10 @@
           return result;
         });
       })
-      .then(function(){ submitted=true; done[mode].hidden=false; lockFormAfterSubmit(); })
+      .then(function(){
+        submitted=true;
+        window.location.replace('contact-complete.html?type='+encodeURIComponent(mode));
+      })
       .catch(function(){ error.hidden=false; })
       .then(function(){ sending=false; f.removeAttribute('aria-busy'); updateSubmitButton(); });
   });

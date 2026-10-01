@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>送信完了 | 株式会社虹</title>
+<meta name="description" content="株式会社虹へのお問い合わせ・資料請求を受け付けました。">
+<meta name="robots" content="noindex,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.completion{width:min(760px,100%);margin-inline:auto;text-align:center}
+.completion__mark{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 28px;border:1px solid var(--sp4);border-radius:50%;color:var(--sp4)}
+.completion__mark svg{width:25px;height:25px}
+.completion__title{font-size:clamp(1.35rem,3vw,1.8rem);font-weight:500;line-height:1.6}
+.completion__copy{max-width:38em;margin:18px auto 0;color:var(--sub);font-size:.92rem;line-height:2.1}
+.completion__note{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);color:var(--sub);font-size:.82rem;line-height:2}
+.completion__actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:32px}
+@media(max-width:520px){.completion__actions{flex-direction:column;align-items:stretch}.completion__actions .btn{justify-content:center}}
+</style>
+<script>document.documentElement.className+=" js";</script>
+<script src="assets/js/analytics.js" async></script>
+</head>
+<body id="top">
+<header class="header is-scrolled">
+  <div class="wrap header__in">
+    <a class="header__logo" href="index.html" aria-label="株式会社虹 ホーム"><img src="assets/img/logo-niji.png" alt="Niji" width="56"></a>
+    <nav class="nav" id="nav">
+      <a href="index.html#services">Service</a>
+      <a href="index.html#solutions">Solutions</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#fields">Fields</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="company.html">Company</a>
+      <a class="btn-contact" href="contact.html">Contact</a>
+    </nav>
+    <button class="navtoggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="label" data-c="4">MESSAGE RECEIVED</p>
+      <h1>送信が完了しました</h1>
+      <p class="lead" id="completionLead" role="status" aria-live="polite">お問い合わせを受け付けました。内容を確認のうえ、担当者よりご連絡いたします。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="completion">
+        <span class="completion__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>
+        </span>
+        <h2 class="completion__title" id="completionTitle">お問い合わせを受け付けました</h2>
+        <p class="completion__copy" id="completionCopy">内容を拝見し、担当者を決めたうえで、2〜3営業日以内を目安にメールでご連絡いたします。</p>
+        <p class="completion__note">ご連絡が届かない場合は、迷惑メールフォルダをご確認ください。数営業日たっても返信がない場合は、お手数ですがお問い合わせフォームから改めてご連絡ください。</p>
+        <div class="completion__actions">
+          <a class="btn btn--primary" href="index.html">トップページへ戻る</a>
+          <a class="btn btn--ghost" href="contact.html">お問い合わせページへ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="rainbow"></div>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <div class="footer__brand">
+        <img class="footer__logo" src="assets/img/logo-niji.png" alt="Niji" width="56">
+        <p>Making the Invisible, Visible.<br>現場の情報を、事業を動かす基盤へ。</p>
+        <p>〒105-0012<br>東京都港区芝大門1-2-14 H1O浜松町818</p>
+      </div>
+      <div class="footer__navs">
+        <nav aria-label="サイトマップ">
+          <a href="index.html#services">Service</a>
+          <a href="index.html#solutions">Solutions</a>
+          <a href="index.html#products">Products</a>
+          <a href="index.html#fields">Fields</a>
+          <a href="index.html#approach">Approach</a>
+          <a href="index.html#news">News</a>
+        </nav>
+        <nav aria-label="会社情報">
+          <a href="company.html">Company</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html?type=doc">資料請求</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </div>
+    <p class="footer__base">© 2026 株式会社虹 / Niji Inc.</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  if(params.get('type')!=='doc') return;
+  document.getElementById('completionLead').textContent='資料請求を受け付けました。担当者より、ご入力いただいたメールアドレス宛に資料をお送りします。';
+  document.getElementById('completionTitle').textContent='資料請求を受け付けました';
+  document.getElementById('completionCopy').textContent='ご希望の内容を確認し、担当者よりご入力いただいたメールアドレスへ資料をお送りします。';
+})();
+</script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
