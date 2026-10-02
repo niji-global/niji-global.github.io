@@ -3,7 +3,7 @@
    未設定のまま、またはローカルで開いたときは何も読み込みません。 */
 (function () {
   'use strict';
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-GZ9GZ4B8DF';
   if (!/^G-[A-Z0-9]+$/.test(GA_ID) || GA_ID === 'G-XXXXXXXXXX') return;
   var HOSTS = ['niji-global.com', 'www.niji-global.com'];   /* 計測する本番のホスト名 */
   if (HOSTS.indexOf(location.hostname) < 0) return;
