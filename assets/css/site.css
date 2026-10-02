@@ -373,9 +373,9 @@ html.intro-on #introVeil.is-done #introStill{transform:none}
 .logobox{min-height:170px;padding:34px}
 }
 .txtlink-row{margin-top:28px}
-.txtlink{font-size:.84rem;letter-spacing:.04em;color:var(--ink);
-  border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .3s,color .3s}
-.txtlink:hover{color:var(--sp5-t);border-bottom-color:currentColor}
+.txtlink{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;letter-spacing:.04em;color:var(--ink);
+  border:1px solid var(--ctrl);border-radius:var(--radius);padding:9px 14px 9px 16px;line-height:1.5;transition:border-color .3s,background .3s}
+.txtlink:hover{border-color:var(--ink);background:var(--mist)}
 .txtlink:focus-visible{outline:2px solid var(--sp5);outline-offset:4px}
 .cta__actions .txtlink{margin-top:6px}
 .page-hero .txtlink-row{margin-top:22px}
@@ -385,7 +385,7 @@ html.intro-on #introVeil.is-done #introStill{transform:none}
 .cta h2 .nb{display:inline-block}
 .cta__actions{flex-direction:row;flex-wrap:wrap;align-items:center;gap:16px 20px}
 .cta__actions .btn{min-width:230px;justify-content:center}
-.cta__actions .txtlink{margin:0 0 0 12px}
+.cta__actions .txtlink{margin:0}
 @media (max-width:720px){
 .cta__actions{flex-direction:column;align-items:stretch}
 .cta__actions .btn{width:100%;min-width:0}
@@ -521,4 +521,4 @@ html.intro-on #introVeil.is-done #introStill{transform:none}
 .form__req{font-size:.78rem;color:var(--sub);margin:0 0 22px}
 .form__err{font-size:.8rem;color:var(--sp1-t);margin:8px 0 0}
 .chips label:has(input[aria-invalid="true"]){border-color:var(--sp1-t)}
-.cta__actions .txtlink{align-self:flex-start;display:inline-block;line-height:1.6}
+.cta__actions .txtlink{align-self:center}

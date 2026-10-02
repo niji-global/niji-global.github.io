@@ -12,7 +12,8 @@
 .offer__kind{font-size:.66rem;letter-spacing:.2em;color:var(--sub)}
 .offer__name{font-size:1.2rem;font-weight:500;color:var(--ink)}
 .offer__desc{font-size:.84rem;color:var(--sub)}
-.offer__go{position:absolute;right:24px;top:50%;transform:translateY(-50%);color:var(--ink);transition:transform .3s}
+.offer__go{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:.85rem;color:var(--ink);transition:transform .3s,background .3s,color .3s}
+.offer__item:hover .offer__go{background:var(--ink);color:#fff}
 .offer__item:hover .offer__go{transform:translate(4px,-50%)}
 @media (max-width:900px){
   .offer__grid{grid-template-columns:1fr}
@@ -57,10 +58,11 @@
 .pcard p{font-size:.83rem;color:var(--sub);line-height:1.95}
 .pcard .pcard__catch{font-size:.95rem;color:var(--ink);font-weight:500;line-height:1.8;margin-bottom:8px}
 .pcard__feats{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.pcard__feats li{font-size:.7rem;color:var(--sub);border:1px solid var(--line);border-radius:2px;padding:3px 9px;background:#fff}
-.pcard__go{margin-top:auto;padding-top:22px;font-size:.78rem;letter-spacing:.08em;color:var(--ink);position:relative;display:inline-block;width:max-content}
-.pcard__go::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .32s cubic-bezier(.22,.8,.3,1)}
-.pcard:hover .pcard__go::after,.pcard:focus-visible .pcard__go::after{transform:scaleX(1)}
+.pcard__feats{gap:4px 16px}
+.pcard__feats li{font-size:.72rem;color:var(--sub);position:relative;padding-left:11px}
+.pcard__feats li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--sp7)}
+.pcard__go{margin-top:22px;align-self:flex-start;justify-self:start;width:max-content;display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.06em;font-weight:500;color:var(--ink);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 16px 10px 18px;transition:background .25s,color .25s}
+.pcard:hover .pcard__go,.pcard:focus-visible .pcard__go{background:var(--ink);color:#fff}
 .custom-note{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px;padding:20px 24px;border-left:2px solid var(--sp3)}
 .custom-note p{font-size:.86rem;color:var(--sub);line-height:1.9}
 .custom-note b{font-weight:500;color:var(--ink);margin-right:8px}
@@ -97,13 +99,13 @@
 .pline__u p{font-size:.8rem;color:var(--sub);line-height:1.8}
 .pline__u p span{display:block;font-weight:500;color:var(--ink);font-size:.86rem}
 @media (max-width:900px){ .pline__u{grid-template-columns:88px minmax(0,1fr)} .pline__u img{width:88px;height:64px} }
-.custom-note .txtlink{white-space:nowrap;flex:none}
+.custom-note .txtlink{flex:none}
 /* PRODUCTS：左右のカードで、ラベル・名前・一言・補足・特長・リンクの行をそろえる（subgrid） */
 @media (min-width:721px){
   .pgrid{grid-template-rows:repeat(6,auto)}
   .pcard{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:0;align-content:start}
   .pcard__feats{align-self:start}
-  .pcard__go{align-self:end}
+  .pcard__go{align-self:start;justify-self:start}
 }
 /* 個別開発の注記：縦に積む */
 .custom-note{display:block}
