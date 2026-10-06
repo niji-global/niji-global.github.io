@@ -19,6 +19,16 @@
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
   document.head.appendChild(s);
 
+  /* 問い合わせ・資料請求の送信成功（Web3Forms が success を返したときだけ contact.html が印を付ける）。
+     完了ページで印を1回だけ読み、成果イベント generate_lead を送る。直接開いた・再読み込みでは数えない */
+  try {
+    var lead = sessionStorage.getItem('niji_lead');
+    if (lead && /\/contact-complete\.html$/.test(location.pathname)) {
+      sessionStorage.removeItem('niji_lead');
+      gtag('event', 'generate_lead', { form_type: lead === 'doc' ? 'doc' : 'contact' });
+    }
+  } catch (e) {}
+
   /* お問い合わせへの導線と、製品詳細への導線のクリックを記録する */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]');

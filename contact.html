@@ -294,6 +294,7 @@
       })
       .then(function(){
         submitted=true;
+        try{ sessionStorage.setItem('niji_lead',mode); }catch(e){}
         window.location.replace('contact-complete.html?type='+encodeURIComponent(mode));
       })
       .catch(function(){ error.hidden=false; })
