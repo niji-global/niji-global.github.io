@@ -12,7 +12,16 @@
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = gtag;
   gtag('js', new Date());
-  gtag('config', GA_ID, { allow_google_signals: false });
+  /* 社内アクセスの印: ?niji_internal=on を一度開いた端末（ブラウザ）は以後 traffic_type=internal を付けて送る。
+     GA4 のデータフィルタ「Internal Traffic」で集計から外す。?niji_internal=off で解除 */
+  var cfg = { allow_google_signals: false };
+  try {
+    var flag = new URLSearchParams(location.search).get('niji_internal');
+    if (flag === 'on') localStorage.setItem('niji_internal', '1');
+    if (flag === 'off') localStorage.removeItem('niji_internal');
+    if (localStorage.getItem('niji_internal') === '1') cfg.traffic_type = 'internal';
+  } catch (e) {}
+  gtag('config', GA_ID, cfg);
 
   var s = document.createElement('script');
   s.async = true;
